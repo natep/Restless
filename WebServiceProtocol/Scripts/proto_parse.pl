@@ -21,7 +21,7 @@ close FILEIN;
 
 # print "File:\n${string}";
 
-if ($string =~ m/\@protocol ([a-zA-Z0-9]*) <DRWebService>/ ) {
+if ($string =~ m/\@protocol ([a-zA-Z0-9_]*) <DRWebService>/ ) {
 	print "Protocol: ${1}\n";
 
 	my $outfilename = "${outdir}/${1}.drproto";
@@ -53,19 +53,39 @@ if ($string =~ m/\@protocol ([a-zA-Z0-9]*) <DRWebService>/ ) {
 
 		my $methodSig = "";
 
-		while ($methodString =~ m/.*?\(.*?\).*?([a-zA-Z0-9]+)[\s]*:/g) {
+		while ($methodString =~ m/.*?\(.*?\).*?([a-zA-Z0-9_]+)[\s]*:/g) {
 			$methodSig = $methodSig . $1 . ":";
 		}
 
 		if (length($methodSig) == 0) {
-			if ($methodString =~ m/.*\(.*\)([a-zA-Z0-9]+)[\s]*;/g) {
+			if ($methodString =~ m/.*\(.*\)([a-zA-Z0-9_]+)[\s]*;/g) {
 				$methodSig = $1;
 			}
 		}
 
 		print "Found method sig: ${methodSig}\n";
 
-		$annoMap{$methodSig} = \%annotations;
+		my %methodDesc = ();
+
+		$methodDesc{"annotations"} = \%annotations;
+
+		print "Working on param names\n";
+
+		my @params = ();
+
+		while ($methodString =~ m/:[\s]*\([^)]*\)[\s]*([a-zA-Z0-9_]+)/g) {
+			push @params, $1;
+		}
+
+		$methodDesc{"parameterNames"} = \@params;
+
+		print "working on callback type\n";
+
+		if ($methodString =~ m/DR_CALLBACK\(([^)]+)\)/g) {
+			$methodDesc{"returnType"} = $1;
+		}
+
+		$annoMap{$methodSig} = \%methodDesc;
 	}
 
 	open(FILEOUT, ">$outfilename") or die "Can't write to $outfilename: $!";

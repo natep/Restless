@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		43175F0A1B9A13B000E69554 /* DRTypeEncoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 43175F081B9A13B000E69554 /* DRTypeEncoding.h */; settings = {ASSET_TAGS = (); }; };
+		43175F0B1B9A13B000E69554 /* DRTypeEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 43175F091B9A13B000E69554 /* DRTypeEncoding.m */; settings = {ASSET_TAGS = (); }; };
+		43175F0E1B9A365900E69554 /* NSInvocation+DRUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 43175F0C1B9A365900E69554 /* NSInvocation+DRUtils.h */; settings = {ASSET_TAGS = (); }; };
+		43175F0F1B9A365900E69554 /* NSInvocation+DRUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 43175F0D1B9A365900E69554 /* NSInvocation+DRUtils.m */; settings = {ASSET_TAGS = (); }; };
+		436CB2E51B98F86300810602 /* DRMethodDescription.h in Headers */ = {isa = PBXBuildFile; fileRef = 436CB2E31B98F86300810602 /* DRMethodDescription.h */; settings = {ASSET_TAGS = (); }; };
+		436CB2E61B98F86300810602 /* DRMethodDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 436CB2E41B98F86300810602 /* DRMethodDescription.m */; settings = {ASSET_TAGS = (); }; };
 		43C90F401B9665520071C56E /* WebServiceProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 43C90F3F1B9665520071C56E /* WebServiceProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		43C90F471B9665520071C56E /* WebServiceProtocol.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43C90F3C1B9665520071C56E /* WebServiceProtocol.framework */; settings = {ASSET_TAGS = (); }; };
 		43C90F4C1B9665520071C56E /* WebServiceProtocolTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 43C90F4B1B9665520071C56E /* WebServiceProtocolTests.m */; };
@@ -27,6 +33,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		43175F081B9A13B000E69554 /* DRTypeEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRTypeEncoding.h; sourceTree = "<group>"; };
+		43175F091B9A13B000E69554 /* DRTypeEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRTypeEncoding.m; sourceTree = "<group>"; };
+		43175F0C1B9A365900E69554 /* NSInvocation+DRUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSInvocation+DRUtils.h"; sourceTree = "<group>"; };
+		43175F0D1B9A365900E69554 /* NSInvocation+DRUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+DRUtils.m"; sourceTree = "<group>"; };
+		436CB2E31B98F86300810602 /* DRMethodDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRMethodDescription.h; sourceTree = "<group>"; };
+		436CB2E41B98F86300810602 /* DRMethodDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRMethodDescription.m; sourceTree = "<group>"; };
 		43C90F3C1B9665520071C56E /* WebServiceProtocol.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WebServiceProtocol.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		43C90F3F1B9665520071C56E /* WebServiceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebServiceProtocol.h; sourceTree = "<group>"; };
 		43C90F411B9665520071C56E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -113,11 +125,17 @@
 		43C90F5B1B96687A0071C56E /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				436CB2E31B98F86300810602 /* DRMethodDescription.h */,
+				436CB2E41B98F86300810602 /* DRMethodDescription.m */,
 				43C90F5C1B9668D20071C56E /* DRProtocolImpl.h */,
 				43C90F5D1B9668D20071C56E /* DRProtocolImpl.m */,
 				43C90F601B9669D90071C56E /* DRRestAdapter.h */,
 				43C90F611B9669D90071C56E /* DRRestAdapter.m */,
+				43175F081B9A13B000E69554 /* DRTypeEncoding.h */,
+				43175F091B9A13B000E69554 /* DRTypeEncoding.m */,
 				43C90F641B966CBC0071C56E /* DRWebService.h */,
+				43175F0C1B9A365900E69554 /* NSInvocation+DRUtils.h */,
+				43175F0D1B9A365900E69554 /* NSInvocation+DRUtils.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -130,7 +148,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				43C90F5E1B9668D20071C56E /* DRProtocolImpl.h in Headers */,
+				43175F0E1B9A365900E69554 /* NSInvocation+DRUtils.h in Headers */,
 				43C90F621B9669D90071C56E /* DRRestAdapter.h in Headers */,
+				43175F0A1B9A13B000E69554 /* DRTypeEncoding.h in Headers */,
+				436CB2E51B98F86300810602 /* DRMethodDescription.h in Headers */,
 				43C90F401B9665520071C56E /* WebServiceProtocol.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -264,6 +285,9 @@
 			files = (
 				43C90F5F1B9668D20071C56E /* DRProtocolImpl.m in Sources */,
 				43C90F631B9669D90071C56E /* DRRestAdapter.m in Sources */,
+				43175F0F1B9A365900E69554 /* NSInvocation+DRUtils.m in Sources */,
+				43175F0B1B9A13B000E69554 /* DRTypeEncoding.m in Sources */,
+				436CB2E61B98F86300810602 /* DRMethodDescription.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,6 +471,7 @@
 				43C90F521B9665520071C56E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		43C90F531B9665520071C56E /* Build configuration list for PBXNativeTarget "WebServiceProtocolTests" */ = {
 			isa = XCConfigurationList;
@@ -455,6 +480,7 @@
 				43C90F551B9665520071C56E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

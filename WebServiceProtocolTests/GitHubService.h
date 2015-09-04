@@ -15,15 +15,13 @@
 
 @GET("/users/{user}/repos")
 @Headers("Cache-Control: max-age=640000")
-- (NSArray*)listRepos:(NSString*)user;
+- (void)listRepos:(NSString*)user callback:DR_CALLBACK(NSArray*)callback;
 
 @Headers("Cache-Control: max-age=640000")
 - (NSArray*)listWikis:(NSString*)user fromDate:(NSDate*)date;
 
 @Headers("Cache-Control: max-age=640000")
 - (NSArray*)listEndpoints;
-
-- (NSArray*)testMethod:(NSString*)param;
 
 @end
 

@@ -9,6 +9,7 @@
 #import "DRRestAdapter.h"
 #import "DRProtocolImpl.h"
 #import <objc/runtime.h>
+#import "DRMethodDescription.h"
 
 
 @interface DRRestAdapter ()
@@ -54,10 +55,17 @@
 	return cls;
 }
 
-- (NSDictionary*)annotationsForProtocol:(Protocol*)protocol {
+- (NSDictionary*)methodDescriptionsForProtocol:(Protocol*)protocol {
 	NSURL* url = [self.bundle URLForResource:NSStringFromProtocol(protocol) withExtension:@"drproto"];
 	NSAssert(url != nil, @"couldn't find proto file");
-	return [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfURL:url] options:0 error:nil];
+	NSDictionary* jsonDict = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfURL:url] options:0 error:nil];
+	NSMutableDictionary* result = [[NSMutableDictionary alloc] init];
+	
+	for (NSString* key in jsonDict) {
+		result[key] = [[DRMethodDescription alloc] initWithDictionary:jsonDict[key]];
+	}
+	
+	return result.copy;
 }
 
 - (id)create:(Protocol*)protocol
@@ -66,7 +74,7 @@
 	DRProtocolImpl* obj = [[cls alloc] init];
 	obj.protocol = protocol;
 	obj.endPoint = self.endPoint;
-	obj.annotations = [self annotationsForProtocol:protocol];
+	obj.methodDescriptions = [self methodDescriptionsForProtocol:protocol];
 	return obj;
 }
 

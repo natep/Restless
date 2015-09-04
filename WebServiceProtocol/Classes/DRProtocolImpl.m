@@ -8,6 +8,9 @@
 
 #import "DRProtocolImpl.h"
 #import <objc/runtime.h>
+#import "DRMethodDescription.h"
+
+typedef void (^DRCallback)(id result, NSError* error);
 
 @implementation DRProtocolImpl
 
@@ -17,8 +20,7 @@
 	if (desc.name == NULL && desc.types == NULL) {
 		[super forwardInvocation:anInvocation];
 	} else {
-		NSString* sig = NSStringFromSelector(anInvocation.selector);
-		NSLog(@"you called '%@', which has the annotations:\n%@", sig, self.annotations[sig]);
+		[self handleInvocation:anInvocation];
 	}
 }
 
@@ -30,6 +32,43 @@
 	} else {
 		return YES;
 	}
+}
+
+- (void)handleInvocation:(NSInvocation*)invocation
+{
+	[invocation retainArguments];
+	
+	NSString* sig = NSStringFromSelector(invocation.selector);
+	DRMethodDescription* desc = self.methodDescriptions[sig];
+	NSLog(@"you called '%@', which has the description:\n%@", sig, desc);
+	
+	NSAssert(desc.returnType != nil, @"Callback not defined for %@", sig);
+	
+	NSString* paramedPath = [desc parameterizedPathForInvocation:invocation];
+	NSURL* fullPath = [self.endPoint URLByAppendingPathComponent:paramedPath];
+	
+	NSLog(@"full path: %@", fullPath);
+	
+	NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:fullPath];
+	request.HTTPMethod = [desc httpMethod];
+	
+	NSURLSession *session = [NSURLSession sharedSession];
+	NSURLSessionDataTask *task = [session dataTaskWithRequest:request
+											completionHandler:
+		^(NSData *data, NSURLResponse *response, NSError *error) {
+			id result = nil;
+			
+			if (!error) {
+				result = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+			}
+			
+			DRCallback callback;
+			NSUInteger numArgs = [invocation.methodSignature numberOfArguments];
+			[invocation getArgument:&callback atIndex:(numArgs - 1)];
+			callback(result, error);
+		}];
+
+	[task resume];
 }
 
 @end

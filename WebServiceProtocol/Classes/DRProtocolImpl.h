@@ -12,6 +12,6 @@
 
 @property(nonatomic,strong) Protocol* protocol;
 @property(nonatomic,strong) NSURL* endPoint;
-@property(nonatomic,strong) NSDictionary* annotations;
+@property(nonatomic,strong) NSDictionary* methodDescriptions;
 
 @end
