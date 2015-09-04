@@ -8,11 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
+@interface DRRestAdapterBuilder : NSObject
+
+@property(nonatomic,strong) NSURL* endPoint;
+@property(nonatomic,strong) NSBundle* bundle;
+@property(nonatomic,strong) NSURLSession* urlSession;
+
+@end
+
 @interface DRRestAdapter : NSObject
 
-- (instancetype)initWithEndPoint:(NSURL*)endPoint;
-
-- (instancetype)initWithEndPoint:(NSURL*)endPoint bundle:(NSBundle*)bundle;
++ (instancetype)restAdapterWithBlock:(void(^)(DRRestAdapterBuilder* builder))block;
 
 - (id)create:(Protocol*)protocol;
 

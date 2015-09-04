@@ -21,7 +21,7 @@
 	
 	switch (encoding.encodingClass) {
 		case DRObjectTypeEncodingClass: {
-			NSObject* obj = nil;
+			NSObject* __unsafe_unretained obj = nil;
 			[self getArgument:&obj atIndex:index];
 			return [NSString stringWithFormat:@"%@", obj];
 		}

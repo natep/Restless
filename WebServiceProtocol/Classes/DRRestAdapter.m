@@ -16,27 +16,60 @@
 
 @property(nonatomic,strong,readonly) NSURL* endPoint;
 @property(nonatomic,strong,readonly) NSBundle* bundle;
+@property(nonatomic,strong,readonly) NSURLSession* urlSession;
+
+- (instancetype)initWithBuilder:(DRRestAdapterBuilder*)builder;
 
 @end
 
 
-@implementation DRRestAdapter
 
-- (instancetype)initWithEndPoint:(NSURL*)endPoint bundle:(NSBundle*)bundle
+@implementation DRRestAdapterBuilder
+
+- (instancetype)init
 {
 	self = [super init];
 	
 	if (self) {
-		_endPoint = endPoint;
-		_bundle = bundle;
+		// defaults
+		self.bundle = [NSBundle mainBundle];
+		self.urlSession = [NSURLSession sharedSession];
 	}
 	
 	return self;
 }
 
-- (instancetype)initWithEndPoint:(NSURL*)endPoint
+- (DRRestAdapter*)build
 {
-	return [self initWithEndPoint:endPoint bundle:[NSBundle mainBundle]];
+	return [[DRRestAdapter alloc] initWithBuilder:self];
+}
+
+@end
+
+
+
+@implementation DRRestAdapter
+
++ (instancetype)restAdapterWithBlock:(void(^)(DRRestAdapterBuilder* builder))block
+{
+	NSParameterAssert(block);
+	
+	DRRestAdapterBuilder* builder = [[DRRestAdapterBuilder alloc] init];
+	block(builder);
+	return [builder build];
+}
+
+- (instancetype)initWithBuilder:(DRRestAdapterBuilder*)builder
+{
+	self = [super init];
+	
+	if (self) {
+		_endPoint = builder.endPoint;
+		_bundle = builder.bundle;
+		_urlSession = builder.urlSession;
+	}
+	
+	return self;
 }
 
 - (Class)classImplForProtocol:(Protocol*)protocol

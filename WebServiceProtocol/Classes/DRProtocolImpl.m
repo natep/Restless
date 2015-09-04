@@ -52,6 +52,12 @@ typedef void (^DRCallback)(id result, NSError* error);
 	NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:fullPath];
 	request.HTTPMethod = [desc httpMethod];
 	
+	/*
+	 * Make sure we don't get dealloc'd before we are done. This can happen
+	 * with fire-and-forget instances.
+	 */
+	__block DRProtocolImpl* strongSelf = self;
+	
 	NSURLSession *session = [NSURLSession sharedSession];
 	NSURLSessionDataTask *task = [session dataTaskWithRequest:request
 											completionHandler:
@@ -66,6 +72,8 @@ typedef void (^DRCallback)(id result, NSError* error);
 			NSUInteger numArgs = [invocation.methodSignature numberOfArguments];
 			[invocation getArgument:&callback atIndex:(numArgs - 1)];
 			callback(result, error);
+			
+			strongSelf = nil;
 		}];
 
 	[task resume];

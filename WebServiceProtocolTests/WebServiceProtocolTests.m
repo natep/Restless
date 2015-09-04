@@ -27,8 +27,11 @@
 }
 
 - (void)testProtocolCreation {
-	DRRestAdapter* ra = [[DRRestAdapter alloc] initWithEndPoint:[NSURL URLWithString:@"https://api.github.com"]
-														 bundle:[NSBundle bundleForClass:[DRRestAdapter class]]];
+	DRRestAdapter* ra = [DRRestAdapter restAdapterWithBlock:^(DRRestAdapterBuilder *builder) {
+		builder.endPoint = [NSURL URLWithString:@"https://api.github.com"];
+		builder.bundle = [NSBundle bundleForClass:[DRRestAdapter class]];
+		
+	}];
 	
 	NSObject<GitHubService>* service = [ra create:@protocol(GitHubService)];
 	XCTAssertNotNil(service);
@@ -38,11 +41,13 @@
 	XCTestExpectation *callBackExpectation = [self expectationWithDescription:@"callback"];
 	
 	[service listRepos:@"natep" callback:^(NSArray *result, NSError *error) {
-		XCTAssertNil(error);
-		XCTAssertNotNil(result);
-		NSLog(@"got callback with result: %@", result);
-		
-		[callBackExpectation fulfill];
+		dispatch_async(dispatch_get_main_queue(), ^{
+			XCTAssertNil(error);
+			XCTAssertNotNil(result);
+			NSLog(@"got callback with result: %@", result);
+			
+			[callBackExpectation fulfill];
+		});
 	}];
 	
 	[self waitForExpectationsWithTimeout:5 handler:^(NSError *error) {
