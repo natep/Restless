@@ -74,15 +74,19 @@
 
 - (Class)classImplForProtocol:(Protocol*)protocol
 {
-	// TODO: locking
 	NSString* protocolName = NSStringFromProtocol(protocol);
-	NSString* className = [protocolName stringByAppendingString:@"DRInternalImpl"];
-	Class cls = NSClassFromString(className);
+	NSString* className = [protocolName stringByAppendingString:@"_DRInternalImpl"];
+	Class cls = nil;
 	
-	if (cls == nil) {
-		cls = objc_allocateClassPair([DRProtocolImpl class], [className UTF8String], 0);
-		class_addProtocol(cls, protocol);
-		objc_registerClassPair(cls);
+	// make sure we only create the class once
+	@synchronized(self.class) {
+		cls = NSClassFromString(className);
+		
+		if (cls == nil) {
+			cls = objc_allocateClassPair([DRProtocolImpl class], [className UTF8String], 0);
+			class_addProtocol(cls, protocol);
+			objc_registerClassPair(cls);
+		}
 	}
 	
 	return cls;

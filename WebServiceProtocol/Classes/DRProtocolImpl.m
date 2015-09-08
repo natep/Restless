@@ -68,7 +68,7 @@ typedef void (^DRCallback)(id result, NSError* error);
 				result = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
 			}
 			
-			DRCallback callback;
+			__unsafe_unretained DRCallback callback;
 			NSUInteger numArgs = [invocation.methodSignature numberOfArguments];
 			[invocation getArgument:&callback atIndex:(numArgs - 1)];
 			callback(result, error);
