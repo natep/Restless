@@ -15,5 +15,5 @@ FOUNDATION_EXPORT double WebServiceProtocolVersionNumber;
 FOUNDATION_EXPORT const unsigned char WebServiceProtocolVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <WebServiceProtocol/PublicHeader.h>
-
-
+#import <WebServiceProtocol/DRWebService.h>
+#import <WebServiceProtocol/DRRestAdapter.h>

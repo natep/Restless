@@ -7,19 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		43175F0A1B9A13B000E69554 /* DRTypeEncoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 43175F081B9A13B000E69554 /* DRTypeEncoding.h */; settings = {ASSET_TAGS = (); }; };
-		43175F0B1B9A13B000E69554 /* DRTypeEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 43175F091B9A13B000E69554 /* DRTypeEncoding.m */; settings = {ASSET_TAGS = (); }; };
-		43175F0E1B9A365900E69554 /* NSInvocation+DRUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 43175F0C1B9A365900E69554 /* NSInvocation+DRUtils.h */; settings = {ASSET_TAGS = (); }; };
-		43175F0F1B9A365900E69554 /* NSInvocation+DRUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 43175F0D1B9A365900E69554 /* NSInvocation+DRUtils.m */; settings = {ASSET_TAGS = (); }; };
-		436CB2E51B98F86300810602 /* DRMethodDescription.h in Headers */ = {isa = PBXBuildFile; fileRef = 436CB2E31B98F86300810602 /* DRMethodDescription.h */; settings = {ASSET_TAGS = (); }; };
-		436CB2E61B98F86300810602 /* DRMethodDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 436CB2E41B98F86300810602 /* DRMethodDescription.m */; settings = {ASSET_TAGS = (); }; };
+		245563385ADFA0B7EF8F5F10 /* libPods-WebServiceProtocolTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DF45F18F548285EFE81E2D0C /* libPods-WebServiceProtocolTests.a */; };
+		43175F0A1B9A13B000E69554 /* DRTypeEncoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 43175F081B9A13B000E69554 /* DRTypeEncoding.h */; };
+		43175F0B1B9A13B000E69554 /* DRTypeEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 43175F091B9A13B000E69554 /* DRTypeEncoding.m */; };
+		43175F0E1B9A365900E69554 /* NSInvocation+DRUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 43175F0C1B9A365900E69554 /* NSInvocation+DRUtils.h */; };
+		43175F0F1B9A365900E69554 /* NSInvocation+DRUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 43175F0D1B9A365900E69554 /* NSInvocation+DRUtils.m */; };
+		436CB2E51B98F86300810602 /* DRMethodDescription.h in Headers */ = {isa = PBXBuildFile; fileRef = 436CB2E31B98F86300810602 /* DRMethodDescription.h */; };
+		436CB2E61B98F86300810602 /* DRMethodDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 436CB2E41B98F86300810602 /* DRMethodDescription.m */; };
+		4376804F1B9F77A80074799D /* listReposResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 4376804E1B9F77A80074799D /* listReposResponse.json */; settings = {ASSET_TAGS = (); }; };
+		437680501B9F7B3C0074799D /* DRWebService.h in Headers */ = {isa = PBXBuildFile; fileRef = 43C90F641B966CBC0071C56E /* DRWebService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		43C90F401B9665520071C56E /* WebServiceProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 43C90F3F1B9665520071C56E /* WebServiceProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		43C90F471B9665520071C56E /* WebServiceProtocol.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43C90F3C1B9665520071C56E /* WebServiceProtocol.framework */; settings = {ASSET_TAGS = (); }; };
+		43C90F471B9665520071C56E /* WebServiceProtocol.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43C90F3C1B9665520071C56E /* WebServiceProtocol.framework */; };
 		43C90F4C1B9665520071C56E /* WebServiceProtocolTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 43C90F4B1B9665520071C56E /* WebServiceProtocolTests.m */; };
-		43C90F5E1B9668D20071C56E /* DRProtocolImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 43C90F5C1B9668D20071C56E /* DRProtocolImpl.h */; settings = {ASSET_TAGS = (); }; };
-		43C90F5F1B9668D20071C56E /* DRProtocolImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 43C90F5D1B9668D20071C56E /* DRProtocolImpl.m */; settings = {ASSET_TAGS = (); }; };
-		43C90F621B9669D90071C56E /* DRRestAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = 43C90F601B9669D90071C56E /* DRRestAdapter.h */; settings = {ASSET_TAGS = (); }; };
-		43C90F631B9669D90071C56E /* DRRestAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 43C90F611B9669D90071C56E /* DRRestAdapter.m */; settings = {ASSET_TAGS = (); }; };
+		43C90F5E1B9668D20071C56E /* DRProtocolImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 43C90F5C1B9668D20071C56E /* DRProtocolImpl.h */; };
+		43C90F5F1B9668D20071C56E /* DRProtocolImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 43C90F5D1B9668D20071C56E /* DRProtocolImpl.m */; };
+		43C90F621B9669D90071C56E /* DRRestAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = 43C90F601B9669D90071C56E /* DRRestAdapter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		43C90F631B9669D90071C56E /* DRRestAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 43C90F611B9669D90071C56E /* DRRestAdapter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +42,7 @@
 		43175F0D1B9A365900E69554 /* NSInvocation+DRUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+DRUtils.m"; sourceTree = "<group>"; };
 		436CB2E31B98F86300810602 /* DRMethodDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRMethodDescription.h; sourceTree = "<group>"; };
 		436CB2E41B98F86300810602 /* DRMethodDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRMethodDescription.m; sourceTree = "<group>"; };
+		4376804E1B9F77A80074799D /* listReposResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = listReposResponse.json; sourceTree = "<group>"; };
 		43C90F3C1B9665520071C56E /* WebServiceProtocol.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WebServiceProtocol.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		43C90F3F1B9665520071C56E /* WebServiceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebServiceProtocol.h; sourceTree = "<group>"; };
 		43C90F411B9665520071C56E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -53,6 +57,9 @@
 		43C90F601B9669D90071C56E /* DRRestAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRRestAdapter.h; sourceTree = "<group>"; };
 		43C90F611B9669D90071C56E /* DRRestAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRRestAdapter.m; sourceTree = "<group>"; };
 		43C90F641B966CBC0071C56E /* DRWebService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DRWebService.h; sourceTree = "<group>"; };
+		7334D5BF54976EDE2785AA49 /* Pods-WebServiceProtocolTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebServiceProtocolTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WebServiceProtocolTests/Pods-WebServiceProtocolTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C7058FD7B947B070D7200A77 /* Pods-WebServiceProtocolTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebServiceProtocolTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WebServiceProtocolTests/Pods-WebServiceProtocolTests.release.xcconfig"; sourceTree = "<group>"; };
+		DF45F18F548285EFE81E2D0C /* libPods-WebServiceProtocolTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WebServiceProtocolTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,18 +75,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				43C90F471B9665520071C56E /* WebServiceProtocol.framework in Frameworks */,
+				245563385ADFA0B7EF8F5F10 /* libPods-WebServiceProtocolTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3439387C9839CA883C4F8C64 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DF45F18F548285EFE81E2D0C /* libPods-WebServiceProtocolTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		43C90F321B9665520071C56E = {
 			isa = PBXGroup;
 			children = (
 				43C90F3E1B9665520071C56E /* WebServiceProtocol */,
 				43C90F4A1B9665520071C56E /* WebServiceProtocolTests */,
 				43C90F3D1B9665520071C56E /* Products */,
+				CDE5B7CB9E0C68937A09AF8C /* Pods */,
+				3439387C9839CA883C4F8C64 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,6 +126,7 @@
 			children = (
 				43C90F5A1B9667B10071C56E /* GitHubService.h */,
 				43C90F4D1B9665520071C56E /* Info.plist */,
+				4376804E1B9F77A80074799D /* listReposResponse.json */,
 				43C90F4B1B9665520071C56E /* WebServiceProtocolTests.m */,
 			);
 			path = WebServiceProtocolTests;
@@ -140,6 +159,15 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
+		CDE5B7CB9E0C68937A09AF8C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7334D5BF54976EDE2785AA49 /* Pods-WebServiceProtocolTests.debug.xcconfig */,
+				C7058FD7B947B070D7200A77 /* Pods-WebServiceProtocolTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -148,8 +176,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				43C90F5E1B9668D20071C56E /* DRProtocolImpl.h in Headers */,
-				43175F0E1B9A365900E69554 /* NSInvocation+DRUtils.h in Headers */,
+				437680501B9F7B3C0074799D /* DRWebService.h in Headers */,
 				43C90F621B9669D90071C56E /* DRRestAdapter.h in Headers */,
+				43175F0E1B9A365900E69554 /* NSInvocation+DRUtils.h in Headers */,
 				43175F0A1B9A13B000E69554 /* DRTypeEncoding.h in Headers */,
 				436CB2E51B98F86300810602 /* DRMethodDescription.h in Headers */,
 				43C90F401B9665520071C56E /* WebServiceProtocol.h in Headers */,
@@ -182,10 +211,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 43C90F531B9665520071C56E /* Build configuration list for PBXNativeTarget "WebServiceProtocolTests" */;
 			buildPhases = (
+				F1B237D42EE2B6827B0B9FE0 /* Check Pods Manifest.lock */,
 				43C90F421B9665520071C56E /* Sources */,
 				43C90F431B9665520071C56E /* Frameworks */,
 				43C90F441B9665520071C56E /* Resources */,
 				43C90F591B96670E0071C56E /* ShellScript */,
+				CD38C13F18F584CF61841EF1 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -244,6 +275,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4376804F1B9F77A80074799D /* listReposResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +307,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = WebServiceProtocol/Scripts/generate.sh;
+		};
+		CD38C13F18F584CF61841EF1 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WebServiceProtocolTests/Pods-WebServiceProtocolTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F1B237D42EE2B6827B0B9FE0 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -434,6 +496,7 @@
 		};
 		43C90F541B9665520071C56E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7334D5BF54976EDE2785AA49 /* Pods-WebServiceProtocolTests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = WebServiceProtocolTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -444,6 +507,7 @@
 		};
 		43C90F551B9665520071C56E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C7058FD7B947B070D7200A77 /* Pods-WebServiceProtocolTests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = WebServiceProtocolTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

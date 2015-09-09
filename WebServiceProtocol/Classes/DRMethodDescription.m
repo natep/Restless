@@ -11,6 +11,25 @@
 
 @implementation DRMethodDescription
 
++ (NSArray*)httpMethodNames
+{
+	static NSArray* names = nil;
+	
+	static dispatch_once_t onceToken;
+	dispatch_once(&onceToken, ^{
+		names = @[
+					@"GET",
+					@"POST",
+					@"DELETE",
+					@"PUT",
+					@"HEAD",
+					@"PATCH"
+				  ];
+	});
+	
+	return names;
+}
+
 - (instancetype)initWithDictionary:(NSDictionary*)dictionary
 {
 	self = [super init];
@@ -35,8 +54,10 @@
 
 - (NSString*)httpMethod
 {
-	if (self.annotations[@"GET"]) {
-		return @"GET";
+	for (NSString* method in [self.class httpMethodNames]) {
+		if (self.annotations[method]) {
+			return method;
+		}
 	}
 	
 	NSAssert(NO, @"Could not determine HTTP method");
@@ -60,6 +81,7 @@
 		NSString* paramName = [path substringWithRange:nameRange];
 		NSUInteger paramIdx = [self.parameterNames indexOfObject:paramName];
 		
+		// TODO: this should probably be allowed, in case some URL randomly contains "{not_a_param}"
 		NSAssert(paramIdx != NSNotFound, @"Unknown substitution variable in path: %@", paramName);
 		
 		NSString* paramValue = [invocation stringValueForParameterAtIndex:paramIdx];

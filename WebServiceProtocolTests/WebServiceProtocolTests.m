@@ -7,8 +7,10 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "DRRestAdapter.h"
 #import "GitHubService.h"
+#import <OHHTTPStubs.h>
+
+@import WebServiceProtocol;
 
 @interface WebServiceProtocolTests : XCTestCase
 
@@ -23,6 +25,8 @@
 
 - (void)tearDown {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
+	[OHHTTPStubs removeAllStubs];
+	
     [super tearDown];
 }
 
@@ -30,13 +34,31 @@
 	DRRestAdapter* ra = [DRRestAdapter restAdapterWithBlock:^(DRRestAdapterBuilder *builder) {
 		builder.endPoint = [NSURL URLWithString:@"https://api.github.com"];
 		builder.bundle = [NSBundle bundleForClass:[DRRestAdapter class]];
-		
 	}];
 	
 	NSObject<GitHubService>* service = [ra create:@protocol(GitHubService)];
 	XCTAssertNotNil(service);
 	XCTAssertTrue([service respondsToSelector:@selector(listRepos:callback:)]);
 	XCTAssertTrue([service.class conformsToProtocol:@protocol(GitHubService)]);
+}
+
+- (void)testProtocolEndToEndSuccess {
+	[OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
+		return [request.URL.host isEqualToString:@"api.github.com"];
+	} withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
+		NSString* fixture = OHPathForFile(@"listReposResponse.json", self.class);
+		return [OHHTTPStubsResponse responseWithFileAtPath:fixture
+												statusCode:200
+												   headers:@{@"Content-Type":@"application/json"}];
+	}];
+	
+	
+	DRRestAdapter* ra = [DRRestAdapter restAdapterWithBlock:^(DRRestAdapterBuilder *builder) {
+		builder.endPoint = [NSURL URLWithString:@"https://api.github.com"];
+		builder.bundle = [NSBundle bundleForClass:[DRRestAdapter class]];
+	}];
+	
+	NSObject<GitHubService>* service = [ra create:@protocol(GitHubService)];
 	
 	XCTestExpectation *callBackExpectation = [self expectationWithDescription:@"callback"];
 	
@@ -44,7 +66,40 @@
 		dispatch_async(dispatch_get_main_queue(), ^{
 			XCTAssertNil(error);
 			XCTAssertNotNil(result);
-			NSLog(@"got callback with result: %@", result);
+			
+			[callBackExpectation fulfill];
+		});
+	}];
+	
+	[self waitForExpectationsWithTimeout:5 handler:^(NSError *error) {
+		if (error) {
+			NSLog(@"%@", error);
+		}
+	}];
+}
+
+- (void)testProtocolEndToEndFailure {
+	[OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
+		return [request.URL.host isEqualToString:@"api.github.com"];
+	} withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
+		return [OHHTTPStubsResponse responseWithError:[NSError errorWithDomain:NSURLErrorDomain
+																		  code:kCFURLErrorBadServerResponse
+																	  userInfo:nil]];
+	}];
+	
+	
+	DRRestAdapter* ra = [DRRestAdapter restAdapterWithBlock:^(DRRestAdapterBuilder *builder) {
+		builder.endPoint = [NSURL URLWithString:@"https://api.github.com"];
+		builder.bundle = [NSBundle bundleForClass:[DRRestAdapter class]];
+	}];
+	
+	NSObject<GitHubService>* service = [ra create:@protocol(GitHubService)];
+	
+	XCTestExpectation *callBackExpectation = [self expectationWithDescription:@"callback"];
+	
+	[service listRepos:@"natep" callback:^(NSArray *result, NSError *error) {
+		dispatch_async(dispatch_get_main_queue(), ^{
+			XCTAssertNotNil(error);
 			
 			[callBackExpectation fulfill];
 		});
