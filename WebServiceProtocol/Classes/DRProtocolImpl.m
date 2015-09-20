@@ -9,6 +9,7 @@
 #import "DRProtocolImpl.h"
 #import <objc/runtime.h>
 #import "DRMethodDescription.h"
+#import "DRConverterFactory.h"
 
 typedef void (^DRCallback)(id result, NSError* error);
 

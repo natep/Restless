@@ -10,6 +10,7 @@
 #import "DRProtocolImpl.h"
 #import <objc/runtime.h>
 #import "DRMethodDescription.h"
+#import "DRJsonConverterFactory.h"
 
 
 @interface DRRestAdapter ()
@@ -17,6 +18,7 @@
 @property(nonatomic,strong,readonly) NSURL* endPoint;
 @property(nonatomic,strong,readonly) NSBundle* bundle;
 @property(nonatomic,strong,readonly) NSURLSession* urlSession;
+@property(nonatomic,strong,readonly) id<DRConverterFactory> converterFactory;
 
 - (instancetype)initWithBuilder:(DRRestAdapterBuilder*)builder;
 
@@ -34,6 +36,7 @@
 		// defaults
 		self.bundle = [NSBundle mainBundle];
 		self.urlSession = [NSURLSession sharedSession];
+		self.converterFactory = [[DRJsonConverterFactory alloc] init];
 	}
 	
 	return self;
@@ -67,6 +70,7 @@
 		_endPoint = builder.endPoint;
 		_bundle = builder.bundle;
 		_urlSession = builder.urlSession;
+		_converterFactory = builder.converterFactory;
 	}
 	
 	return self;
@@ -112,6 +116,7 @@
 	obj.protocol = protocol;
 	obj.endPoint = self.endPoint;
 	obj.methodDescriptions = [self methodDescriptionsForProtocol:protocol];
+	obj.converterFactory = self.converterFactory;
 	return obj;
 }
 

@@ -12,6 +12,8 @@
 		43175F0B1B9A13B000E69554 /* DRTypeEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 43175F091B9A13B000E69554 /* DRTypeEncoding.m */; };
 		43175F0E1B9A365900E69554 /* NSInvocation+DRUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 43175F0C1B9A365900E69554 /* NSInvocation+DRUtils.h */; };
 		43175F0F1B9A365900E69554 /* NSInvocation+DRUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 43175F0D1B9A365900E69554 /* NSInvocation+DRUtils.m */; };
+		43455F991BAE61FB009A47BC /* DRJsonConverterFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 43455F971BAE61FB009A47BC /* DRJsonConverterFactory.h */; settings = {ASSET_TAGS = (); }; };
+		43455F9A1BAE61FB009A47BC /* DRJsonConverterFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 43455F981BAE61FB009A47BC /* DRJsonConverterFactory.m */; settings = {ASSET_TAGS = (); }; };
 		436CB2E51B98F86300810602 /* DRMethodDescription.h in Headers */ = {isa = PBXBuildFile; fileRef = 436CB2E31B98F86300810602 /* DRMethodDescription.h */; };
 		436CB2E61B98F86300810602 /* DRMethodDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 436CB2E41B98F86300810602 /* DRMethodDescription.m */; };
 		4376804F1B9F77A80074799D /* listReposResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 4376804E1B9F77A80074799D /* listReposResponse.json */; settings = {ASSET_TAGS = (); }; };
@@ -23,6 +25,8 @@
 		43C90F5F1B9668D20071C56E /* DRProtocolImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 43C90F5D1B9668D20071C56E /* DRProtocolImpl.m */; };
 		43C90F621B9669D90071C56E /* DRRestAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = 43C90F601B9669D90071C56E /* DRRestAdapter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		43C90F631B9669D90071C56E /* DRRestAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 43C90F611B9669D90071C56E /* DRRestAdapter.m */; };
+		43D2D6FD1B9FF2CD00A53D0F /* DRJsonConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 43D2D6FB1B9FF2CD00A53D0F /* DRJsonConverter.h */; settings = {ASSET_TAGS = (); }; };
+		43D2D6FE1B9FF2CD00A53D0F /* DRJsonConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 43D2D6FC1B9FF2CD00A53D0F /* DRJsonConverter.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +44,8 @@
 		43175F091B9A13B000E69554 /* DRTypeEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRTypeEncoding.m; sourceTree = "<group>"; };
 		43175F0C1B9A365900E69554 /* NSInvocation+DRUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSInvocation+DRUtils.h"; sourceTree = "<group>"; };
 		43175F0D1B9A365900E69554 /* NSInvocation+DRUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+DRUtils.m"; sourceTree = "<group>"; };
+		43455F971BAE61FB009A47BC /* DRJsonConverterFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRJsonConverterFactory.h; sourceTree = "<group>"; };
+		43455F981BAE61FB009A47BC /* DRJsonConverterFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRJsonConverterFactory.m; sourceTree = "<group>"; };
 		436CB2E31B98F86300810602 /* DRMethodDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRMethodDescription.h; sourceTree = "<group>"; };
 		436CB2E41B98F86300810602 /* DRMethodDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRMethodDescription.m; sourceTree = "<group>"; };
 		4376804E1B9F77A80074799D /* listReposResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = listReposResponse.json; sourceTree = "<group>"; };
@@ -57,6 +63,10 @@
 		43C90F601B9669D90071C56E /* DRRestAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRRestAdapter.h; sourceTree = "<group>"; };
 		43C90F611B9669D90071C56E /* DRRestAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRRestAdapter.m; sourceTree = "<group>"; };
 		43C90F641B966CBC0071C56E /* DRWebService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DRWebService.h; sourceTree = "<group>"; };
+		43D2D6F91B9FE7E300A53D0F /* DRConverterFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DRConverterFactory.h; sourceTree = "<group>"; };
+		43D2D6FA1B9FF1BA00A53D0F /* DRDictionaryConvertable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DRDictionaryConvertable.h; sourceTree = "<group>"; };
+		43D2D6FB1B9FF2CD00A53D0F /* DRJsonConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRJsonConverter.h; sourceTree = "<group>"; };
+		43D2D6FC1B9FF2CD00A53D0F /* DRJsonConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRJsonConverter.m; sourceTree = "<group>"; };
 		7334D5BF54976EDE2785AA49 /* Pods-WebServiceProtocolTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebServiceProtocolTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WebServiceProtocolTests/Pods-WebServiceProtocolTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C7058FD7B947B070D7200A77 /* Pods-WebServiceProtocolTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebServiceProtocolTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WebServiceProtocolTests/Pods-WebServiceProtocolTests.release.xcconfig"; sourceTree = "<group>"; };
 		DF45F18F548285EFE81E2D0C /* libPods-WebServiceProtocolTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WebServiceProtocolTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,6 +154,12 @@
 		43C90F5B1B96687A0071C56E /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				43D2D6F91B9FE7E300A53D0F /* DRConverterFactory.h */,
+				43D2D6FA1B9FF1BA00A53D0F /* DRDictionaryConvertable.h */,
+				43D2D6FB1B9FF2CD00A53D0F /* DRJsonConverter.h */,
+				43D2D6FC1B9FF2CD00A53D0F /* DRJsonConverter.m */,
+				43455F971BAE61FB009A47BC /* DRJsonConverterFactory.h */,
+				43455F981BAE61FB009A47BC /* DRJsonConverterFactory.m */,
 				436CB2E31B98F86300810602 /* DRMethodDescription.h */,
 				436CB2E41B98F86300810602 /* DRMethodDescription.m */,
 				43C90F5C1B9668D20071C56E /* DRProtocolImpl.h */,
@@ -175,6 +191,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43455F991BAE61FB009A47BC /* DRJsonConverterFactory.h in Headers */,
 				43C90F5E1B9668D20071C56E /* DRProtocolImpl.h in Headers */,
 				437680501B9F7B3C0074799D /* DRWebService.h in Headers */,
 				43C90F621B9669D90071C56E /* DRRestAdapter.h in Headers */,
@@ -182,6 +199,7 @@
 				43175F0A1B9A13B000E69554 /* DRTypeEncoding.h in Headers */,
 				436CB2E51B98F86300810602 /* DRMethodDescription.h in Headers */,
 				43C90F401B9665520071C56E /* WebServiceProtocol.h in Headers */,
+				43D2D6FD1B9FF2CD00A53D0F /* DRJsonConverter.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,11 +363,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43D2D6FE1B9FF2CD00A53D0F /* DRJsonConverter.m in Sources */,
 				43C90F5F1B9668D20071C56E /* DRProtocolImpl.m in Sources */,
 				43C90F631B9669D90071C56E /* DRRestAdapter.m in Sources */,
 				43175F0F1B9A365900E69554 /* NSInvocation+DRUtils.m in Sources */,
 				43175F0B1B9A13B000E69554 /* DRTypeEncoding.m in Sources */,
 				436CB2E61B98F86300810602 /* DRMethodDescription.m in Sources */,
+				43455F9A1BAE61FB009A47BC /* DRJsonConverterFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

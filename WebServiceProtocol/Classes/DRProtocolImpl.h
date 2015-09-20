@@ -8,10 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol DRConverterFactory;
+
 @interface DRProtocolImpl : NSObject
 
 @property(nonatomic,strong) Protocol* protocol;
 @property(nonatomic,strong) NSURL* endPoint;
 @property(nonatomic,strong) NSDictionary* methodDescriptions;
+@property(nonatomic,strong) id<DRConverterFactory> converterFactory;
 
 @end

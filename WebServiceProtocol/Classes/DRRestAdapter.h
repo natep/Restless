@@ -8,11 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol DRConverterFactory;
+
+
 @interface DRRestAdapterBuilder : NSObject
 
 @property(nonatomic,strong) NSURL* endPoint;
 @property(nonatomic,strong) NSBundle* bundle;
 @property(nonatomic,strong) NSURLSession* urlSession;
+@property(nonatomic,strong) id<DRConverterFactory> converterFactory;
 
 @end
 
