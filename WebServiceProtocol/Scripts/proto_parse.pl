@@ -79,10 +79,16 @@ if ($string =~ m/\@protocol ([a-zA-Z0-9_]*) <DRWebService>/ ) {
 
 		$methodDesc{"parameterNames"} = \@params;
 
+		print "working on task type\n";
+		
+		if ($methodString =~ m/-[\s]*\(([^)]*)\)/g) {
+			$methodDesc{"taskType"} = $1;
+		}
+		
 		print "working on callback type\n";
 
 		if ($methodString =~ m/DR_CALLBACK\(([^)]+)\)/g) {
-			$methodDesc{"returnType"} = $1;
+			$methodDesc{"resultType"} = $1;
 		}
 
 		$annoMap{$methodSig} = \%methodDesc;

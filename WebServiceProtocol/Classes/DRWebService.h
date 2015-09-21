@@ -9,7 +9,7 @@
 #ifndef DRWebService_h
 #define DRWebService_h
 
-#define DR_CALLBACK(type) (void (^)(type result, NSError* error))
+#define DR_CALLBACK(type) (void (^)(type result, NSURLResponse *response, NSError* error))
 
 #define GET(unused)	required
 #define Headers(unused)	required

@@ -62,7 +62,7 @@
 	
 	XCTestExpectation *callBackExpectation = [self expectationWithDescription:@"callback"];
 	
-	[service listRepos:@"natep" callback:^(NSArray *result, NSError *error) {
+	NSURLSessionDataTask* task = [service listRepos:@"natep" callback:^(NSArray *result, NSURLResponse *response, NSError *error) {
 		dispatch_async(dispatch_get_main_queue(), ^{
 			XCTAssertNil(error);
 			XCTAssertNotNil(result);
@@ -70,6 +70,8 @@
 			[callBackExpectation fulfill];
 		});
 	}];
+	
+	[task resume];
 	
 	[self waitForExpectationsWithTimeout:5 handler:^(NSError *error) {
 		if (error) {
@@ -97,13 +99,15 @@
 	
 	XCTestExpectation *callBackExpectation = [self expectationWithDescription:@"callback"];
 	
-	[service listRepos:@"natep" callback:^(NSArray *result, NSError *error) {
+	NSURLSessionDataTask* task = [service listRepos:@"natep" callback:^(NSArray *result, NSURLResponse *response, NSError *error) {
 		dispatch_async(dispatch_get_main_queue(), ^{
 			XCTAssertNotNil(error);
 			
 			[callBackExpectation fulfill];
 		});
 	}];
+	
+	[task resume];
 	
 	[self waitForExpectationsWithTimeout:5 handler:^(NSError *error) {
 		if (error) {

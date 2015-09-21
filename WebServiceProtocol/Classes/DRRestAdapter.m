@@ -115,6 +115,7 @@
 	DRProtocolImpl* obj = [[cls alloc] init];
 	obj.protocol = protocol;
 	obj.endPoint = self.endPoint;
+	obj.urlSession = self.urlSession;
 	obj.methodDescriptions = [self methodDescriptionsForProtocol:protocol];
 	obj.converterFactory = self.converterFactory;
 	return obj;

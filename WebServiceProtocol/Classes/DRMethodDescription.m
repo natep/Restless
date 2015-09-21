@@ -36,8 +36,9 @@
 	
 	if (self) {
 		_parameterNames = dictionary[@"parameterNames"];
-		_returnType = dictionary[@"returnType"];
+		_resultType = dictionary[@"resultType"];
 		_annotations = dictionary[@"annotations"];
+		_taskType = dictionary[@"taskType"];
 	}
 	
 	return self;
@@ -45,9 +46,9 @@
 
 - (NSString*)description
 {
-	return [NSString stringWithFormat:@"<%@: %p, returnType: %@, params:%@, annotations:%@>",
+	return [NSString stringWithFormat:@"<%@: %p, resultType: %@, taskType:%@, params:%@, annotations:%@>",
 			NSStringFromClass([self class]),
-			self, self.returnType,
+			self, self.resultType, self.taskType,
 			self.parameterNames,
 			self.annotations];
 }
@@ -62,6 +63,14 @@
 	
 	NSAssert(NO, @"Could not determine HTTP method");
 	return nil;
+}
+
+- (Class)taskClass
+{
+	NSString* taskString = [self.taskType stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+	NSArray* split = [taskString componentsSeparatedByString:@"*"];
+	NSString* taskClassName = [[split firstObject] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+	return NSClassFromString(taskClassName);
 }
 
 - (NSString*)parameterizedPathForInvocation:(NSInvocation*)invocation

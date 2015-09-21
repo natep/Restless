@@ -14,6 +14,7 @@
 
 @property(nonatomic,strong) Protocol* protocol;
 @property(nonatomic,strong) NSURL* endPoint;
+@property(nonatomic,strong) NSURLSession* urlSession;
 @property(nonatomic,strong) NSDictionary* methodDescriptions;
 @property(nonatomic,strong) id<DRConverterFactory> converterFactory;
 

@@ -11,7 +11,7 @@
 #import "DRMethodDescription.h"
 #import "DRConverterFactory.h"
 
-typedef void (^DRCallback)(id result, NSError* error);
+typedef void (^DRCallback)(id result, NSURLResponse *response, NSError* error);
 
 @implementation DRProtocolImpl
 
@@ -43,7 +43,7 @@ typedef void (^DRCallback)(id result, NSError* error);
 	DRMethodDescription* desc = self.methodDescriptions[sig];
 	NSLog(@"you called '%@', which has the description:\n%@", sig, desc);
 	
-	NSAssert(desc.returnType != nil, @"Callback not defined for %@", sig);
+	NSAssert(desc.resultType != nil, @"Callback not defined for %@", sig);
 	
 	NSString* paramedPath = [desc parameterizedPathForInvocation:invocation];
 	NSURL* fullPath = [self.endPoint URLByAppendingPathComponent:paramedPath];
@@ -53,31 +53,40 @@ typedef void (^DRCallback)(id result, NSError* error);
 	NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:fullPath];
 	request.HTTPMethod = [desc httpMethod];
 	
-	/*
-	 * Make sure we don't get dealloc'd before we are done. This can happen
-	 * with fire-and-forget instances.
-	 */
-	__block DRProtocolImpl* strongSelf = self;
+	__unsafe_unretained DRCallback callback;
+	NSUInteger numArgs = [invocation.methodSignature numberOfArguments];
+	[invocation getArgument:&callback atIndex:(numArgs - 1)];
 	
-	NSURLSession *session = [NSURLSession sharedSession];
-	NSURLSessionDataTask *task = [session dataTaskWithRequest:request
-											completionHandler:
-		^(NSData *data, NSURLResponse *response, NSError *error) {
-			id result = nil;
-			
-			if (!error) {
-				result = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-			}
-			
-			__unsafe_unretained DRCallback callback;
-			NSUInteger numArgs = [invocation.methodSignature numberOfArguments];
-			[invocation getArgument:&callback atIndex:(numArgs - 1)];
-			callback(result, error);
-			
-			strongSelf = nil;
-		}];
-
-	[task resume];
+	Class taskClass = [desc taskClass];
+	NSAssert(taskClass != nil, @"could not determine session task type");
+	NSURLSessionTask* task = nil;
+	
+	if (taskClass == [NSURLSessionDownloadTask class]) {
+		task = [self.urlSession downloadTaskWithRequest:request completionHandler:callback];
+	} else {
+		void (^completionHandler)(NSData *data, NSURLResponse *response, NSError *error) =
+			^(NSData *data, NSURLResponse *response, NSError *error) {
+				id result = nil;
+				
+				if (!error) {
+					result = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+				}
+				
+				callback(result, response, error);
+			};
+		
+		if (taskClass == [NSURLSessionDataTask class]) {
+			task = [self.urlSession dataTaskWithRequest:request
+									  completionHandler:completionHandler];
+		} else {
+			// TODO: set upload data
+			task = [self.urlSession uploadTaskWithRequest:request
+												 fromData:nil
+										completionHandler:completionHandler];
+		}
+	}
+	
+	[invocation setReturnValue:&task];
 }
 
 @end
