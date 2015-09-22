@@ -10,12 +10,13 @@
 #define FitTest_GitHubService_h
 
 #import "DRWebService.h"
+#import "GitHubRepo.h"
 
 @protocol GitHubService <DRWebService>
 
 @GET("/users/{user}/repos")
 @Headers("Cache-Control: max-age=640000")
-- (NSURLSessionDataTask*)listRepos:(NSString*)user callback:DR_CALLBACK(NSArray*)callback;
+- (NSURLSessionDataTask*)listRepos:(NSString*)user callback:DR_CALLBACK(NSArray<GitHubRepo*>*)callback;
 
 @Headers("Cache-Control: max-age=640000")
 - (NSURLSessionDataTask*)listWikis:(NSString*)user fromDate:(NSDate*)date;

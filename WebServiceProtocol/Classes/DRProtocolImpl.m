@@ -69,7 +69,10 @@ typedef void (^DRCallback)(id result, NSURLResponse *response, NSError* error);
 				id result = nil;
 				
 				if (!error) {
-					result = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+					Class subtype = [desc resultSubtype];
+					id<DRConverter> converter = [self.converterFactory converter];
+					
+					result = [converter convertData:data toObjectOfClass:subtype];
 				}
 				
 				callback(result, response, error);

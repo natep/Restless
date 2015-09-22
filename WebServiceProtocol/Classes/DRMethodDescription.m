@@ -73,6 +73,22 @@
 	return NSClassFromString(taskClassName);
 }
 
+- (Class)resultSubtype
+{
+	NSError* error = nil;
+	NSRegularExpression* regex = [NSRegularExpression regularExpressionWithPattern:@"<[\\s]*([a-zA-Z0-9_]+)[\\s]*\\**[\\s]*>" options:0 error:&error];
+	
+	NSTextCheckingResult* match = [regex firstMatchInString:self.resultType options:0 range:NSMakeRange(0, self.resultType.length)];
+	
+	if (match && match.range.location != NSNotFound) {
+		NSRange subtypeRange = [match rangeAtIndex:1];
+		NSString* subtypeName = [self.resultType substringWithRange:subtypeRange];
+		return NSClassFromString(subtypeName);
+	} else {
+		return nil;
+	}
+}
+
 - (NSString*)parameterizedPathForInvocation:(NSInvocation*)invocation
 {
 	NSString* path = self.annotations[self.httpMethod];

@@ -9,6 +9,7 @@
 #import <XCTest/XCTest.h>
 #import "GitHubService.h"
 #import <OHHTTPStubs.h>
+#import "GitHubRepo.h"
 
 @import WebServiceProtocol;
 
@@ -66,6 +67,11 @@
 		dispatch_async(dispatch_get_main_queue(), ^{
 			XCTAssertNil(error);
 			XCTAssertNotNil(result);
+			XCTAssertTrue([result isKindOfClass:[NSArray class]]);
+			XCTAssertEqual([result count], 4);
+			XCTAssertTrue([[result firstObject] isKindOfClass:[GitHubRepo class]]);
+			GitHubRepo* repo = [result firstObject];
+			XCTAssertEqualObjects(repo.repoId, @(32614184));
 			
 			[callBackExpectation fulfill];
 		});

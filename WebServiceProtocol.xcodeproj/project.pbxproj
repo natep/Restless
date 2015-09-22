@@ -14,6 +14,8 @@
 		43175F0F1B9A365900E69554 /* NSInvocation+DRUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 43175F0D1B9A365900E69554 /* NSInvocation+DRUtils.m */; };
 		43455F991BAE61FB009A47BC /* DRJsonConverterFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 43455F971BAE61FB009A47BC /* DRJsonConverterFactory.h */; settings = {ASSET_TAGS = (); }; };
 		43455F9A1BAE61FB009A47BC /* DRJsonConverterFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 43455F981BAE61FB009A47BC /* DRJsonConverterFactory.m */; settings = {ASSET_TAGS = (); }; };
+		43455F9D1BB06D85009A47BC /* DRMethodDescriptionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 43455F9C1BB06D85009A47BC /* DRMethodDescriptionTests.m */; settings = {ASSET_TAGS = (); }; };
+		43455FA11BB0C727009A47BC /* GitHubRepo.m in Sources */ = {isa = PBXBuildFile; fileRef = 43455FA01BB0C727009A47BC /* GitHubRepo.m */; settings = {ASSET_TAGS = (); }; };
 		436CB2E51B98F86300810602 /* DRMethodDescription.h in Headers */ = {isa = PBXBuildFile; fileRef = 436CB2E31B98F86300810602 /* DRMethodDescription.h */; };
 		436CB2E61B98F86300810602 /* DRMethodDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 436CB2E41B98F86300810602 /* DRMethodDescription.m */; };
 		4376804F1B9F77A80074799D /* listReposResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 4376804E1B9F77A80074799D /* listReposResponse.json */; settings = {ASSET_TAGS = (); }; };
@@ -46,6 +48,9 @@
 		43175F0D1B9A365900E69554 /* NSInvocation+DRUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+DRUtils.m"; sourceTree = "<group>"; };
 		43455F971BAE61FB009A47BC /* DRJsonConverterFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRJsonConverterFactory.h; sourceTree = "<group>"; };
 		43455F981BAE61FB009A47BC /* DRJsonConverterFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRJsonConverterFactory.m; sourceTree = "<group>"; };
+		43455F9C1BB06D85009A47BC /* DRMethodDescriptionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRMethodDescriptionTests.m; sourceTree = "<group>"; };
+		43455F9F1BB0C727009A47BC /* GitHubRepo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GitHubRepo.h; sourceTree = "<group>"; };
+		43455FA01BB0C727009A47BC /* GitHubRepo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GitHubRepo.m; sourceTree = "<group>"; };
 		436CB2E31B98F86300810602 /* DRMethodDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRMethodDescription.h; sourceTree = "<group>"; };
 		436CB2E41B98F86300810602 /* DRMethodDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRMethodDescription.m; sourceTree = "<group>"; };
 		4376804E1B9F77A80074799D /* listReposResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = listReposResponse.json; sourceTree = "<group>"; };
@@ -134,6 +139,9 @@
 		43C90F4A1B9665520071C56E /* WebServiceProtocolTests */ = {
 			isa = PBXGroup;
 			children = (
+				43455F9C1BB06D85009A47BC /* DRMethodDescriptionTests.m */,
+				43455F9F1BB0C727009A47BC /* GitHubRepo.h */,
+				43455FA01BB0C727009A47BC /* GitHubRepo.m */,
 				43C90F5A1B9667B10071C56E /* GitHubService.h */,
 				43C90F4D1B9665520071C56E /* Info.plist */,
 				4376804E1B9F77A80074799D /* listReposResponse.json */,
@@ -214,7 +222,7 @@
 				43C90F381B9665520071C56E /* Frameworks */,
 				43C90F391B9665520071C56E /* Headers */,
 				43C90F3A1B9665520071C56E /* Resources */,
-				43C90F651B96A3B40071C56E /* ShellScript */,
+				43455F9E1BB0B332009A47BC /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -233,7 +241,6 @@
 				43C90F421B9665520071C56E /* Sources */,
 				43C90F431B9665520071C56E /* Frameworks */,
 				43C90F441B9665520071C56E /* Resources */,
-				43C90F591B96670E0071C56E /* ShellScript */,
 				CD38C13F18F584CF61841EF1 /* Copy Pods Resources */,
 			);
 			buildRules = (
@@ -300,20 +307,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		43C90F591B96670E0071C56E /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = WebServiceProtocol/Scripts/generate.sh;
-		};
-		43C90F651B96A3B40071C56E /* ShellScript */ = {
+		43455F9E1BB0B332009A47BC /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -378,6 +372,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				43C90F4C1B9665520071C56E /* WebServiceProtocolTests.m in Sources */,
+				43455FA11BB0C727009A47BC /* GitHubRepo.m in Sources */,
+				43455F9D1BB06D85009A47BC /* DRMethodDescriptionTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

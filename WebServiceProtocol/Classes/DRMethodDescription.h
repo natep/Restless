@@ -21,6 +21,8 @@
 
 - (Class)taskClass;
 
+- (Class)resultSubtype;
+
 - (NSString*)parameterizedPathForInvocation:(NSInvocation*)invocation;
 
 @end
