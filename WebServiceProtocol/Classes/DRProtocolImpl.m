@@ -45,7 +45,8 @@ typedef void (^DRCallback)(id result, NSURLResponse *response, NSError* error);
 	
 	NSAssert(desc.resultType != nil, @"Callback not defined for %@", sig);
 	
-	NSString* paramedPath = [desc parameterizedPathForInvocation:invocation];
+	id<DRConverter> converter = [self.converterFactory converter];
+	NSString* paramedPath = [desc parameterizedPathForInvocation:invocation withConverter:converter];
 	NSURL* fullPath = [self.endPoint URLByAppendingPathComponent:paramedPath];
 	
 	NSLog(@"full path: %@", fullPath);
@@ -70,8 +71,6 @@ typedef void (^DRCallback)(id result, NSURLResponse *response, NSError* error);
 				
 				if (!error) {
 					Class subtype = [desc resultSubtype];
-					id<DRConverter> converter = [self.converterFactory converter];
-					
 					result = [converter convertData:data toObjectOfClass:subtype];
 				}
 				

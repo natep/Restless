@@ -8,6 +8,8 @@
 
 #import "DRMethodDescription.h"
 #import "NSInvocation+DRUtils.h"
+#import "DRTypeEncoding.h"
+#import "DRConverterFactory.h"
 
 @implementation DRMethodDescription
 
@@ -89,7 +91,7 @@
 	}
 }
 
-- (NSString*)parameterizedPathForInvocation:(NSInvocation*)invocation
+- (NSString*)parameterizedPathForInvocation:(NSInvocation*)invocation withConverter:(id<DRConverter>)converter
 {
 	NSString* path = self.annotations[self.httpMethod];
 	NSMutableString* paramedPath = path.mutableCopy;
@@ -109,7 +111,27 @@
 		// TODO: this should probably be allowed, in case some URL randomly contains "{not_a_param}"
 		NSAssert(paramIdx != NSNotFound, @"Unknown substitution variable in path: %@", paramName);
 		
-		NSString* paramValue = [invocation stringValueForParameterAtIndex:paramIdx];
+		NSString* paramValue = nil;
+		DRTypeEncoding* encoding = [invocation typeEncodingForParameterAtIndex:paramIdx];
+		
+		if (encoding.encodingClass == DRObjectTypeEncodingClass) {
+			id obj = [invocation objectValueForParameterAtIndex:paramIdx];
+			
+			if ([obj isKindOfClass:[NSString class]]) {
+				paramValue = obj;
+			} else if ([obj isKindOfClass:[NSNumber class]]) {
+				paramValue = [obj stringValue];
+			} else if ([converter respondsToSelector:@selector(convertObjectToString:)]) {
+				paramValue = [converter convertObjectToString:obj];
+			} else {
+				NSAssert(NO, @"Could not convert parameter: %@", paramName);
+			}
+		} else {
+			paramValue = [invocation stringValueForParameterAtIndex:paramIdx];
+		}
+		
+		paramValue = [paramValue stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLPathAllowedCharacterSet]];
+		
 		[paramedPath replaceCharactersInRange:match.range withString:paramValue];
 	}
 	

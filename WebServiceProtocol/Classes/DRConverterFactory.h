@@ -13,7 +13,11 @@
 
 - (id)convertData:(NSData*)data toObjectOfClass:(Class)cls;
 
-- (NSData*)convertObject:(id)object;
+- (NSData*)convertObjectToData:(id)object;
+
+@optional
+
+- (NSString*)convertObjectToString:(id)object;
 
 @end
 

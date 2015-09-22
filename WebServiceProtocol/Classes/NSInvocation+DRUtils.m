@@ -11,13 +11,32 @@
 
 @implementation NSInvocation (DRUtils)
 
-- (NSString*)stringValueForParameterAtIndex:(NSUInteger)index
+- (DRTypeEncoding*)typeEncodingForParameterAtIndex:(NSUInteger)index
 {
 	// must increment past the first 2 implicit parameters
 	index += 2;
 	
 	const char* type = [self.methodSignature getArgumentTypeAtIndex:index];
-	DRTypeEncoding* encoding = [[DRTypeEncoding alloc] initWithTypeEncoding:type];
+	return [[DRTypeEncoding alloc] initWithTypeEncoding:type];
+}
+
+- (NSObject*)objectValueForParameterAtIndex:(NSUInteger)index
+{
+	// must increment past the first 2 implicit parameters
+	index += 2;
+	
+	NSObject* __unsafe_unretained obj = nil;
+	[self getArgument:&obj atIndex:index];
+	
+	return obj;
+}
+
+- (NSString*)stringValueForParameterAtIndex:(NSUInteger)index
+{
+	DRTypeEncoding* encoding = [self typeEncodingForParameterAtIndex:index];
+	
+	// must increment past the first 2 implicit parameters
+	index += 2;
 	
 	switch (encoding.encodingClass) {
 		case DRObjectTypeEncodingClass: {
@@ -39,7 +58,7 @@
 		}
 			
 		case DROtherTypeEncodingClass: {
-			NSAssert(NO, @"Unrecognized parameter type: %s", type);
+			NSAssert(NO, @"Unrecognized parameter type");
 			return nil;
 		}
 	}

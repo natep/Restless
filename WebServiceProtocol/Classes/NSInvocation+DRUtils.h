@@ -8,7 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+@class DRTypeEncoding;
+
 @interface NSInvocation (DRUtils)
+
+- (DRTypeEncoding*)typeEncodingForParameterAtIndex:(NSUInteger)index;
+
+- (NSObject*)objectValueForParameterAtIndex:(NSUInteger)index;
 
 - (NSString*)stringValueForParameterAtIndex:(NSUInteger)index;
 

@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol DRConverter;
+
 @interface DRMethodDescription : NSObject
 
 @property(nonatomic,strong,readonly) NSArray* parameterNames;
@@ -23,6 +25,6 @@
 
 - (Class)resultSubtype;
 
-- (NSString*)parameterizedPathForInvocation:(NSInvocation*)invocation;
+- (NSString*)parameterizedPathForInvocation:(NSInvocation*)invocation withConverter:(id<DRConverter>)converter;
 
 @end

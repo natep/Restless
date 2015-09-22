@@ -31,7 +31,7 @@
 	}
 }
 
-- (NSData*)convertObject:(id)object
+- (NSData*)convertObjectToData:(id)object
 {
 	id result = [self convertObjectToJSONValue:object];
 	
@@ -64,6 +64,11 @@
 	} else {
 		return [object toDictionary];
 	}
+}
+
+- (NSString*)convertObjectToString:(id)object
+{
+	return [[NSString alloc] initWithData:[self convertObjectToData:object] encoding:NSUTF8StringEncoding];
 }
 
 @end
