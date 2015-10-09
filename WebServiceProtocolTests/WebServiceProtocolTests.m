@@ -45,7 +45,8 @@
 
 - (void)testProtocolEndToEndSuccess {
 	[OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
-		return [request.URL.host isEqualToString:@"api.github.com"];
+		return [request.URL.host isEqualToString:@"api.github.com"]
+		&& [request.URL.path isEqualToString:@"/users/natep/repos"];
 	} withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
 		NSString* fixture = OHPathForFile(@"listReposResponse.json", self.class);
 		return [OHHTTPStubsResponse responseWithFileAtPath:fixture
@@ -53,6 +54,13 @@
 												   headers:@{@"Content-Type":@"application/json"}];
 	}];
 	
+	[OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
+		return [request.URL.host isEqualToString:@"api.github.com"]
+		&& ![request.URL.path isEqualToString:@"/users/natep/repos"];
+	} withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
+		NSError* error = [NSError errorWithDomain:NSURLErrorDomain code:kCFURLErrorBadURL userInfo:nil];
+		return [OHHTTPStubsResponse responseWithError:error];
+	}];
 	
 	DRRestAdapter* ra = [DRRestAdapter restAdapterWithBlock:^(DRRestAdapterBuilder *builder) {
 		builder.endPoint = [NSURL URLWithString:@"https://api.github.com"];
@@ -63,7 +71,7 @@
 	
 	XCTestExpectation *callBackExpectation = [self expectationWithDescription:@"callback"];
 	
-	NSURLSessionDataTask* task = [service listRepos:@"natep" callback:^(NSArray *result, NSURLResponse *response, NSError *error) {
+	NSURLSessionDataTask* task = [service listRepos:@"natep" callback:^(NSArray<GitHubRepo*>* result, NSURLResponse *response, NSError *error) {
 		dispatch_async(dispatch_get_main_queue(), ^{
 			XCTAssertNil(error);
 			XCTAssertNotNil(result);

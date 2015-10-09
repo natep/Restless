@@ -39,9 +39,20 @@ if ($string =~ m/\@protocol ([a-zA-Z0-9_]*) <DRWebService>/ ) {
 
 			print "Working on ${line}\n";
 
-			if ($line =~ m/@([a-zA-Z]*)\(\"(.*)\"\)/g) {
-				print "Got annotation, ${1} : ${2}\n";
-				$annotations{$1} = $2;
+			if ($line =~ m/@([a-zA-Z]*)\(([{"].*["}])\)/g) {
+				my $annoName = $1;
+				my $annoValue = $2;
+				print "Got annotation, ${annoName} : ${annoValue}\n";
+				
+				if ($annoValue =~ /^["]/) {
+					$annoValue = substr $annoValue, 1, -1;
+					print "final annotation value: ${annoValue}\n";
+					$annotations{$annoName} = $annoValue;
+				} else {
+					my %object = %{ decode_json $annoValue };
+					print "final annotation value: @{[%object]}\n";
+					$annotations{$annoName} = \%object;
+				}
 			}
 		}
 

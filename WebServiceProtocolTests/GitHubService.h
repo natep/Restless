@@ -15,13 +15,13 @@
 @protocol GitHubService <DRWebService>
 
 @GET("/users/{user}/repos")
-@Headers("Cache-Control: max-age=640000")
+@Headers({"Accept" : "application/vnd.github.v3.full+json", "User-Agent" : "Retrofit-Sample-App"})
 - (NSURLSessionDataTask*)listRepos:(NSString*)user callback:DR_CALLBACK(NSArray<GitHubRepo*>*)callback;
 
-@Headers("Cache-Control: max-age=640000")
+@GET("/users/{user}/wikis")
 - (NSURLSessionDataTask*)listWikis:(NSString*)user fromDate:(NSDate*)date;
 
-@Headers("Cache-Control: max-age=640000")
+@GET("/endpoints")
 - (NSURLSessionDataTask*)listEndpoints;
 
 @end
