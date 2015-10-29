@@ -35,6 +35,9 @@ typedef void (^DRCallback)(id result, NSURLResponse *response, NSError* error);
 	}
 }
 
+/*
+ * This big ugly method really needs to be refactored.
+ */
 - (void)handleInvocation:(NSInvocation*)invocation
 {
 	[invocation retainArguments];
@@ -54,6 +57,14 @@ typedef void (^DRCallback)(id result, NSURLResponse *response, NSError* error);
 	NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:fullPath];
 	request.HTTPMethod = [desc httpMethod];
 	
+	id bodyObj = [desc bodyForInvocation:invocation withConverter:converter];
+	
+	if ([bodyObj isKindOfClass:[NSData class]]) {
+		request.HTTPBody = bodyObj;
+	} else if ([bodyObj isKindOfClass:[NSInputStream class]]) {
+		request.HTTPBodyStream = bodyObj;
+	}
+	
 	__unsafe_unretained DRCallback callback;
 	NSUInteger numArgs = [invocation.methodSignature numberOfArguments];
 	[invocation getArgument:&callback atIndex:(numArgs - 1)];
@@ -63,6 +74,10 @@ typedef void (^DRCallback)(id result, NSURLResponse *response, NSError* error);
 	NSURLSessionTask* task = nil;
 	
 	if (taskClass == [NSURLSessionDownloadTask class]) {
+		if ([bodyObj isKindOfClass:[NSURL class]]) {
+			request.HTTPBodyStream = [NSInputStream inputStreamWithURL:bodyObj];
+		}
+		
 		task = [self.urlSession downloadTaskWithRequest:request completionHandler:callback];
 	} else {
 		void (^completionHandler)(NSData *data, NSURLResponse *response, NSError *error) =
@@ -78,13 +93,22 @@ typedef void (^DRCallback)(id result, NSURLResponse *response, NSError* error);
 			};
 		
 		if (taskClass == [NSURLSessionDataTask class]) {
+			if ([bodyObj isKindOfClass:[NSURL class]]) {
+				request.HTTPBodyStream = [NSInputStream inputStreamWithURL:bodyObj];
+			}
+			
 			task = [self.urlSession dataTaskWithRequest:request
 									  completionHandler:completionHandler];
 		} else {
-			// TODO: set upload data
-			task = [self.urlSession uploadTaskWithRequest:request
-												 fromData:nil
-										completionHandler:completionHandler];
+			if ([bodyObj isKindOfClass:[NSData class]]) {
+				task = [self.urlSession uploadTaskWithRequest:request
+													 fromData:bodyObj
+											completionHandler:completionHandler];
+			} else if ([bodyObj isKindOfClass:[NSURL class]]) {
+				task = [self.urlSession uploadTaskWithRequest:request
+													 fromFile:bodyObj
+											completionHandler:completionHandler];
+			}
 		}
 	}
 	

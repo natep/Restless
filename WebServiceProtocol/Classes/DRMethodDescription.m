@@ -11,6 +11,8 @@
 #import "DRTypeEncoding.h"
 #import "DRConverterFactory.h"
 
+static NSString* const BODY_ANNOTATION_NAME = @"Body";
+
 @implementation DRMethodDescription
 
 + (NSArray*)httpMethodNames
@@ -136,6 +138,42 @@
 	}
 	
 	return paramedPath.copy;
+}
+
+- (id)bodyForInvocation:(NSInvocation*)invocation withConverter:(id<DRConverter>)converter
+{
+	NSString* bodyParamName = self.annotations[BODY_ANNOTATION_NAME];
+	
+	if (bodyParamName.length > 0) {
+		NSUInteger paramIdx = [self.parameterNames indexOfObject:bodyParamName];
+		NSAssert(paramIdx != NSNotFound, @"Unknown parameter for body: %@", bodyParamName);
+		
+		DRTypeEncoding* encoding = [invocation typeEncodingForParameterAtIndex:paramIdx];
+		
+		if (encoding.encodingClass == DRObjectTypeEncodingClass) {
+			id obj = [invocation objectValueForParameterAtIndex:paramIdx];
+			
+			if ([obj isKindOfClass:[NSInputStream class]]
+				|| [obj isKindOfClass:[NSURL class]]
+				|| [obj isKindOfClass:[NSData class]])
+			{
+				return obj;
+			} else if ([obj isKindOfClass:[NSString class]]) {
+				NSString* string = obj;
+				return [string dataUsingEncoding:NSUTF8StringEncoding];
+			} else if ([obj isKindOfClass:[NSNumber class]]) {
+				NSNumber* number = obj;
+				return [[number stringValue] dataUsingEncoding:NSUTF8StringEncoding];
+			} else {
+				return [converter convertObjectToData:obj];
+			}
+		} else {
+			NSString* stringValue = [invocation stringValueForParameterAtIndex:paramIdx];
+			return [stringValue dataUsingEncoding:NSUTF8StringEncoding];
+		}
+	} else {
+		return nil;
+	}
 }
 
 @end

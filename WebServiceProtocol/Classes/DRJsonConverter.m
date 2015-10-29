@@ -17,6 +17,9 @@
 	
 	if (cls == nil) {
 		return jsonObject;
+	} else if (cls == [NSString class]) {
+		// I guess if they want a string, just return that directly
+		return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 	} else if ([jsonObject isKindOfClass:[NSDictionary class]]) {
 		return [[cls alloc] initWithDictionary:jsonObject];
 	} else {

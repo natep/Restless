@@ -11,7 +11,14 @@
 
 #define DR_CALLBACK(type) (void (^)(type result, NSURLResponse *response, NSError* error))
 
-#define GET(unused)	required
+#define GET(unused)		required
+#define POST(unused)	required
+#define DELETE(unused)	required
+#define PUT(unused)		required
+#define HEAD(unused)	required
+#define PATCH(unused)	required
+
+#define Body(unused)	required
 #define Headers(...)	required
 
 

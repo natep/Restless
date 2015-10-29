@@ -19,10 +19,10 @@
 - (NSURLSessionDataTask*)listRepos:(NSString*)user callback:DR_CALLBACK(NSArray<GitHubRepo*>*)callback;
 
 @GET("/users/{user}/wikis")
-- (NSURLSessionDataTask*)listWikis:(NSString*)user fromDate:(NSDate*)date;
+- (NSURLSessionDataTask*)listWikis:(NSString*)user fromDate:(NSDate*)date callback:DR_CALLBACK(NSArray*)callback;
 
-@GET("/endpoints")
-- (NSURLSessionDataTask*)listEndpoints;
+@POST("/updatePic")
+- (NSURLSessionUploadTask*)updateProfilePic:DR_CALLBACK(NSString*)callback;
 
 @end
 

@@ -27,4 +27,6 @@
 
 - (NSString*)parameterizedPathForInvocation:(NSInvocation*)invocation withConverter:(id<DRConverter>)converter;
 
+- (id)bodyForInvocation:(NSInvocation*)invocation withConverter:(id<DRConverter>)converter;
+
 @end
