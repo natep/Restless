@@ -6,6 +6,8 @@
 #  Created by Nate Petersen on 8/30/15.
 #  Copyright (c) 2015 Digital Rickshaw. All rights reserved.
 
+# TODO: Warning, atrocious Perl code ahead! Should be re-written by someone more adept than me.
+
 use strict;
 use warnings;
 use JSON::PP;
@@ -19,8 +21,7 @@ open(FILEIN, $infilename) or die "Can't open $infilename: $!";
 my $string = join("", <FILEIN>); 
 close FILEIN;
 
-# print "File:\n${string}";
-
+# Find the protocol declaration
 if ($string =~ m/\@protocol ([a-zA-Z0-9_]*) <DRWebService>/ ) {
 	print "Protocol: ${1}\n";
 
@@ -29,11 +30,13 @@ if ($string =~ m/\@protocol ([a-zA-Z0-9_]*) <DRWebService>/ ) {
 
 	my %annoMap = ();
 
+	# Find each annotated method
 	while($string =~ m/(@[a-zA-Z]*\([\S\s]*?;)\n/g ) {
 		my @lines = split /^/, $1;
 		my $numLines = @lines;
 		my %annotations = ();
 
+		# Find each annotation
 		for (my $i=0; $i < $numLines - 1; $i++) {
 			my $line = $lines[$i];
 
@@ -58,6 +61,7 @@ if ($string =~ m/\@protocol ([a-zA-Z0-9_]*) <DRWebService>/ ) {
 
 		print "Collected annotations:@{[%annotations]}\n";
 
+		# Get the method signature
 		my $methodString = $lines[$numLines - 1];
 
 		print "Working on method string: ${methodString}\n";
@@ -82,6 +86,7 @@ if ($string =~ m/\@protocol ([a-zA-Z0-9_]*) <DRWebService>/ ) {
 
 		print "Working on param names\n";
 
+		# Capture the parameter names
 		my @params = ();
 
 		while ($methodString =~ m/:[\s]*\([^)]*\)[\s]*([a-zA-Z0-9_]+)/g) {
@@ -90,12 +95,14 @@ if ($string =~ m/\@protocol ([a-zA-Z0-9_]*) <DRWebService>/ ) {
 
 		$methodDesc{"parameterNames"} = \@params;
 
+		# Capture the desired NSURLSessionTask sub-type (from the return value)
 		print "working on task type\n";
 		
 		if ($methodString =~ m/-[\s]*\(([^)]*)\)/g) {
 			$methodDesc{"taskType"} = $1;
 		}
-		
+	
+		# Capture the desired data type for the callback
 		print "working on callback type\n";
 
 		if ($methodString =~ m/DR_CALLBACK\(([^)]+)\)/g) {

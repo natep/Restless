@@ -6,6 +6,8 @@
 #  Created by Nate Petersen on 8/27/15.
 #  Copyright (c) 2015 Digital Rickshaw. All rights reserved.
 
+# TODO: this could probably be folded into the Perl script
+
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 protoRegex="@protocol ([a-zA-Z0-9]*) <DRWebService>"
