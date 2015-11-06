@@ -11,6 +11,8 @@
 		43175F0B1B9A13B000E69554 /* DRTypeEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 43175F091B9A13B000E69554 /* DRTypeEncoding.m */; };
 		43175F0E1B9A365900E69554 /* NSInvocation+DRUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 43175F0C1B9A365900E69554 /* NSInvocation+DRUtils.h */; };
 		43175F0F1B9A365900E69554 /* NSInvocation+DRUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 43175F0D1B9A365900E69554 /* NSInvocation+DRUtils.m */; };
+		43437A7C1BEC473F00875071 /* DRParameterizeResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 43437A7A1BEC473F00875071 /* DRParameterizeResult.h */; };
+		43437A7D1BEC473F00875071 /* DRParameterizeResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 43437A7B1BEC473F00875071 /* DRParameterizeResult.m */; };
 		43455F991BAE61FB009A47BC /* DRJsonConverterFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 43455F971BAE61FB009A47BC /* DRJsonConverterFactory.h */; };
 		43455F9A1BAE61FB009A47BC /* DRJsonConverterFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 43455F981BAE61FB009A47BC /* DRJsonConverterFactory.m */; };
 		43455F9D1BB06D85009A47BC /* DRMethodDescriptionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 43455F9C1BB06D85009A47BC /* DRMethodDescriptionTests.m */; };
@@ -46,6 +48,8 @@
 		43175F091B9A13B000E69554 /* DRTypeEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRTypeEncoding.m; sourceTree = "<group>"; };
 		43175F0C1B9A365900E69554 /* NSInvocation+DRUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSInvocation+DRUtils.h"; sourceTree = "<group>"; };
 		43175F0D1B9A365900E69554 /* NSInvocation+DRUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+DRUtils.m"; sourceTree = "<group>"; };
+		43437A7A1BEC473F00875071 /* DRParameterizeResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRParameterizeResult.h; sourceTree = "<group>"; };
+		43437A7B1BEC473F00875071 /* DRParameterizeResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRParameterizeResult.m; sourceTree = "<group>"; };
 		43455F971BAE61FB009A47BC /* DRJsonConverterFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRJsonConverterFactory.h; sourceTree = "<group>"; };
 		43455F981BAE61FB009A47BC /* DRJsonConverterFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRJsonConverterFactory.m; sourceTree = "<group>"; };
 		43455F9C1BB06D85009A47BC /* DRMethodDescriptionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRMethodDescriptionTests.m; sourceTree = "<group>"; };
@@ -174,6 +178,8 @@
 				43455F981BAE61FB009A47BC /* DRJsonConverterFactory.m */,
 				436CB2E31B98F86300810602 /* DRMethodDescription.h */,
 				436CB2E41B98F86300810602 /* DRMethodDescription.m */,
+				43437A7A1BEC473F00875071 /* DRParameterizeResult.h */,
+				43437A7B1BEC473F00875071 /* DRParameterizeResult.m */,
 				43C90F5C1B9668D20071C56E /* DRProtocolImpl.h */,
 				43C90F5D1B9668D20071C56E /* DRProtocolImpl.m */,
 				43C90F601B9669D90071C56E /* DRRestAdapter.h */,
@@ -211,6 +217,7 @@
 				43C90F621B9669D90071C56E /* DRRestAdapter.h in Headers */,
 				43175F0E1B9A365900E69554 /* NSInvocation+DRUtils.h in Headers */,
 				43175F0A1B9A13B000E69554 /* DRTypeEncoding.h in Headers */,
+				43437A7C1BEC473F00875071 /* DRParameterizeResult.h in Headers */,
 				436CB2E51B98F86300810602 /* DRMethodDescription.h in Headers */,
 				43C90F401B9665520071C56E /* Restless.h in Headers */,
 				43D2D6FD1B9FF2CD00A53D0F /* DRJsonConverter.h in Headers */,
@@ -370,6 +377,7 @@
 				43175F0B1B9A13B000E69554 /* DRTypeEncoding.m in Sources */,
 				436CB2E61B98F86300810602 /* DRMethodDescription.m in Sources */,
 				43455F9A1BAE61FB009A47BC /* DRJsonConverterFactory.m in Sources */,
+				43437A7D1BEC473F00875071 /* DRParameterizeResult.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

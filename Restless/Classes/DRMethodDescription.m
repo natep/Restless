@@ -10,8 +10,10 @@
 #import "NSInvocation+DRUtils.h"
 #import "DRTypeEncoding.h"
 #import "DRConverterFactory.h"
+#import "DRParameterizeResult.h"
 
 static NSString* const BODY_ANNOTATION_NAME = @"Body";
+static NSString* const HEADERS_ANNOTATION_NAME = @"Headers";
 
 @implementation DRMethodDescription
 
@@ -93,21 +95,51 @@ static NSString* const BODY_ANNOTATION_NAME = @"Body";
 	}
 }
 
-- (NSString*)parameterizedPathForInvocation:(NSInvocation*)invocation withConverter:(id<DRConverter>)converter
+- (DRParameterizeResult<NSDictionary*>*)parameterizedHeadersForInvocation:(NSInvocation*)invocation
+															withConverter:(id<DRConverter>)converter
+{
+	NSDictionary* headers = self.annotations[HEADERS_ANNOTATION_NAME];
+	NSMutableDictionary* result = [[NSMutableDictionary alloc] init];
+	NSMutableSet* consumedParameters = [[NSMutableSet alloc] init];
+	
+	for (NSString* key in headers) {
+		NSString* headerValue = headers[key];
+		DRParameterizeResult<NSString*>* valueResult = [self parameterizedString:headerValue
+																   forInvocation:invocation withConverter:converter];
+		result[key] = valueResult.result;
+		[consumedParameters unionSet:valueResult.consumedParameters];
+	}
+	
+	return [[DRParameterizeResult alloc] initWithResult:result.copy consumedParameters:consumedParameters];
+}
+
+- (DRParameterizeResult<NSString*>*)parameterizedPathForInvocation:(NSInvocation*)invocation
+													 withConverter:(id<DRConverter>)converter
 {
 	NSString* path = self.annotations[self.httpMethod];
-	NSMutableString* paramedPath = path.mutableCopy;
+	return [self parameterizedString:path
+					   forInvocation:invocation withConverter:converter];
+}
+
+- (DRParameterizeResult<NSString*>*)parameterizedString:(NSString*)string
+										  forInvocation:(NSInvocation*)invocation
+										  withConverter:(id<DRConverter>)converter
+{
+	NSMutableSet* consumedParameters = [[NSMutableSet alloc] init];
+	NSMutableString* paramedString = string.mutableCopy;
 	NSError* error = nil;
-	NSRegularExpression* regex = [NSRegularExpression regularExpressionWithPattern:@"\\{([a-zA-Z0-9_]+)\\}" options:0 error:&error];
+	NSRegularExpression* regex = [NSRegularExpression regularExpressionWithPattern:@"\\{([a-zA-Z0-9_]+)\\}"
+																		   options:0
+																			 error:&error];
 	
-	NSArray *matches = [regex matchesInString:path
+	NSArray *matches = [regex matchesInString:string
 									  options:0
-										range:NSMakeRange(0, [path length])];
+										range:NSMakeRange(0, [string length])];
 	
-	for (NSInteger i = matches.count - 1; i >=0; i--) {
+	for (NSInteger i = matches.count - 1; i >= 0; i--) {
 		NSTextCheckingResult* match = matches[i];
 		NSRange nameRange = [match rangeAtIndex:1];
-		NSString* paramName = [path substringWithRange:nameRange];
+		NSString* paramName = [string substringWithRange:nameRange];
 		NSUInteger paramIdx = [self.parameterNames indexOfObject:paramName];
 		
 		// TODO: this should probably be allowed, in case some URL randomly contains "{not_a_param}"
@@ -134,15 +166,19 @@ static NSString* const BODY_ANNOTATION_NAME = @"Body";
 		
 		paramValue = [paramValue stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLPathAllowedCharacterSet]];
 		
-		[paramedPath replaceCharactersInRange:match.range withString:paramValue];
+		[paramedString replaceCharactersInRange:match.range withString:paramValue];
+		[consumedParameters addObject:paramName];
 	}
 	
-	return paramedPath.copy;
+	return [[DRParameterizeResult alloc] initWithResult:paramedString.copy
+									 consumedParameters:consumedParameters];
 }
 
-- (id)bodyForInvocation:(NSInvocation*)invocation withConverter:(id<DRConverter>)converter
+- (DRParameterizeResult*)bodyForInvocation:(NSInvocation*)invocation
+							 withConverter:(id<DRConverter>)converter
 {
 	NSString* bodyParamName = self.annotations[BODY_ANNOTATION_NAME];
+	id result = nil;
 	
 	if (bodyParamName.length > 0) {
 		NSUInteger paramIdx = [self.parameterNames indexOfObject:bodyParamName];
@@ -157,22 +193,26 @@ static NSString* const BODY_ANNOTATION_NAME = @"Body";
 				|| [obj isKindOfClass:[NSURL class]]
 				|| [obj isKindOfClass:[NSData class]])
 			{
-				return obj;
+				result = obj;
 			} else if ([obj isKindOfClass:[NSString class]]) {
 				NSString* string = obj;
-				return [string dataUsingEncoding:NSUTF8StringEncoding];
+				result = [string dataUsingEncoding:NSUTF8StringEncoding];
 			} else if ([obj isKindOfClass:[NSNumber class]]) {
 				NSNumber* number = obj;
-				return [[number stringValue] dataUsingEncoding:NSUTF8StringEncoding];
+				result = [[number stringValue] dataUsingEncoding:NSUTF8StringEncoding];
 			} else {
-				return [converter convertObjectToData:obj];
+				result = [converter convertObjectToData:obj];
 			}
 		} else {
 			NSString* stringValue = [invocation stringValueForParameterAtIndex:paramIdx];
-			return [stringValue dataUsingEncoding:NSUTF8StringEncoding];
+			result = [stringValue dataUsingEncoding:NSUTF8StringEncoding];
 		}
+		
+		return [[DRParameterizeResult alloc] initWithResult:result
+										 consumedParameters:[NSSet setWithObject:bodyParamName]];
 	} else {
-		return nil;
+		return [[DRParameterizeResult alloc] initWithResult:nil
+										 consumedParameters:[NSSet set]];
 	}
 }
 

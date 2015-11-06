@@ -8,6 +8,8 @@
 
 #import <XCTest/XCTest.h>
 #import "DRMethodDescription.h"
+#import "Restless.h"
+#import "GitHubService.h"
 
 @interface DRMethodDescriptionTests : XCTestCase
 
@@ -35,6 +37,25 @@
 	
 	desc = [[DRMethodDescription alloc] initWithDictionary:@{ @"resultType" : @"NSArray *" }];
 	XCTAssertNil([desc resultSubtype]);
+}
+
+- (void)testHeaderParameterization
+{
+	DRRestAdapter* ra = [DRRestAdapter restAdapterWithBlock:^(DRRestAdapterBuilder *builder) {
+		builder.endPoint = [NSURL URLWithString:@"https://api.github.com"];
+		builder.bundle = [NSBundle bundleForClass:[DRRestAdapter class]];
+	}];
+	
+	NSObject<GitHubService>* service = [ra create:@protocol(GitHubService)];
+	
+	NSURLSessionUploadTask* task = [service updateProfilePic:[NSData data] agent:@"test" callback:^(NSString *result, NSURLResponse *response, NSError *error) {
+		
+	}];
+	
+	NSDictionary* expectedHeaders = @{ @"Accept" : @"application/vnd.github.v3.full+json", @"User-Agent" : @"Sub: test" };
+	NSDictionary* processedHeaders = task.originalRequest.allHTTPHeaderFields;
+	
+	XCTAssertEqualObjects(processedHeaders, expectedHeaders);
 }
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DRParameterizeResult.h"
 
 @protocol DRConverter;
 
@@ -25,8 +26,13 @@
 
 - (Class)resultSubtype;
 
-- (NSString*)parameterizedPathForInvocation:(NSInvocation*)invocation withConverter:(id<DRConverter>)converter;
+- (DRParameterizeResult<NSString*>*)parameterizedPathForInvocation:(NSInvocation*)invocation
+													 withConverter:(id<DRConverter>)converter;
 
-- (id)bodyForInvocation:(NSInvocation*)invocation withConverter:(id<DRConverter>)converter;
+- (DRParameterizeResult<NSDictionary*>*)parameterizedHeadersForInvocation:(NSInvocation*)invocation
+														withConverter:(id<DRConverter>)converter;
+
+- (DRParameterizeResult*)bodyForInvocation:(NSInvocation*)invocation
+							 withConverter:(id<DRConverter>)converter;
 
 @end

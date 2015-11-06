@@ -15,14 +15,15 @@
 @protocol GitHubService <DRWebService>
 
 @GET("/users/{user}/repos")
-@Headers({"Accept" : "application/vnd.github.v3.full+json", "User-Agent" : "Retrofit-Sample-App"})
 - (NSURLSessionDataTask*)listRepos:(NSString*)user callback:DR_CALLBACK(NSArray<GitHubRepo*>*)callback;
 
 @GET("/users/{user}/wikis")
 - (NSURLSessionDataTask*)listWikis:(NSString*)user fromDate:(NSDate*)date callback:DR_CALLBACK(NSArray*)callback;
 
 @POST("/updatePic")
-- (NSURLSessionUploadTask*)updateProfilePic:DR_CALLBACK(NSString*)callback;
+@Body("data")
+@Headers({"Accept" : "application/vnd.github.v3.full+json", "User-Agent" : "Sub: {agent}"})
+- (NSURLSessionUploadTask*)updateProfilePic:(NSData*)data agent:(NSString*)agent callback:DR_CALLBACK(NSString*)callback;
 
 @end
 

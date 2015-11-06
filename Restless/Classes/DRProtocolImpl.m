@@ -42,23 +42,45 @@ typedef void (^DRCallback)(id result, NSURLResponse *response, NSError* error);
 {
 	[invocation retainArguments];
 	
+	// track which paramters have been used
+	NSMutableSet* consumedParameters = [[NSMutableSet alloc] init];
+	
+	// get method description
 	NSString* sig = NSStringFromSelector(invocation.selector);
 	DRMethodDescription* desc = self.methodDescriptions[sig];
 	NSLog(@"you called '%@', which has the description:\n%@", sig, desc);
 	
 	NSAssert(desc.resultType != nil, @"Callback not defined for %@", sig);
 	
+	// construct path
 	id<DRConverter> converter = [self.converterFactory converter];
-	NSString* paramedPath = [desc parameterizedPathForInvocation:invocation withConverter:converter];
-	NSURL* fullPath = [self.endPoint URLByAppendingPathComponent:paramedPath];
+	DRParameterizeResult<NSString*>* pathParamResult = [desc parameterizedPathForInvocation:invocation
+																			  withConverter:converter];
+	
+	NSURL* fullPath = [self.endPoint URLByAppendingPathComponent:pathParamResult.result];
+	[consumedParameters unionSet:pathParamResult.consumedParameters];
 	
 	NSLog(@"full path: %@", fullPath);
 	
+	// construct request
 	NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:fullPath];
 	request.HTTPMethod = [desc httpMethod];
 	
-	id bodyObj = [desc bodyForInvocation:invocation withConverter:converter];
+	// get body
+	DRParameterizeResult* bodyParamResult = [desc bodyForInvocation:invocation withConverter:converter];
+	id bodyObj = bodyParamResult.result;
+	[consumedParameters unionSet:bodyParamResult.consumedParameters];
 	
+	// set headers
+	DRParameterizeResult<NSDictionary*>* headerParamResult = [desc parameterizedHeadersForInvocation:invocation
+																					   withConverter:converter];
+	for (NSString* key in headerParamResult.result) {
+		[request setValue:headerParamResult.result[key] forHTTPHeaderField:key];
+	}
+	
+	[consumedParameters unionSet:headerParamResult.consumedParameters];
+	
+	// we'll set this here in case it's not an upload task
 	if ([bodyObj isKindOfClass:[NSData class]]) {
 		request.HTTPBody = bodyObj;
 	} else if ([bodyObj isKindOfClass:[NSInputStream class]]) {
@@ -76,7 +98,9 @@ typedef void (^DRCallback)(id result, NSURLResponse *response, NSError* error);
 	NSAssert(taskClass != nil, @"could not determine session task type");
 	NSURLSessionTask* task = nil;
 	
+	// somewhat complicated construction of correct task and setting of body
 	if (taskClass == [NSURLSessionDownloadTask class]) {
+		// if they provided a URL for the body, assume it is a local file and make a stream
 		if ([bodyObj isKindOfClass:[NSURL class]]) {
 			request.HTTPBodyStream = [NSInputStream inputStreamWithURL:bodyObj];
 		}
@@ -96,6 +120,7 @@ typedef void (^DRCallback)(id result, NSURLResponse *response, NSError* error);
 			};
 		
 		if (taskClass == [NSURLSessionDataTask class]) {
+			// if they provided a URL for the body, assume it is a local file and make a stream
 			if ([bodyObj isKindOfClass:[NSURL class]]) {
 				request.HTTPBodyStream = [NSInputStream inputStreamWithURL:bodyObj];
 			}
