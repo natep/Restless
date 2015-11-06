@@ -65,9 +65,12 @@ typedef void (^DRCallback)(id result, NSURLResponse *response, NSError* error);
 		request.HTTPBodyStream = bodyObj;
 	}
 	
-	__unsafe_unretained DRCallback callback;
+	__unsafe_unretained DRCallback callbackArg;
 	NSUInteger numArgs = [invocation.methodSignature numberOfArguments];
-	[invocation getArgument:&callback atIndex:(numArgs - 1)];
+	[invocation getArgument:&callbackArg atIndex:(numArgs - 1)];
+	
+	// must copy to heap
+	DRCallback callback = [callbackArg copy];
 	
 	Class taskClass = [desc taskClass];
 	NSAssert(taskClass != nil, @"could not determine session task type");

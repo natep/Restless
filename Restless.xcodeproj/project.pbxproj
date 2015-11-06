@@ -72,12 +72,12 @@
 		43D2D6FA1B9FF1BA00A53D0F /* DRDictionaryConvertable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DRDictionaryConvertable.h; sourceTree = "<group>"; };
 		43D2D6FB1B9FF2CD00A53D0F /* DRJsonConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRJsonConverter.h; sourceTree = "<group>"; };
 		43D2D6FC1B9FF2CD00A53D0F /* DRJsonConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRJsonConverter.m; sourceTree = "<group>"; };
+		43D5D4811BEA9B37009F131D /* Restless.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Restless.podspec; sourceTree = SOURCE_ROOT; };
 		7334D5BF54976EDE2785AA49 /* Pods-WebServiceProtocolTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebServiceProtocolTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WebServiceProtocolTests/Pods-WebServiceProtocolTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8D5A0B1FA23F48096BC59F25 /* libPods-RestlessTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RestlessTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A339DD129B666F6FF91C2A71 /* Pods-RestlessTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestlessTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RestlessTests/Pods-RestlessTests.release.xcconfig"; sourceTree = "<group>"; };
 		C7058FD7B947B070D7200A77 /* Pods-WebServiceProtocolTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebServiceProtocolTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WebServiceProtocolTests/Pods-WebServiceProtocolTests.release.xcconfig"; sourceTree = "<group>"; };
 		DECC95670CC19F8DE4B9EC4B /* Pods-RestlessTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestlessTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RestlessTests/Pods-RestlessTests.debug.xcconfig"; sourceTree = "<group>"; };
-		DF45F18F548285EFE81E2D0C /* libPods-WebServiceProtocolTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WebServiceProtocolTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +103,6 @@
 		3439387C9839CA883C4F8C64 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DF45F18F548285EFE81E2D0C /* libPods-WebServiceProtocolTests.a */,
 				8D5A0B1FA23F48096BC59F25 /* libPods-RestlessTests.a */,
 			);
 			name = Frameworks;
@@ -136,6 +135,7 @@
 				43C90F411B9665520071C56E /* Info.plist */,
 				43C90F561B9666170071C56E /* Scripts */,
 				43C90F3F1B9665520071C56E /* Restless.h */,
+				43D5D4811BEA9B37009F131D /* Restless.podspec */,
 			);
 			path = Restless;
 			sourceTree = "<group>";
