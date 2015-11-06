@@ -95,6 +95,32 @@ static NSString* const HEADERS_ANNOTATION_NAME = @"Headers";
 	}
 }
 
+- (NSString*)stringValueForParameterAtIndex:(NSUInteger)index
+							 withInvocation:(NSInvocation*)invocation
+								  converter:(id<DRConverter>)converter
+{
+	NSString* paramValue = nil;
+	DRTypeEncoding* encoding = [invocation typeEncodingForParameterAtIndex:index];
+	
+	if (encoding.encodingClass == DRObjectTypeEncodingClass) {
+		id obj = [invocation objectValueForParameterAtIndex:index];
+		
+		if ([obj isKindOfClass:[NSString class]]) {
+			paramValue = obj;
+		} else if ([obj isKindOfClass:[NSNumber class]]) {
+			paramValue = [obj stringValue];
+		} else if ([converter respondsToSelector:@selector(convertObjectToString:)]) {
+			paramValue = [converter convertObjectToString:obj];
+		} else {
+			NSAssert(NO, @"Could not convert parameter at index: %lu", index);
+		}
+	} else {
+		paramValue = [invocation stringValueForParameterAtIndex:index];
+	}
+	
+	return paramValue;
+}
+
 - (DRParameterizeResult<NSDictionary*>*)parameterizedHeadersForInvocation:(NSInvocation*)invocation
 															withConverter:(id<DRConverter>)converter
 {
@@ -145,24 +171,9 @@ static NSString* const HEADERS_ANNOTATION_NAME = @"Headers";
 		// TODO: this should probably be allowed, in case some URL randomly contains "{not_a_param}"
 		NSAssert(paramIdx != NSNotFound, @"Unknown substitution variable in path: %@", paramName);
 		
-		NSString* paramValue = nil;
-		DRTypeEncoding* encoding = [invocation typeEncodingForParameterAtIndex:paramIdx];
-		
-		if (encoding.encodingClass == DRObjectTypeEncodingClass) {
-			id obj = [invocation objectValueForParameterAtIndex:paramIdx];
-			
-			if ([obj isKindOfClass:[NSString class]]) {
-				paramValue = obj;
-			} else if ([obj isKindOfClass:[NSNumber class]]) {
-				paramValue = [obj stringValue];
-			} else if ([converter respondsToSelector:@selector(convertObjectToString:)]) {
-				paramValue = [converter convertObjectToString:obj];
-			} else {
-				NSAssert(NO, @"Could not convert parameter: %@", paramName);
-			}
-		} else {
-			paramValue = [invocation stringValueForParameterAtIndex:paramIdx];
-		}
+		NSString* paramValue = [self stringValueForParameterAtIndex:paramIdx
+													 withInvocation:invocation
+														  converter:converter];
 		
 		paramValue = [paramValue stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLPathAllowedCharacterSet]];
 		

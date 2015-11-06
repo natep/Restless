@@ -26,6 +26,10 @@
 
 - (Class)resultSubtype;
 
+- (NSString*)stringValueForParameterAtIndex:(NSUInteger)index
+							 withInvocation:(NSInvocation*)invocation
+								  converter:(id<DRConverter>)converter;
+
 - (DRParameterizeResult<NSString*>*)parameterizedPathForInvocation:(NSInvocation*)invocation
 													 withConverter:(id<DRConverter>)converter;
 

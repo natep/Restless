@@ -71,6 +71,13 @@ typedef void (^DRCallback)(id result, NSURLResponse *response, NSError* error);
 	id bodyObj = bodyParamResult.result;
 	[consumedParameters unionSet:bodyParamResult.consumedParameters];
 	
+	// we'll set this here in case it's not an upload task
+	if ([bodyObj isKindOfClass:[NSData class]]) {
+		request.HTTPBody = bodyObj;
+	} else if ([bodyObj isKindOfClass:[NSInputStream class]]) {
+		request.HTTPBodyStream = bodyObj;
+	}
+	
 	// set headers
 	DRParameterizeResult<NSDictionary*>* headerParamResult = [desc parameterizedHeadersForInvocation:invocation
 																					   withConverter:converter];
@@ -80,13 +87,31 @@ typedef void (^DRCallback)(id result, NSURLResponse *response, NSError* error);
 	
 	[consumedParameters unionSet:headerParamResult.consumedParameters];
 	
-	// we'll set this here in case it's not an upload task
-	if ([bodyObj isKindOfClass:[NSData class]]) {
-		request.HTTPBody = bodyObj;
-	} else if ([bodyObj isKindOfClass:[NSInputStream class]]) {
-		request.HTTPBodyStream = bodyObj;
+	// finally, leftover parameters go in the query
+	NSMutableSet* queryParams = [NSMutableSet setWithArray:desc.parameterNames];
+	[queryParams minusSet:consumedParameters];
+	
+	if (queryParams.count > 0) {
+		NSURLComponents* urlComps = [NSURLComponents componentsWithURL:request.URL resolvingAgainstBaseURL:NO];
+		NSMutableArray* queryItems = urlComps.queryItems.mutableCopy;
+		
+		if (queryItems == nil) {
+			queryItems = [[NSMutableArray alloc] init];
+		}
+		
+		for (NSString* paramName in queryParams) {
+			NSUInteger paramIdx = [desc.parameterNames indexOfObject:paramName];
+			NSString* value = [desc stringValueForParameterAtIndex:paramIdx
+													withInvocation:invocation
+														 converter:converter];
+			[queryItems addObject:[[NSURLQueryItem alloc] initWithName:paramName value:value]];
+		}
+		
+		urlComps.queryItems = queryItems;
+		request.URL = urlComps.URL;
 	}
 	
+	// get the callback
 	__unsafe_unretained DRCallback callbackArg;
 	NSUInteger numArgs = [invocation.methodSignature numberOfArguments];
 	[invocation getArgument:&callbackArg atIndex:(numArgs - 1)];
