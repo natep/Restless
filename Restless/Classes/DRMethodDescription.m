@@ -112,7 +112,7 @@ static NSString* const HEADERS_ANNOTATION_NAME = @"Headers";
 		} else if ([converter respondsToSelector:@selector(convertObjectToString:)]) {
 			paramValue = [converter convertObjectToString:obj];
 		} else {
-			NSAssert(NO, @"Could not convert parameter at index: %lu", index);
+			NSAssert(NO, @"Could not convert parameter at index: %lu", (unsigned long)index);
 		}
 	} else {
 		paramValue = [invocation stringValueForParameterAtIndex:index];

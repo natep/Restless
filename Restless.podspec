@@ -6,7 +6,7 @@ Pod::Spec.new do |spec|
 	spec.authors      = { 'Nate Petersen' => 'nate@digitalrickshaw.com' }
 	spec.summary      = 'A type-safe HTTP client for Objective-C, inspired by Retrofit.'
 	spec.source       = { :git => 'https://github.com/natep/Restless', :tag => "#{spec.version}" }
-	spec.source_files = 'Restless/Classes/*.{h,m}'
+	spec.source_files = 'Restless/Classes/*.{h,m}', 'Restless/Restless.h'
 	spec.public_header_files = 'Restless/Restless.h', 'Restless/Classes/DRWebService.h', 'Restless/Classes/DRRestAdapter.h'
 	spec.framework    = 'SystemConfiguration'
 	spec.preserve_paths = 'Scripts/*'
