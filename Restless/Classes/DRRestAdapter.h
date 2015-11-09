@@ -10,6 +10,8 @@
 
 @protocol DRConverterFactory;
 
+extern NSString* const DRHTTPErrorDomain;
+
 
 @interface DRRestAdapterBuilder : NSObject
 

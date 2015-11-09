@@ -12,6 +12,7 @@
 #import "DRMethodDescription.h"
 #import "DRJsonConverterFactory.h"
 
+NSString* const DRHTTPErrorDomain = @"com.digitalrickshaw.Restless.httpErrorDomain";
 
 @interface DRRestAdapter ()
 

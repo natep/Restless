@@ -10,6 +10,7 @@
 #import <objc/runtime.h>
 #import "DRMethodDescription.h"
 #import "DRConverterFactory.h"
+#import "DRRestAdapter.h"
 
 typedef void (^DRCallback)(id result, NSURLResponse *response, NSError* error);
 
@@ -135,6 +136,14 @@ typedef void (^DRCallback)(id result, NSURLResponse *response, NSError* error);
 		void (^completionHandler)(NSData *data, NSURLResponse *response, NSError *error) =
 			^(NSData *data, NSURLResponse *response, NSError *error) {
 				id result = nil;
+				
+				if (!error) {
+					NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
+					
+					if (httpResponse.statusCode < 200 || httpResponse.statusCode >= 300) {
+						error = [NSError errorWithDomain:DRHTTPErrorDomain code:httpResponse.statusCode userInfo:nil];
+					}
+				}
 				
 				if (!error) {
 					Class subtype = [desc resultSubtype];
