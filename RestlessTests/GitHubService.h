@@ -28,7 +28,11 @@
 @POST("/updatePic")
 @Body("data")
 @Headers({"Accept" : "application/vnd.github.v3.full+json", "User-Agent" : "Sub: {agent}"})
-- (NSURLSessionUploadTask*)updateProfilePic:(NSData*)data agent:(NSString*)agent query1:(NSString*)query1 query2:(NSString*)query2 callback:DR_CALLBACK(NSString*)callback;
+- (NSURLSessionUploadTask*)updateProfilePic:(NSData*)data
+									  agent:(NSString*)agent
+									 query1:(NSString*)query1
+									 query2:(NSString*)query2
+								   callback:DR_CALLBACK(NSString*)callback;
 
 @end
 

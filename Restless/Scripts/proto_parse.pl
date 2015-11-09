@@ -32,12 +32,16 @@ if ($string =~ m/\@protocol ([a-zA-Z0-9_]*) <DRWebService>/ ) {
 
 	# Find each annotated method
 	while($string =~ m/(@[a-zA-Z]*\([\S\s]*?;)\n/g ) {
+		print "===========================================\n";
+		print "Working on method blob:\n${1}\n\n";
+		
 		my @lines = split /^/, $1;
 		my $numLines = @lines;
 		my %annotations = ();
+		my $i = 0;
 
 		# Find each annotation
-		for (my $i=0; $i < $numLines - 1; $i++) {
+		for (; $i < $numLines - 1; $i++) {
 			my $line = $lines[$i];
 
 			print "Working on ${line}\n";
@@ -56,13 +60,18 @@ if ($string =~ m/\@protocol ([a-zA-Z0-9_]*) <DRWebService>/ ) {
 					print "final annotation value: @{[%object]}\n";
 					$annotations{$annoName} = \%object;
 				}
+			} else {
+				# assuming the rest is the method sig itself
+				last;
 			}
 		}
 
 		print "Collected annotations:@{[%annotations]}\n";
+	
+		chomp(@lines);
 
 		# Get the method signature
-		my $methodString = $lines[$numLines - 1];
+		my $methodString = join(" ", @lines[$i .. $#lines]);
 
 		print "Working on method string: ${methodString}\n";
 
