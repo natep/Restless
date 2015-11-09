@@ -55,6 +55,7 @@
 		43455F9C1BB06D85009A47BC /* DRMethodDescriptionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRMethodDescriptionTests.m; sourceTree = "<group>"; };
 		43455F9F1BB0C727009A47BC /* GitHubRepo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GitHubRepo.h; sourceTree = "<group>"; };
 		43455FA01BB0C727009A47BC /* GitHubRepo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GitHubRepo.m; sourceTree = "<group>"; };
+		434F57DD1BF1655700A11D0C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		436CB2E31B98F86300810602 /* DRMethodDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRMethodDescription.h; sourceTree = "<group>"; };
 		436CB2E41B98F86300810602 /* DRMethodDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRMethodDescription.m; sourceTree = "<group>"; };
 		4376804E1B9F77A80074799D /* listReposResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = listReposResponse.json; sourceTree = "<group>"; };
@@ -137,9 +138,10 @@
 			children = (
 				43C90F5B1B96687A0071C56E /* Classes */,
 				43C90F411B9665520071C56E /* Info.plist */,
-				43C90F561B9666170071C56E /* Scripts */,
+				434F57DD1BF1655700A11D0C /* README.md */,
 				43C90F3F1B9665520071C56E /* Restless.h */,
 				43D5D4811BEA9B37009F131D /* Restless.podspec */,
+				43C90F561B9666170071C56E /* Scripts */,
 			);
 			path = Restless;
 			sourceTree = "<group>";
