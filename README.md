@@ -30,7 +30,7 @@ Each NSURLSessionTask returned from the created GitHubService can make an asynch
     
     [task resume];
 
-DR_CALLBACK() is a special macro that takes the type of object that you want to be returned, and creates a NSURLSessionTask-style callback where the first callback parameter is an object of that type. In the listRepos example above, a callback type of "NSArray<GitHubRepo*>*" is specified. When you call the listRepos method, code completion will automatically expand that to the following callback:
+DR_CALLBACK() is a special macro that takes the type of object that you want to be returned, and creates a NSURLSessionTask-style callback where the first callback parameter is an object of that type. In the listRepos example above, a callback type of `NSArray<GitHubRepo*>*` is specified. When you call the listRepos method, code completion will automatically expand that to the following callback:
 
     ^(NSArray<GitHubRepo*>* result, NSURLResponse *response, NSError *error)
 
