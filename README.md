@@ -30,12 +30,6 @@ Each NSURLSessionTask returned from the created GitHubService can make an asynch
     
     [task resume];
 
-DR_CALLBACK() is a special macro that takes the type of object that you want to be returned, and creates a NSURLSessionTask-style callback where the first callback parameter is an object of that type. In the listRepos example above, a callback type of `NSArray<GitHubRepo*>*` is specified. When you call the listRepos method, code completion will automatically expand that to the following callback:
-
-    ^(NSArray<GitHubRepo*>* result, NSURLResponse *response, NSError *error)
-
-The library will attempt to convert the response into the type of object you specified, using the converter that was specifed in the builder. In this case, an NSArray of GitHubRepo objects.
-
 Use annotations to describe the HTTP request.
 
 # API Declaration
@@ -72,6 +66,22 @@ An object can be specified for use as an HTTP request body with a @Body method a
 	                             callback:DR_CALLBACK(User*)callback;
 
 The object will also be converted using a converter specified on the DRRestAdapter instance. A JSON converter is used by default.
+
+#### CALLBACK
+
+DR_CALLBACK() is a special macro that takes the type of object that you want to be returned, and creates a NSURLSessionTask-style callback where the first callback parameter is an object of that type. In the listRepos example above, a callback type of `NSArray<GitHubRepo*>*` is specified. When you call the listRepos method, code completion will automatically expand that to the following callback:
+
+	^(NSArray<GitHubRepo*>* result, NSURLResponse *response, NSError *error)
+
+The library will attempt to convert the response into the type of object you specified, using the converter that was specifed in the builder. In this case, an NSArray of GitHubRepo objects.
+
+The callback should always be the last parameter of your method.
+
+#### NSURLSessionTask
+
+The return type of the method defines what type of NSURLSessionTask you want the method to build for you.
+
+NSURLSessionDataTask, NSURLSessionDownloadTask, and NSURLSessionUploadTask are all supported, but you should make sure that the value you pass to DR_CALLBACK() is appropriate for the task. For instance, you should pass `NSURL*` when requesting an NSURLSessionDownloadTask. Upon completion that parameter of the callback will be a URL to a temporary file containing the download.
 
 #### HEADER MANIPULATION
 
