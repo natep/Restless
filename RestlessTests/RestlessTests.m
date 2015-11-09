@@ -68,7 +68,10 @@
 	
 	XCTestExpectation *callBackExpectation = [self expectationWithDescription:@"callback"];
 	
-	NSURLSessionDataTask* task = [service listRepos:@"natep" callback:^(NSArray<GitHubRepo*>* result, NSURLResponse *response, NSError *error) {
+	NSURLSessionDataTask* task = [service listRepos:@"natep"
+										   callback:^(NSArray<GitHubRepo*>* result,
+													  NSURLResponse *response,
+													  NSError *error) {
 		dispatch_async(dispatch_get_main_queue(), ^{
 			XCTAssertNil(error);
 			XCTAssertNotNil(result);
