@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
 	spec.name         = 'Restless'
-	spec.version      = '0.0.2'
+	spec.version      = '0.0.3'
 	spec.license      = { :type => 'MIT' }
 	spec.homepage     = 'https://github.com/natep/Restless'
 	spec.authors      = { 'Nate Petersen' => 'nate@digitalrickshaw.com' }
