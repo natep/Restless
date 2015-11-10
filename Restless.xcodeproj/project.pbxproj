@@ -13,10 +13,12 @@
 		43175F0F1B9A365900E69554 /* NSInvocation+DRUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 43175F0D1B9A365900E69554 /* NSInvocation+DRUtils.m */; };
 		43437A7C1BEC473F00875071 /* DRParameterizeResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 43437A7A1BEC473F00875071 /* DRParameterizeResult.h */; };
 		43437A7D1BEC473F00875071 /* DRParameterizeResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 43437A7B1BEC473F00875071 /* DRParameterizeResult.m */; };
-		43455F991BAE61FB009A47BC /* DRJsonConverterFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 43455F971BAE61FB009A47BC /* DRJsonConverterFactory.h */; };
+		43455F991BAE61FB009A47BC /* DRJsonConverterFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 43455F971BAE61FB009A47BC /* DRJsonConverterFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		43455F9A1BAE61FB009A47BC /* DRJsonConverterFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 43455F981BAE61FB009A47BC /* DRJsonConverterFactory.m */; };
 		43455F9D1BB06D85009A47BC /* DRMethodDescriptionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 43455F9C1BB06D85009A47BC /* DRMethodDescriptionTests.m */; };
 		43455FA11BB0C727009A47BC /* GitHubRepo.m in Sources */ = {isa = PBXBuildFile; fileRef = 43455FA01BB0C727009A47BC /* GitHubRepo.m */; };
+		434F57F01BF280D600A11D0C /* DRConverterFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 43D2D6F91B9FE7E300A53D0F /* DRConverterFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		434F57F11BF280DC00A11D0C /* DRDictionaryConvertable.h in Headers */ = {isa = PBXBuildFile; fileRef = 43D2D6FA1B9FF1BA00A53D0F /* DRDictionaryConvertable.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		436CB2E51B98F86300810602 /* DRMethodDescription.h in Headers */ = {isa = PBXBuildFile; fileRef = 436CB2E31B98F86300810602 /* DRMethodDescription.h */; };
 		436CB2E61B98F86300810602 /* DRMethodDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 436CB2E41B98F86300810602 /* DRMethodDescription.m */; };
 		4376804F1B9F77A80074799D /* listReposResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 4376804E1B9F77A80074799D /* listReposResponse.json */; };
@@ -28,7 +30,7 @@
 		43C90F5F1B9668D20071C56E /* DRProtocolImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 43C90F5D1B9668D20071C56E /* DRProtocolImpl.m */; };
 		43C90F621B9669D90071C56E /* DRRestAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = 43C90F601B9669D90071C56E /* DRRestAdapter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		43C90F631B9669D90071C56E /* DRRestAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 43C90F611B9669D90071C56E /* DRRestAdapter.m */; };
-		43D2D6FD1B9FF2CD00A53D0F /* DRJsonConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 43D2D6FB1B9FF2CD00A53D0F /* DRJsonConverter.h */; };
+		43D2D6FD1B9FF2CD00A53D0F /* DRJsonConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 43D2D6FB1B9FF2CD00A53D0F /* DRJsonConverter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		43D2D6FE1B9FF2CD00A53D0F /* DRJsonConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 43D2D6FC1B9FF2CD00A53D0F /* DRJsonConverter.m */; };
 		C6DC070B0B3E57BECCA62725 /* libPods-RestlessTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D5A0B1FA23F48096BC59F25 /* libPods-RestlessTests.a */; };
 /* End PBXBuildFile section */
@@ -213,16 +215,18 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43455F991BAE61FB009A47BC /* DRJsonConverterFactory.h in Headers */,
 				43C90F5E1B9668D20071C56E /* DRProtocolImpl.h in Headers */,
 				437680501B9F7B3C0074799D /* DRWebService.h in Headers */,
+				43455F991BAE61FB009A47BC /* DRJsonConverterFactory.h in Headers */,
 				43C90F621B9669D90071C56E /* DRRestAdapter.h in Headers */,
+				434F57F01BF280D600A11D0C /* DRConverterFactory.h in Headers */,
+				434F57F11BF280DC00A11D0C /* DRDictionaryConvertable.h in Headers */,
+				43D2D6FD1B9FF2CD00A53D0F /* DRJsonConverter.h in Headers */,
 				43175F0E1B9A365900E69554 /* NSInvocation+DRUtils.h in Headers */,
 				43175F0A1B9A13B000E69554 /* DRTypeEncoding.h in Headers */,
 				43437A7C1BEC473F00875071 /* DRParameterizeResult.h in Headers */,
 				436CB2E51B98F86300810602 /* DRMethodDescription.h in Headers */,
 				43C90F401B9665520071C56E /* Restless.h in Headers */,
-				43D2D6FD1B9FF2CD00A53D0F /* DRJsonConverter.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

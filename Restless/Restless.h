@@ -6,7 +6,7 @@
 //  Copyright © 2015 Digital Rickshaw. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for Restless.
 FOUNDATION_EXPORT double RestlessVersionNumber;
@@ -17,3 +17,7 @@ FOUNDATION_EXPORT const unsigned char RestlessVersionString[];
 // In this header, you should import all the public headers of your framework using statements like #import <Restless/PublicHeader.h>
 #import <Restless/DRWebService.h>
 #import <Restless/DRRestAdapter.h>
+#import <Restless/DRConverterFactory.h>
+#import <Restless/DRDictionaryConvertable.h>
+#import <Restless/DRJsonConverterFactory.h>
+#import <Restless/DRJsonConverter.h>
