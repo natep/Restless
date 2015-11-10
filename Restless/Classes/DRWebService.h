@@ -21,7 +21,9 @@
 #define Body(unused)	required
 #define Headers(...)	required
 
-
+/**
+ * All web services that you wish to build using DRRestAdapter should inherit from this protocol.
+ */
 @protocol DRWebService <NSObject>
 
 @end
