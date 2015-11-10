@@ -4,6 +4,8 @@ A type-safe HTTP client for iOS, inspired by Retrofit.
 
 Restless turns your HTTP API into an Objective-C protocol.
 
+Just define a protocol that inherits from `DRWebService`.
+
     @protocol GitHubService <DRWebService>
     
     @GET("/users/{user}/repos")
@@ -17,6 +19,8 @@ The `DRRestAdapter` class generates an implementation of the `GitHubService` pro
     DRRestAdapter* ra = [DRRestAdapter restAdapterWithBlock:^(DRRestAdapterBuilder *builder) {
 	    builder.endPoint = [NSURL URLWithString:@"https://api.github.com"];
     }];
+	
+	NSObject<GitHubService>* service = [ra create:@protocol(GitHubService)];
 
 Each `NSURLSessionTask` returned from the created `GitHubService` can make an asynchronous HTTP request to the remote webserver.
 
