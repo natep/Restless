@@ -12,13 +12,13 @@ Restless turns your HTTP API into an Objective-C protocol.
 
     @end
 
-The DRRestAdapter class generates an implementation of the GitHubService protocol.
+The `DRRestAdapter` class generates an implementation of the `GitHubService` protocol.
 
     DRRestAdapter* ra = [DRRestAdapter restAdapterWithBlock:^(DRRestAdapterBuilder *builder) {
 	    builder.endPoint = [NSURL URLWithString:@"https://api.github.com"];
     }];
 
-Each NSURLSessionTask returned from the created GitHubService can make an asynchronous HTTP request to the remote webserver.
+Each `NSURLSessionTask` returned from the created `GitHubService` can make an asynchronous HTTP request to the remote webserver.
 
     NSURLSessionDataTask* task = [service listRepos:@"natep"
 	                                       callback:^(NSArray<GitHubRepo*>* result,
@@ -58,41 +58,41 @@ Any parameters to the method that are not otherwise consumed (for instance, used
 
 #### REQUEST BODY
 
-An object can be specified for use as an HTTP request body with a @Body method annotation containing the parameter name.
+An object can be specified for use as an HTTP request body with a `@Body` method annotation containing the parameter name.
 
     @POST("/users/new")
     @Body("user")
     - (NSURLSessionUploadTask*)createUser:(User*)user 
 	                             callback:DR_CALLBACK(User*)callback;
 
-The object will also be converted using a converter specified on the DRRestAdapter instance. A JSON converter is used by default.
+The object will also be converted using a converter specified on the `DRRestAdapter` instance. A JSON converter is used by default.
 
 #### CALLBACK
 
-DR_CALLBACK() is a special macro that takes the type of object that you want to be returned, and creates a NSURLSessionTask-style callback where the first callback parameter is an object of that type. In the listRepos example above, a callback type of `NSArray<GitHubRepo*>*` is specified. When you call the listRepos method, code completion will automatically expand that to the following callback:
+`DR_CALLBACK()` is a special macro that takes the type of object that you want to be returned, and creates a `NSURLSessionTask`-style callback where the first callback parameter is an object of that type. In the `listRepos:callback:` example above, a callback type of `NSArray<GitHubRepo*>*` is specified. When you call the `listRepos:callback:` method, code completion will automatically expand that to the following callback:
 
 	^(NSArray<GitHubRepo*>* result, NSURLResponse *response, NSError *error)
 
-The library will attempt to convert the response into the type of object you specified, using the converter that was specifed in the builder. In this case, an NSArray of GitHubRepo objects.
+The library will attempt to convert the response into the type of object you specified, using the converter that was specifed in the builder. In this case, an `NSArray` of `GitHubRepo` objects.
 
 The callback should always be the last parameter of your method.
 
 #### NSURLSessionTask
 
-The return type of the method defines what type of NSURLSessionTask you want the method to build for you.
+The return type of the method defines what type of `NSURLSessionTask` you want the method to build for you.
 
-NSURLSessionDataTask, NSURLSessionDownloadTask, and NSURLSessionUploadTask are all supported, but you should make sure that the value you pass to DR_CALLBACK() is appropriate for the task. For instance, you should pass `NSURL*` when requesting an NSURLSessionDownloadTask. Upon completion that parameter of the callback will be a URL to a temporary file containing the download.
+`NSURLSessionDataTask`, `NSURLSessionDownloadTask`, and `NSURLSessionUploadTask` are all supported, but you should make sure that the value you pass to `DR_CALLBACK()` is appropriate for the task. For instance, you should pass `NSURL*` when requesting an `NSURLSessionDownloadTask`. Upon completion that parameter of the callback will be a URL to a temporary file containing the download.
 
 #### HEADER MANIPULATION
 
-You can set static headers for a method using the @Headers annotation.
+You can set static headers for a method using the `@Headers` annotation.
 
     @Headers({ "Accept": "application/vnd.github.v3.full+json", "User-Agent": "Restless-Sample-App" })
     @GET("/users/{username}")
     - (NSURLSessionDataTask*)getUser:(NSString*)username
 	                        callback:DR_CALLBACK(User*)callback;
 
-The value of the Headers parameter should always be a JSON object (aka, a dictionary). The value of a header may also use parameter substitution.
+The value of the `@Headers` parameter should always be a JSON object (aka, a dictionary). The value of a header may also use parameter substitution.
 
 # Limitations
 
