@@ -116,6 +116,20 @@ You can set static headers for a method using the `@Headers` annotation.
 
 The value of the `@Headers` parameter should always be a JSON object (aka, a dictionary). The value of a header may also use parameter substitution.
 
+#### AUTHENTICATION
+
+For some authentication methods, you can simply assign a delegate to the `NSURLSession` that Restless uses, and implement `URLSession:didReceiveChallenge:completionHandler:`.
+
+If you are using Basic or Digest Authentication, you can set that Authentication header for all requests in the session by providing it in the `NSURLSessionConfiguration`:
+
+```objective-c
+NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
+[sessionConfig setHTTPAdditionalHeaders:@{ @"Authorization": authHeader }];
+NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfig
+                                                      delegate:nil
+											     delegateQueue:nil];
+```
+
 # Limitations
 
 - Although this library is inspired by Retrofit, it does not yet have complete feature parity. In particular, neither multi-part nor form-encoded bodies are natively supported yet.

@@ -19,7 +19,7 @@ find "${SRCROOT}" -type f -name "*.h" -print0 | while IFS= read -r -d '' file; d
 		echo "${file} matches"
 		echo "Protocol name: ${BASH_REMATCH[1]}"
 
-		perl ${DIR}/proto_parse.pl "${file}" "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
+		perl "${DIR}/proto_parse.pl" "${file}" "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
 	fi
 done
 
