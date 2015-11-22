@@ -13,7 +13,7 @@
 /**
  * An error domain for reporting HTTP status code errors.
  */
-extern NSString* const DRHTTPErrorDomain;
+extern NSString* __nonnull const DRHTTPErrorDomain;
 
 /**
  * A builder for DRRestAdapter.
@@ -23,7 +23,7 @@ extern NSString* const DRHTTPErrorDomain;
 /**
  * The base URL for the web service.
  */
-@property(nonatomic,strong) NSURL* endPoint;
+@property(nonatomic,strong,nullable) NSURL* endPoint;
 
 /**
  * The bundle where Restless' automatically generated files are located.
@@ -31,19 +31,19 @@ extern NSString* const DRHTTPErrorDomain;
  * but it may be necessary when the bundle you are running is not the normal
  * app bundle, such as when running unit tests.
  */
-@property(nonatomic,strong) NSBundle* bundle;
+@property(nonatomic,strong,nullable) NSBundle* bundle;
 
 /**
  * The NSURLSession to be used by all instances of NSURLSessionTask generated
  * by the web service. Defaults to the shared session.
  */
-@property(nonatomic,strong) NSURLSession* urlSession;
+@property(nonatomic,strong,nullable) NSURLSession* urlSession;
 
 /**
  * A factory that creates converters, which are used to convert request parameters
  * and response data. By default uses DRJsonConverterFactory.
  */
-@property(nonatomic,strong) id<DRConverterFactory> converterFactory;
+@property(nonatomic,strong,nullable) id<DRConverterFactory> converterFactory;
 
 @end
 
@@ -55,7 +55,7 @@ extern NSString* const DRHTTPErrorDomain;
 /**
  * Creates a new DRRestAdapter using a builder block.
  */
-+ (instancetype)restAdapterWithBlock:(void(^)(DRRestAdapterBuilder* builder))block;
++ (instancetype __nonnull)restAdapterWithBlock:(void(^ __nonnull)(DRRestAdapterBuilder* __nonnull builder))block;
 
 /**
  * Constructs an implementation of the given protocol.
@@ -64,6 +64,6 @@ extern NSString* const DRHTTPErrorDomain;
  *
  * @return	Returns an object that implements the protocol.
  */
-- (id)create:(Protocol*)protocol;
+- (id __nonnull)create:(Protocol* __nonnull)protocol;
 
 @end
