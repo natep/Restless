@@ -9,7 +9,12 @@
 #ifndef DRWebService_h
 #define DRWebService_h
 
-#define DR_CALLBACK(type) (void (^)(type result, NSURLResponse *response, NSError* error))
+
+#ifdef DR_NULLABILITY_ANNOTATIONS
+	#define DR_CALLBACK(type) (void (^ __nonnull)(type __nullable result, NSURLResponse * __nullable response, NSError* __nullable error))
+#else
+	#define DR_CALLBACK(type) (void (^)(type result, NSURLResponse *response, NSError* error))
+#endif
 
 #define GET(unused)		required
 #define POST(unused)	required
