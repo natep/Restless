@@ -141,7 +141,17 @@ typedef void (^DRCallback)(id result, NSURLResponse *response, NSError* error);
 					NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
 					
 					if (httpResponse.statusCode < 200 || httpResponse.statusCode >= 300) {
-						error = [NSError errorWithDomain:DRHTTPErrorDomain code:httpResponse.statusCode userInfo:nil];
+						NSDictionary* userInfo = nil;
+						
+						if (data) {
+							NSString* errorMessage = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+							
+							if (errorMessage) {
+								userInfo = @{ NSLocalizedDescriptionKey : errorMessage };
+							}
+						}
+						
+						error = [NSError errorWithDomain:DRHTTPErrorDomain code:httpResponse.statusCode userInfo:userInfo];
 					}
 				}
 				
