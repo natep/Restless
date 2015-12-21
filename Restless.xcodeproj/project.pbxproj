@@ -32,6 +32,10 @@
 		43C90F631B9669D90071C56E /* DRRestAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 43C90F611B9669D90071C56E /* DRRestAdapter.m */; };
 		43D2D6FD1B9FF2CD00A53D0F /* DRJsonConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 43D2D6FB1B9FF2CD00A53D0F /* DRJsonConverter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		43D2D6FE1B9FF2CD00A53D0F /* DRJsonConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 43D2D6FC1B9FF2CD00A53D0F /* DRJsonConverter.m */; };
+		43D9F5401C27182700E24D70 /* DRSessionTaskProgressHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 43D9F53E1C27182700E24D70 /* DRSessionTaskProgressHandler.h */; };
+		43D9F5411C27182700E24D70 /* DRSessionTaskProgressHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 43D9F53F1C27182700E24D70 /* DRSessionTaskProgressHandler.m */; };
+		43D9F5441C27188700E24D70 /* NSURLSessionTask+DRProgressHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 43D9F5421C27188700E24D70 /* NSURLSessionTask+DRProgressHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		43D9F5451C27188700E24D70 /* NSURLSessionTask+DRProgressHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 43D9F5431C27188700E24D70 /* NSURLSessionTask+DRProgressHandler.m */; };
 		C6DC070B0B3E57BECCA62725 /* libPods-RestlessTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D5A0B1FA23F48096BC59F25 /* libPods-RestlessTests.a */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +84,10 @@
 		43D2D6FB1B9FF2CD00A53D0F /* DRJsonConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRJsonConverter.h; sourceTree = "<group>"; };
 		43D2D6FC1B9FF2CD00A53D0F /* DRJsonConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRJsonConverter.m; sourceTree = "<group>"; };
 		43D5D4811BEA9B37009F131D /* Restless.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Restless.podspec; sourceTree = SOURCE_ROOT; };
+		43D9F53E1C27182700E24D70 /* DRSessionTaskProgressHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRSessionTaskProgressHandler.h; sourceTree = "<group>"; };
+		43D9F53F1C27182700E24D70 /* DRSessionTaskProgressHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRSessionTaskProgressHandler.m; sourceTree = "<group>"; };
+		43D9F5421C27188700E24D70 /* NSURLSessionTask+DRProgressHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLSessionTask+DRProgressHandler.h"; sourceTree = "<group>"; };
+		43D9F5431C27188700E24D70 /* NSURLSessionTask+DRProgressHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLSessionTask+DRProgressHandler.m"; sourceTree = "<group>"; };
 		7334D5BF54976EDE2785AA49 /* Pods-WebServiceProtocolTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebServiceProtocolTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WebServiceProtocolTests/Pods-WebServiceProtocolTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8D5A0B1FA23F48096BC59F25 /* libPods-RestlessTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RestlessTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A339DD129B666F6FF91C2A71 /* Pods-RestlessTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestlessTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RestlessTests/Pods-RestlessTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -188,11 +196,15 @@
 				43C90F5D1B9668D20071C56E /* DRProtocolImpl.m */,
 				43C90F601B9669D90071C56E /* DRRestAdapter.h */,
 				43C90F611B9669D90071C56E /* DRRestAdapter.m */,
+				43D9F53E1C27182700E24D70 /* DRSessionTaskProgressHandler.h */,
+				43D9F53F1C27182700E24D70 /* DRSessionTaskProgressHandler.m */,
 				43175F081B9A13B000E69554 /* DRTypeEncoding.h */,
 				43175F091B9A13B000E69554 /* DRTypeEncoding.m */,
 				43C90F641B966CBC0071C56E /* DRWebService.h */,
 				43175F0C1B9A365900E69554 /* NSInvocation+DRUtils.h */,
 				43175F0D1B9A365900E69554 /* NSInvocation+DRUtils.m */,
+				43D9F5421C27188700E24D70 /* NSURLSessionTask+DRProgressHandler.h */,
+				43D9F5431C27188700E24D70 /* NSURLSessionTask+DRProgressHandler.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -219,7 +231,9 @@
 				437680501B9F7B3C0074799D /* DRWebService.h in Headers */,
 				43455F991BAE61FB009A47BC /* DRJsonConverterFactory.h in Headers */,
 				43C90F621B9669D90071C56E /* DRRestAdapter.h in Headers */,
+				43D9F5401C27182700E24D70 /* DRSessionTaskProgressHandler.h in Headers */,
 				434F57F01BF280D600A11D0C /* DRConverterFactory.h in Headers */,
+				43D9F5441C27188700E24D70 /* NSURLSessionTask+DRProgressHandler.h in Headers */,
 				434F57F11BF280DC00A11D0C /* DRDictionaryConvertable.h in Headers */,
 				43D2D6FD1B9FF2CD00A53D0F /* DRJsonConverter.h in Headers */,
 				43175F0E1B9A365900E69554 /* NSInvocation+DRUtils.h in Headers */,
@@ -376,9 +390,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43D9F5411C27182700E24D70 /* DRSessionTaskProgressHandler.m in Sources */,
 				43D2D6FE1B9FF2CD00A53D0F /* DRJsonConverter.m in Sources */,
 				43C90F5F1B9668D20071C56E /* DRProtocolImpl.m in Sources */,
 				43C90F631B9669D90071C56E /* DRRestAdapter.m in Sources */,
+				43D9F5451C27188700E24D70 /* NSURLSessionTask+DRProgressHandler.m in Sources */,
 				43175F0F1B9A365900E69554 /* NSInvocation+DRUtils.m in Sources */,
 				43175F0B1B9A13B000E69554 /* DRTypeEncoding.m in Sources */,
 				436CB2E61B98F86300810602 /* DRMethodDescription.m in Sources */,

@@ -21,3 +21,4 @@ FOUNDATION_EXPORT const unsigned char RestlessVersionString[];
 #import <Restless/DRDictionaryConvertable.h>
 #import <Restless/DRJsonConverterFactory.h>
 #import <Restless/DRJsonConverter.h>
+#import <Restless/NSURLSessionTask+DRProgressHandler.h>
