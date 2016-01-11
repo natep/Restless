@@ -11,13 +11,15 @@
 
 @protocol DRConverter <NSObject>
 
-- (id)convertData:(NSData*)data toObjectOfClass:(Class)cls;
+- (id)convertData:(NSData*)data toObjectOfClass:(Class)cls error:(NSError**)error;
 
-- (NSData*)convertObjectToData:(id)object;
+- (NSData*)convertObjectToData:(id)object error:(NSError**)error;
 
 @optional
 
-- (NSString*)convertObjectToString:(id)object;
+- (NSError*)convertErrorData:(NSData*)errorData;
+
+- (NSString*)convertObjectToString:(id)object error:(NSError**)error;
 
 @end
 

@@ -11,4 +11,6 @@
 
 @interface DRJsonConverter : NSObject <DRConverter>
 
+- (id)convertJSONObject:(id)jsonObject toObjectOfClass:(Class)cls error:(NSError**)error;
+
 @end

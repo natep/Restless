@@ -98,6 +98,7 @@ static NSString* const HEADERS_ANNOTATION_NAME = @"Headers";
 - (NSString*)stringValueForParameterAtIndex:(NSUInteger)index
 							 withInvocation:(NSInvocation*)invocation
 								  converter:(id<DRConverter>)converter
+									  error:(NSError**)error
 {
 	NSString* paramValue = nil;
 	DRTypeEncoding* encoding = [invocation typeEncodingForParameterAtIndex:index];
@@ -109,8 +110,8 @@ static NSString* const HEADERS_ANNOTATION_NAME = @"Headers";
 			paramValue = obj;
 		} else if ([obj isKindOfClass:[NSNumber class]]) {
 			paramValue = [obj stringValue];
-		} else if ([converter respondsToSelector:@selector(convertObjectToString:)]) {
-			paramValue = [converter convertObjectToString:obj];
+		} else if ([converter respondsToSelector:@selector(convertObjectToString:error:)]) {
+			paramValue = [converter convertObjectToString:obj error:error];
 		} else {
 			NSAssert(NO, @"Could not convert parameter at index: %lu", (unsigned long)index);
 		}
@@ -123,6 +124,7 @@ static NSString* const HEADERS_ANNOTATION_NAME = @"Headers";
 
 - (DRParameterizeResult<NSDictionary*>*)parameterizedHeadersForInvocation:(NSInvocation*)invocation
 															withConverter:(id<DRConverter>)converter
+																	error:(NSError**)error
 {
 	NSDictionary* headers = self.annotations[HEADERS_ANNOTATION_NAME];
 	NSMutableDictionary* result = [[NSMutableDictionary alloc] init];
@@ -131,7 +133,9 @@ static NSString* const HEADERS_ANNOTATION_NAME = @"Headers";
 	for (NSString* key in headers) {
 		NSString* headerValue = headers[key];
 		DRParameterizeResult<NSString*>* valueResult = [self parameterizedString:headerValue
-																   forInvocation:invocation withConverter:converter];
+																   forInvocation:invocation
+																   withConverter:converter
+																		   error:error];
 		result[key] = valueResult.result;
 		[consumedParameters unionSet:valueResult.consumedParameters];
 	}
@@ -141,22 +145,28 @@ static NSString* const HEADERS_ANNOTATION_NAME = @"Headers";
 
 - (DRParameterizeResult<NSString*>*)parameterizedPathForInvocation:(NSInvocation*)invocation
 													 withConverter:(id<DRConverter>)converter
+															 error:(NSError**)error
 {
 	NSString* path = self.annotations[self.httpMethod];
 	return [self parameterizedString:path
-					   forInvocation:invocation withConverter:converter];
+					   forInvocation:invocation withConverter:converter
+							   error:error];
 }
 
 - (DRParameterizeResult<NSString*>*)parameterizedString:(NSString*)string
 										  forInvocation:(NSInvocation*)invocation
 										  withConverter:(id<DRConverter>)converter
+												  error:(NSError**)error
 {
 	NSMutableSet* consumedParameters = [[NSMutableSet alloc] init];
 	NSMutableString* paramedString = string.mutableCopy;
-	NSError* error = nil;
 	NSRegularExpression* regex = [NSRegularExpression regularExpressionWithPattern:@"\\{([a-zA-Z0-9_]+)\\}"
 																		   options:0
-																			 error:&error];
+																			 error:error];
+	
+	if (error && *error) {
+		return nil;
+	}
 	
 	NSArray *matches = [regex matchesInString:string
 									  options:0
@@ -173,7 +183,12 @@ static NSString* const HEADERS_ANNOTATION_NAME = @"Headers";
 		
 		NSString* paramValue = [self stringValueForParameterAtIndex:paramIdx
 													 withInvocation:invocation
-														  converter:converter];
+														  converter:converter
+															  error:error];
+		
+		if (error && *error) {
+			return nil;
+		}
 		
 		paramValue = [paramValue stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLPathAllowedCharacterSet]];
 		
@@ -187,6 +202,7 @@ static NSString* const HEADERS_ANNOTATION_NAME = @"Headers";
 
 - (DRParameterizeResult*)bodyForInvocation:(NSInvocation*)invocation
 							 withConverter:(id<DRConverter>)converter
+									 error:(NSError**)error
 {
 	NSString* bodyParamName = self.annotations[BODY_ANNOTATION_NAME];
 	id result = nil;
@@ -212,7 +228,11 @@ static NSString* const HEADERS_ANNOTATION_NAME = @"Headers";
 				NSNumber* number = obj;
 				result = [[number stringValue] dataUsingEncoding:NSUTF8StringEncoding];
 			} else {
-				result = [converter convertObjectToData:obj];
+				result = [converter convertObjectToData:obj error:error];
+				
+				if (error && *error) {
+					return nil;
+				}
 			}
 		} else {
 			NSString* stringValue = [invocation stringValueForParameterAtIndex:paramIdx];

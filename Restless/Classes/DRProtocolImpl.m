@@ -36,6 +36,16 @@ typedef void (^DRCallback)(id result, NSURLResponse *response, NSError* error);
 	}
 }
 
+- (void)cleanupInvocation:(NSInvocation*)invocation callingError:(NSError*)error callback:(DRCallback)callback
+{
+	id nilReturn = nil;
+	[invocation setReturnValue:&nilReturn];
+	
+	[self.urlSession.delegateQueue addOperationWithBlock:^{
+		callback(nil, nil, error);
+	}];
+}
+
 /*
  * This big ugly method really needs to be refactored.
  */
@@ -53,10 +63,25 @@ typedef void (^DRCallback)(id result, NSURLResponse *response, NSError* error);
 	
 	NSAssert(desc.resultType != nil, @"Callback not defined for %@", sig);
 	
+	// get the callback
+	__unsafe_unretained DRCallback callbackArg;
+	NSUInteger numArgs = [invocation.methodSignature numberOfArguments];
+	[invocation getArgument:&callbackArg atIndex:(numArgs - 1)];
+	
+	// must copy to heap
+	DRCallback callback = [callbackArg copy];
+	
 	// construct path
+	NSError* error = nil;
 	id<DRConverter> converter = [self.converterFactory converter];
 	DRParameterizeResult<NSString*>* pathParamResult = [desc parameterizedPathForInvocation:invocation
-																			  withConverter:converter];
+																			  withConverter:converter
+																					  error:&error];
+	
+	if (error) {
+		[self cleanupInvocation:invocation callingError:error callback:callback];
+		return;
+	}
 	
 	NSURL* fullPath = [self.endPoint URLByAppendingPathComponent:pathParamResult.result];
 	[consumedParameters unionSet:pathParamResult.consumedParameters];
@@ -68,7 +93,13 @@ typedef void (^DRCallback)(id result, NSURLResponse *response, NSError* error);
 	request.HTTPMethod = [desc httpMethod];
 	
 	// get body
-	DRParameterizeResult* bodyParamResult = [desc bodyForInvocation:invocation withConverter:converter];
+	DRParameterizeResult* bodyParamResult = [desc bodyForInvocation:invocation withConverter:converter error:&error];
+	
+	if (error) {
+		[self cleanupInvocation:invocation callingError:error callback:callback];
+		return;
+	}
+	
 	id bodyObj = bodyParamResult.result;
 	[consumedParameters unionSet:bodyParamResult.consumedParameters];
 	
@@ -81,7 +112,14 @@ typedef void (^DRCallback)(id result, NSURLResponse *response, NSError* error);
 	
 	// set headers
 	DRParameterizeResult<NSDictionary*>* headerParamResult = [desc parameterizedHeadersForInvocation:invocation
-																					   withConverter:converter];
+																					   withConverter:converter
+																							   error:&error];
+	
+	if (error) {
+		[self cleanupInvocation:invocation callingError:error callback:callback];
+		return;
+	}
+	
 	for (NSString* key in headerParamResult.result) {
 		[request setValue:headerParamResult.result[key] forHTTPHeaderField:key];
 	}
@@ -104,21 +142,20 @@ typedef void (^DRCallback)(id result, NSURLResponse *response, NSError* error);
 			NSUInteger paramIdx = [desc.parameterNames indexOfObject:paramName];
 			NSString* value = [desc stringValueForParameterAtIndex:paramIdx
 													withInvocation:invocation
-														 converter:converter];
+														 converter:converter
+															 error:&error];
+			
+			if (error) {
+				[self cleanupInvocation:invocation callingError:error callback:callback];
+				return;
+			}
+			
 			[queryItems addObject:[[NSURLQueryItem alloc] initWithName:paramName value:value]];
 		}
 		
 		urlComps.queryItems = queryItems;
 		request.URL = urlComps.URL;
 	}
-	
-	// get the callback
-	__unsafe_unretained DRCallback callbackArg;
-	NSUInteger numArgs = [invocation.methodSignature numberOfArguments];
-	[invocation getArgument:&callbackArg atIndex:(numArgs - 1)];
-	
-	// must copy to heap
-	DRCallback callback = [callbackArg copy];
 	
 	Class taskClass = [desc taskClass];
 	NSAssert(taskClass != nil, @"could not determine session task type");
@@ -141,23 +178,30 @@ typedef void (^DRCallback)(id result, NSURLResponse *response, NSError* error);
 					NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
 					
 					if (httpResponse.statusCode < 200 || httpResponse.statusCode >= 300) {
-						NSDictionary* userInfo = nil;
 						
-						if (data) {
-							NSString* errorMessage = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-							
-							if (errorMessage) {
-								userInfo = @{ NSLocalizedDescriptionKey : errorMessage };
-							}
+						if ([converter respondsToSelector:@selector(convertErrorData:)]) {
+							error = [converter convertErrorData:data];
 						}
 						
-						error = [NSError errorWithDomain:DRHTTPErrorDomain code:httpResponse.statusCode userInfo:userInfo];
+						if (!error) {
+							NSDictionary* userInfo = nil;
+							
+							if (data) {
+								NSString* errorMessage = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+								
+								if (errorMessage) {
+									userInfo = @{ NSLocalizedDescriptionKey : errorMessage };
+								}
+							}
+							
+							error = [NSError errorWithDomain:DRHTTPErrorDomain code:httpResponse.statusCode userInfo:userInfo];
+						}
 					}
 				}
 				
 				if (!error) {
 					Class subtype = [desc resultSubtype];
-					result = [converter convertData:data toObjectOfClass:subtype];
+					result = [converter convertData:data toObjectOfClass:subtype error:&error];
 				}
 				
 				callback(result, response, error);

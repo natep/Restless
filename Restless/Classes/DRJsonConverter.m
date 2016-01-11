@@ -11,15 +11,26 @@
 
 @implementation DRJsonConverter
 
-- (id)convertData:(NSData *)data toObjectOfClass:(Class)cls
+- (id)convertData:(NSData*)data toObjectOfClass:(Class)cls error:(NSError**)error
 {
-	id jsonObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-	
-	if (cls == nil) {
-		return jsonObject;
-	} else if (cls == [NSString class]) {
+	if (cls == [NSString class]) {
 		// I guess if they want a string, just return that directly
 		return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+	}
+	
+	id jsonObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:error];
+	
+	if (error && *error) {
+		return nil;
+	}
+	
+	return [self convertJSONObject:jsonObject toObjectOfClass:cls error:error];
+}
+
+- (id)convertJSONObject:(id)jsonObject toObjectOfClass:(Class)cls error:(NSError**)error
+{
+	if (cls == nil) {
+		return jsonObject;
 	} else if ([jsonObject isKindOfClass:[NSDictionary class]]) {
 		return [[cls alloc] initWithDictionary:jsonObject];
 	} else {
@@ -34,11 +45,11 @@
 	}
 }
 
-- (NSData*)convertObjectToData:(id)object
+- (NSData*)convertObjectToData:(id)object error:(NSError**)error
 {
 	id result = [self convertObjectToJSONValue:object];
 	
-	return [NSJSONSerialization dataWithJSONObject:result options:0 error:nil];
+	return [NSJSONSerialization dataWithJSONObject:result options:0 error:error];
 }
 
 - (id)convertObjectToJSONValue:(id)object
@@ -69,9 +80,9 @@
 	}
 }
 
-- (NSString*)convertObjectToString:(id)object
+- (NSString*)convertObjectToString:(id)object error:(NSError**)error
 {
-	return [[NSString alloc] initWithData:[self convertObjectToData:object] encoding:NSUTF8StringEncoding];
+	return [[NSString alloc] initWithData:[self convertObjectToData:object error:error] encoding:NSUTF8StringEncoding];
 }
 
 @end

@@ -28,15 +28,19 @@
 
 - (NSString*)stringValueForParameterAtIndex:(NSUInteger)index
 							 withInvocation:(NSInvocation*)invocation
-								  converter:(id<DRConverter>)converter;
+								  converter:(id<DRConverter>)converter
+									  error:(NSError**)error;
 
 - (DRParameterizeResult<NSString*>*)parameterizedPathForInvocation:(NSInvocation*)invocation
-													 withConverter:(id<DRConverter>)converter;
+													 withConverter:(id<DRConverter>)converter
+															 error:(NSError**)error;
 
 - (DRParameterizeResult<NSDictionary*>*)parameterizedHeadersForInvocation:(NSInvocation*)invocation
-														withConverter:(id<DRConverter>)converter;
+														withConverter:(id<DRConverter>)converter
+																	error:(NSError**)error;
 
 - (DRParameterizeResult*)bodyForInvocation:(NSInvocation*)invocation
-							 withConverter:(id<DRConverter>)converter;
+							 withConverter:(id<DRConverter>)converter
+									 error:(NSError**)error;
 
 @end
