@@ -179,8 +179,8 @@ typedef void (^DRCallback)(id result, NSURLResponse *response, NSError* error);
 					
 					if (httpResponse.statusCode < 200 || httpResponse.statusCode >= 300) {
 						
-						if ([converter respondsToSelector:@selector(convertErrorData:)]) {
-							error = [converter convertErrorData:data];
+						if ([converter respondsToSelector:@selector(convertErrorData:forResponse:)]) {
+							error = [converter convertErrorData:data forResponse:httpResponse];
 						}
 						
 						if (!error) {
