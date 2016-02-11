@@ -24,7 +24,7 @@
 
 - (Class)taskClass;
 
-- (Class)resultSubtype;
+- (Class)resultConversionClass;
 
 - (NSString*)stringValueForParameterAtIndex:(NSUInteger)index
 							 withInvocation:(NSInvocation*)invocation

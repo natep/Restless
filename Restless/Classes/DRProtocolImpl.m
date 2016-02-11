@@ -200,8 +200,8 @@ typedef void (^DRCallback)(id result, NSURLResponse *response, NSError* error);
 				}
 				
 				if (!error) {
-					Class subtype = [desc resultSubtype];
-					result = [converter convertData:data toObjectOfClass:subtype error:&error];
+					Class type = [desc resultConversionClass];
+					result = [converter convertData:data toObjectOfClass:type error:&error];
 				}
 				
 				callback(result, response, error);

@@ -29,10 +29,12 @@
 
 - (id)convertJSONObject:(id)jsonObject toObjectOfClass:(Class)cls error:(NSError**)error
 {
-	if (cls == nil) {
+	if (cls == nil || cls == [NSDictionary class] || cls == [NSArray class]) {
 		return jsonObject;
+		
 	} else if ([jsonObject isKindOfClass:[NSDictionary class]]) {
 		return [[cls alloc] initWithDictionary:jsonObject];
+		
 	} else {
 		NSMutableArray* result = [[NSMutableArray alloc] init];
 		

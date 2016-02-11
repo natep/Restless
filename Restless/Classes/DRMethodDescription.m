@@ -95,6 +95,18 @@ static NSString* const HEADERS_ANNOTATION_NAME = @"Headers";
 	}
 }
 
+- (Class)resultConversionClass
+{
+	if ([self.resultType hasPrefix:@"NSArray"]) {
+		return [self resultSubtype];
+	} else {
+		NSString* resultString = [self.resultType stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+		NSArray* split = [resultString componentsSeparatedByString:@"*"];
+		NSString* resultClassName = [[split firstObject] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+		return NSClassFromString(resultClassName);
+	}
+}
+
 - (NSString*)stringValueForParameterAtIndex:(NSUInteger)index
 							 withInvocation:(NSInvocation*)invocation
 								  converter:(id<DRConverter>)converter

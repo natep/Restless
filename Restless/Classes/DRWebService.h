@@ -9,6 +9,8 @@
 #ifndef DRWebService_h
 #define DRWebService_h
 
+#import <Foundation/Foundation.h>
+
 #ifdef DR_SWIFT_COMPAT
 	#define DR_CALLBACK(type) (void (^ __nonnull)(type __nullable result, NSURLResponse * __nullable response, NSError* __nullable error))
 #else
@@ -25,10 +27,17 @@
 #define Body(unused)	required
 #define Headers(...)	required
 
+@protocol DRConverterFactory;
+
 /**
  * All web services that you wish to build using DRRestAdapter should inherit from this protocol.
  */
 @protocol DRWebService <NSObject>
+
+- (NSURL*)endPoint;
+- (NSURLSession*)urlSession;
+- (NSDictionary*)methodDescriptions;
+- (id<DRConverterFactory>)converterFactory;
 
 @end
 
