@@ -1,0 +1,541 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0581C6239D53D982002A3011CBFC3F77 /* DRRestAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = E2F67521D8CDB2C02DE25A33405B65B7 /* DRRestAdapter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07612BBCE20753B9DC4562E0D2B06495 /* DRRestAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = C83CE04B73A89F7408CA22A3C3F8D269 /* DRRestAdapter.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		0A7E3829CFDC5A846EF5035FB08BC3C6 /* DRProtocolImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AD5C6C75284D91388CE8C203C95B650 /* DRProtocolImpl.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		0EAB5C0B8C272A2D238EBA49BC723DD7 /* NSURLSessionTask+DRProgressHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF8EF5E8CB7FD069309840A80013D19 /* NSURLSessionTask+DRProgressHandler.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		154736A62F7350413389926E6069A94D /* DRJsonConverterFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A3819364D8181DC00337D09EAE9857AC /* DRJsonConverterFactory.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		198491A8F7484BC6228222FDF55D1722 /* DRProtocolImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ADA975D2FE037096584C00562BFE44 /* DRProtocolImpl.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		1CA54BB6E09D5543E8EC98FF6625D177 /* DRMethodDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4083EECB7C24AAE75CC15CEE026994 /* DRMethodDescription.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		3E7922522F32E0AD3F4DC408EA9471C3 /* NSInvocation+DRUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 670A60A058A5D317BA8889256537532C /* NSInvocation+DRUtils.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		4830A0F1547E9803CC099F916088080E /* NSURLSessionTask+DRProgressHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 75D499428FCEFE25B1D7FAC1DD582781 /* NSURLSessionTask+DRProgressHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4BE07828E340874FCD622F2634C82E92 /* DRWebService.h in Headers */ = {isa = PBXBuildFile; fileRef = C47C2D4B2A7B1FD77E30C48C8764D5DA /* DRWebService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		55A5CBEF4FB191B7773F59E6A2139A13 /* DRJsonConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = D49B06987DBFA863E43B880C509A0C13 /* DRJsonConverter.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		8BC2EBB7B00D3EE90FCEC2C5789D37FB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
+		8DEE3299F42412B7C0AF7DB5951F58B7 /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 272643F56613CA0D336AE3DBF19DC404 /* Pods-dummy.m */; };
+		AC9DC6636C9B1C0E2FB90A254602D4AB /* DRTypeEncoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BC01FEAC3283DC5F6F597550CB37F69 /* DRTypeEncoding.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		B0C000231F6E7373C39AE9F7155D5403 /* Restless.h in Headers */ = {isa = PBXBuildFile; fileRef = 90D45231C633DDA033FE3434B100A21E /* Restless.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BCACA6FD4B59F8F65DBF5D04BCC1E0A2 /* DRConverterFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC61DBF30E48DFE8D747CE567F70BB7 /* DRConverterFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C4BE545351D054252878A41855D2E794 /* DRDictionaryConvertable.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F52D66BF138BD32A69E43332012C324 /* DRDictionaryConvertable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C9F9E7FE6B00E27573FE98116727A204 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
+		CA2AF7A551782BF0DD7C06D4326FEF7D /* Restless-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B959AC00E6EA443C1FA7E3099AC3360 /* Restless-dummy.m */; };
+		CC31AFF6D4A97ADBF40E88DCAC93FA84 /* DRMethodDescription.h in Headers */ = {isa = PBXBuildFile; fileRef = 3485FE4DA73CEB5A081D1A606D25694B /* DRMethodDescription.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		CC9321F2B9724C4A84965EEE7C88162E /* DRParameterizeResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E2C04A7B9B92334826FB40C9EE1ECD8 /* DRParameterizeResult.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		D9CDB002473CB85EADE4F0D30437C162 /* DRParameterizeResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 36FFB7865D2A4F1E63FFEA0BA587A78B /* DRParameterizeResult.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		DABE83F423FEA858DA4DC1C40AA76D30 /* DRJsonConverterFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 195E57B96F0D9709B956BDEB206EFAEE /* DRJsonConverterFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E33B8518E2B94EA0B824AC61573E3757 /* DRSessionTaskProgressHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 71ACEA90EFC9DBEA69DE5BE7CF6C7220 /* DRSessionTaskProgressHandler.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		EDCB0F865270136084B9FAB31A88E4AA /* DRSessionTaskProgressHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = BA1A0FB5A514DE5D7EC27920A5DBB698 /* DRSessionTaskProgressHandler.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		F656EC1F38801CCC56BCC0C30532CFC2 /* DRTypeEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = B82BC317B9CC7D76E155C7540F7D8B47 /* DRTypeEncoding.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		F6D3CE0B2B929BEE62E21BBC8CF1574B /* DRJsonConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F421D4398E6A3AF3B9A8DC7EC4EEBEF /* DRJsonConverter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FD4A86A0FCA8B83B3680C9E514D03EA5 /* NSInvocation+DRUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 14492147AD9AC55296D60681070EB3B1 /* NSInvocation+DRUtils.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A2E52173CB98B91601B35D499764C404 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 59F66268741EC1371094007FBDAF6B21;
+			remoteInfo = Restless;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		10834806BD7B412BC24F347361FA2C8E /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
+		14492147AD9AC55296D60681070EB3B1 /* NSInvocation+DRUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+DRUtils.m"; sourceTree = "<group>"; };
+		195E57B96F0D9709B956BDEB206EFAEE /* DRJsonConverterFactory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DRJsonConverterFactory.h; sourceTree = "<group>"; };
+		1AD5C6C75284D91388CE8C203C95B650 /* DRProtocolImpl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DRProtocolImpl.h; sourceTree = "<group>"; };
+		272643F56613CA0D336AE3DBF19DC404 /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
+		2AF8EF5E8CB7FD069309840A80013D19 /* NSURLSessionTask+DRProgressHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSURLSessionTask+DRProgressHandler.m"; sourceTree = "<group>"; };
+		2B959AC00E6EA443C1FA7E3099AC3360 /* Restless-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Restless-dummy.m"; sourceTree = "<group>"; };
+		2BE466AC78B7887E40702E6A788E0F48 /* libRestless.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRestless.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3485FE4DA73CEB5A081D1A606D25694B /* DRMethodDescription.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DRMethodDescription.h; sourceTree = "<group>"; };
+		34C5FE1E6C7E5BE0CADBC03D8F7B360C /* Restless-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Restless-prefix.pch"; sourceTree = "<group>"; };
+		36FFB7865D2A4F1E63FFEA0BA587A78B /* DRParameterizeResult.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DRParameterizeResult.h; sourceTree = "<group>"; };
+		37DB56D75062CC75FCB0966E1C6E8A8E /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
+		3BC01FEAC3283DC5F6F597550CB37F69 /* DRTypeEncoding.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DRTypeEncoding.h; sourceTree = "<group>"; };
+		3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		4E762F23EC34ED4A6FF3312D84E33A40 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
+		5DC61DBF30E48DFE8D747CE567F70BB7 /* DRConverterFactory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DRConverterFactory.h; sourceTree = "<group>"; };
+		5F52D66BF138BD32A69E43332012C324 /* DRDictionaryConvertable.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DRDictionaryConvertable.h; sourceTree = "<group>"; };
+		670A60A058A5D317BA8889256537532C /* NSInvocation+DRUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSInvocation+DRUtils.h"; sourceTree = "<group>"; };
+		6911BECA35E7518D864239B7E898EEF3 /* Pods-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-frameworks.sh"; sourceTree = "<group>"; };
+		6F421D4398E6A3AF3B9A8DC7EC4EEBEF /* DRJsonConverter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DRJsonConverter.h; sourceTree = "<group>"; };
+		71ACEA90EFC9DBEA69DE5BE7CF6C7220 /* DRSessionTaskProgressHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DRSessionTaskProgressHandler.m; sourceTree = "<group>"; };
+		75D499428FCEFE25B1D7FAC1DD582781 /* NSURLSessionTask+DRProgressHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSURLSessionTask+DRProgressHandler.h"; sourceTree = "<group>"; };
+		90D45231C633DDA033FE3434B100A21E /* Restless.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Restless.h; sourceTree = "<group>"; };
+		98C98CDFB3F20F2925F6CD1F141BB14F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
+		9E2C04A7B9B92334826FB40C9EE1ECD8 /* DRParameterizeResult.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DRParameterizeResult.m; sourceTree = "<group>"; };
+		A1A36D34413696BE466E2CA0AFF194DA /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
+		A3819364D8181DC00337D09EAE9857AC /* DRJsonConverterFactory.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DRJsonConverterFactory.m; sourceTree = "<group>"; };
+		A8ADA975D2FE037096584C00562BFE44 /* DRProtocolImpl.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DRProtocolImpl.m; sourceTree = "<group>"; };
+		B82BC317B9CC7D76E155C7540F7D8B47 /* DRTypeEncoding.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DRTypeEncoding.m; sourceTree = "<group>"; };
+		BA1A0FB5A514DE5D7EC27920A5DBB698 /* DRSessionTaskProgressHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DRSessionTaskProgressHandler.h; sourceTree = "<group>"; };
+		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		C47C2D4B2A7B1FD77E30C48C8764D5DA /* DRWebService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DRWebService.h; sourceTree = "<group>"; };
+		C83CE04B73A89F7408CA22A3C3F8D269 /* DRRestAdapter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DRRestAdapter.m; sourceTree = "<group>"; };
+		D49B06987DBFA863E43B880C509A0C13 /* DRJsonConverter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DRJsonConverter.m; sourceTree = "<group>"; };
+		D8DF3086B9D34188C55EDA2F457EF2BC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2F67521D8CDB2C02DE25A33405B65B7 /* DRRestAdapter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DRRestAdapter.h; sourceTree = "<group>"; };
+		E97F6055CB660AE7CD9F8715C67EE1C7 /* Restless.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Restless.xcconfig; sourceTree = "<group>"; };
+		EA4083EECB7C24AAE75CC15CEE026994 /* DRMethodDescription.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DRMethodDescription.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9A067F6F45A44F1223B4A6425D92C6F0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9F9E7FE6B00E27573FE98116727A204 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E9102085A98A0A468AB0F6DD2DF8EE0A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8BC2EBB7B00D3EE90FCEC2C5789D37FB /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		037C0CA694176A3C0915F62C9D20B3E6 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B3D1D13E0C6553800746CB8FD61CF946 /* Pods */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		67BA506385B13C9022C9F54F6465B7DE /* Restless */ = {
+			isa = PBXGroup;
+			children = (
+				90D45231C633DDA033FE3434B100A21E /* Restless.h */,
+				89A1305150D6C9BF2ED3D58575FE36E7 /* Classes */,
+			);
+			path = Restless;
+			sourceTree = "<group>";
+		};
+		794BDF52170E815BE93B68C49F8810EA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D8DF3086B9D34188C55EDA2F457EF2BC /* libPods.a */,
+				2BE466AC78B7887E40702E6A788E0F48 /* libRestless.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
+				EC4C263B6239EB4494A370C7A6A5A112 /* Development Pods */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				794BDF52170E815BE93B68C49F8810EA /* Products */,
+				037C0CA694176A3C0915F62C9D20B3E6 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		81EEC3898C2AEC6E40BA275229EA78D3 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E97F6055CB660AE7CD9F8715C67EE1C7 /* Restless.xcconfig */,
+				2B959AC00E6EA443C1FA7E3099AC3360 /* Restless-dummy.m */,
+				34C5FE1E6C7E5BE0CADBC03D8F7B360C /* Restless-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/Restless";
+			sourceTree = "<group>";
+		};
+		89A1305150D6C9BF2ED3D58575FE36E7 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				5DC61DBF30E48DFE8D747CE567F70BB7 /* DRConverterFactory.h */,
+				5F52D66BF138BD32A69E43332012C324 /* DRDictionaryConvertable.h */,
+				6F421D4398E6A3AF3B9A8DC7EC4EEBEF /* DRJsonConverter.h */,
+				D49B06987DBFA863E43B880C509A0C13 /* DRJsonConverter.m */,
+				195E57B96F0D9709B956BDEB206EFAEE /* DRJsonConverterFactory.h */,
+				A3819364D8181DC00337D09EAE9857AC /* DRJsonConverterFactory.m */,
+				3485FE4DA73CEB5A081D1A606D25694B /* DRMethodDescription.h */,
+				EA4083EECB7C24AAE75CC15CEE026994 /* DRMethodDescription.m */,
+				36FFB7865D2A4F1E63FFEA0BA587A78B /* DRParameterizeResult.h */,
+				9E2C04A7B9B92334826FB40C9EE1ECD8 /* DRParameterizeResult.m */,
+				1AD5C6C75284D91388CE8C203C95B650 /* DRProtocolImpl.h */,
+				A8ADA975D2FE037096584C00562BFE44 /* DRProtocolImpl.m */,
+				E2F67521D8CDB2C02DE25A33405B65B7 /* DRRestAdapter.h */,
+				C83CE04B73A89F7408CA22A3C3F8D269 /* DRRestAdapter.m */,
+				BA1A0FB5A514DE5D7EC27920A5DBB698 /* DRSessionTaskProgressHandler.h */,
+				71ACEA90EFC9DBEA69DE5BE7CF6C7220 /* DRSessionTaskProgressHandler.m */,
+				3BC01FEAC3283DC5F6F597550CB37F69 /* DRTypeEncoding.h */,
+				B82BC317B9CC7D76E155C7540F7D8B47 /* DRTypeEncoding.m */,
+				C47C2D4B2A7B1FD77E30C48C8764D5DA /* DRWebService.h */,
+				670A60A058A5D317BA8889256537532C /* NSInvocation+DRUtils.h */,
+				14492147AD9AC55296D60681070EB3B1 /* NSInvocation+DRUtils.m */,
+				75D499428FCEFE25B1D7FAC1DD582781 /* NSURLSessionTask+DRProgressHandler.h */,
+				2AF8EF5E8CB7FD069309840A80013D19 /* NSURLSessionTask+DRProgressHandler.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		9A235C3AEE0499A8507597D7C52FA4B2 /* Restless */ = {
+			isa = PBXGroup;
+			children = (
+				67BA506385B13C9022C9F54F6465B7DE /* Restless */,
+				81EEC3898C2AEC6E40BA275229EA78D3 /* Support Files */,
+			);
+			name = Restless;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		B3D1D13E0C6553800746CB8FD61CF946 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				37DB56D75062CC75FCB0966E1C6E8A8E /* Pods-acknowledgements.markdown */,
+				10834806BD7B412BC24F347361FA2C8E /* Pods-acknowledgements.plist */,
+				272643F56613CA0D336AE3DBF19DC404 /* Pods-dummy.m */,
+				6911BECA35E7518D864239B7E898EEF3 /* Pods-frameworks.sh */,
+				A1A36D34413696BE466E2CA0AFF194DA /* Pods-resources.sh */,
+				4E762F23EC34ED4A6FF3312D84E33A40 /* Pods.debug.xcconfig */,
+				98C98CDFB3F20F2925F6CD1F141BB14F /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			path = "Target Support Files/Pods";
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BF6342C8B29F4CEEA088EFF7AB4DE362 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BF6342C8B29F4CEEA088EFF7AB4DE362 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		EC4C263B6239EB4494A370C7A6A5A112 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9A235C3AEE0499A8507597D7C52FA4B2 /* Restless */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		C01DA1589650971ED61EE16AD5B2CC80 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCACA6FD4B59F8F65DBF5D04BCC1E0A2 /* DRConverterFactory.h in Headers */,
+				C4BE545351D054252878A41855D2E794 /* DRDictionaryConvertable.h in Headers */,
+				F6D3CE0B2B929BEE62E21BBC8CF1574B /* DRJsonConverter.h in Headers */,
+				DABE83F423FEA858DA4DC1C40AA76D30 /* DRJsonConverterFactory.h in Headers */,
+				CC31AFF6D4A97ADBF40E88DCAC93FA84 /* DRMethodDescription.h in Headers */,
+				D9CDB002473CB85EADE4F0D30437C162 /* DRParameterizeResult.h in Headers */,
+				0A7E3829CFDC5A846EF5035FB08BC3C6 /* DRProtocolImpl.h in Headers */,
+				0581C6239D53D982002A3011CBFC3F77 /* DRRestAdapter.h in Headers */,
+				EDCB0F865270136084B9FAB31A88E4AA /* DRSessionTaskProgressHandler.h in Headers */,
+				AC9DC6636C9B1C0E2FB90A254602D4AB /* DRTypeEncoding.h in Headers */,
+				4BE07828E340874FCD622F2634C82E92 /* DRWebService.h in Headers */,
+				3E7922522F32E0AD3F4DC408EA9471C3 /* NSInvocation+DRUtils.h in Headers */,
+				4830A0F1547E9803CC099F916088080E /* NSURLSessionTask+DRProgressHandler.h in Headers */,
+				B0C000231F6E7373C39AE9F7155D5403 /* Restless.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		59F66268741EC1371094007FBDAF6B21 /* Restless */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2748B3DA88B0C57AC1C8A36ECDBC25CC /* Build configuration list for PBXNativeTarget "Restless" */;
+			buildPhases = (
+				7A8E9388AA429B9DCA072FC62965FDCB /* Sources */,
+				9A067F6F45A44F1223B4A6425D92C6F0 /* Frameworks */,
+				C01DA1589650971ED61EE16AD5B2CC80 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Restless;
+			productName = Restless;
+			productReference = 2BE466AC78B7887E40702E6A788E0F48 /* libRestless.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		CC7A04C15DB58278CEA8B4D1AE219A24 /* Pods */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E2E96E1E29C5E97DDBE987350A571D19 /* Build configuration list for PBXNativeTarget "Pods" */;
+			buildPhases = (
+				951EBFBC26AF29D635213EE76F8670B5 /* Sources */,
+				E9102085A98A0A468AB0F6DD2DF8EE0A /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D357BCB6CB06BBD2F3FA4CC66FAC636B /* PBXTargetDependency */,
+			);
+			name = Pods;
+			productName = Pods;
+			productReference = D8DF3086B9D34188C55EDA2F457EF2BC /* libPods.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 794BDF52170E815BE93B68C49F8810EA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CC7A04C15DB58278CEA8B4D1AE219A24 /* Pods */,
+				59F66268741EC1371094007FBDAF6B21 /* Restless */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7A8E9388AA429B9DCA072FC62965FDCB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55A5CBEF4FB191B7773F59E6A2139A13 /* DRJsonConverter.m in Sources */,
+				154736A62F7350413389926E6069A94D /* DRJsonConverterFactory.m in Sources */,
+				1CA54BB6E09D5543E8EC98FF6625D177 /* DRMethodDescription.m in Sources */,
+				CC9321F2B9724C4A84965EEE7C88162E /* DRParameterizeResult.m in Sources */,
+				198491A8F7484BC6228222FDF55D1722 /* DRProtocolImpl.m in Sources */,
+				07612BBCE20753B9DC4562E0D2B06495 /* DRRestAdapter.m in Sources */,
+				E33B8518E2B94EA0B824AC61573E3757 /* DRSessionTaskProgressHandler.m in Sources */,
+				F656EC1F38801CCC56BCC0C30532CFC2 /* DRTypeEncoding.m in Sources */,
+				FD4A86A0FCA8B83B3680C9E514D03EA5 /* NSInvocation+DRUtils.m in Sources */,
+				0EAB5C0B8C272A2D238EBA49BC723DD7 /* NSURLSessionTask+DRProgressHandler.m in Sources */,
+				CA2AF7A551782BF0DD7C06D4326FEF7D /* Restless-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		951EBFBC26AF29D635213EE76F8670B5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DEE3299F42412B7C0AF7DB5951F58B7 /* Pods-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D357BCB6CB06BBD2F3FA4CC66FAC636B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Restless;
+			target = 59F66268741EC1371094007FBDAF6B21 /* Restless */;
+			targetProxy = A2E52173CB98B91601B35D499764C404 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		2011879E34055CB6D119F0E95663959D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 98C98CDFB3F20F2925F6CD1F141BB14F /* Pods.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		4221F77A45157FB67FB6BF528816757E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E97F6055CB660AE7CD9F8715C67EE1C7 /* Restless.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Restless/Restless-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		6145044723DAD3833D819E681EE31F11 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E97F6055CB660AE7CD9F8715C67EE1C7 /* Restless.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Restless/Restless-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		6A7326A399037FEC7401093CDAEC7671 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4E762F23EC34ED4A6FF3312D84E33A40 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		8D1534490D941DCA47C62AC4314182AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		C5A18280E9321A9268D1C80B7DA43967 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2748B3DA88B0C57AC1C8A36ECDBC25CC /* Build configuration list for PBXNativeTarget "Restless" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6145044723DAD3833D819E681EE31F11 /* Debug */,
+				4221F77A45157FB67FB6BF528816757E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8D1534490D941DCA47C62AC4314182AF /* Debug */,
+				C5A18280E9321A9268D1C80B7DA43967 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E2E96E1E29C5E97DDBE987350A571D19 /* Build configuration list for PBXNativeTarget "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A7326A399037FEC7401093CDAEC7671 /* Debug */,
+				2011879E34055CB6D119F0E95663959D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

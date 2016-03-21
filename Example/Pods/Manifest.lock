@@ -1,0 +1,14 @@
+PODS:
+  - Restless (0.0.5)
+
+DEPENDENCIES:
+  - Restless (from `../`)
+
+EXTERNAL SOURCES:
+  Restless:
+    :path: ../
+
+SPEC CHECKSUMS:
+  Restless: 74460c11cc5cc16910ed90b30e6a662d0bb619b6
+
+COCOAPODS: 0.39.0
