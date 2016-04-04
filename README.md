@@ -72,6 +72,10 @@ A request URL can be updated dynamically using replacement blocks and parameters
 
 Any parameters to the method that are not otherwise consumed (for instance, used in a substitution) are included in the URL as a query item.
 
+##### FormUrlEncoded
+
+If you use the annotation `@FormUrlEncoded`, unused parameters will be included in the encoded body, instead of in the URL query.
+
 #### REQUEST BODY
 
 An object can be specified for use as an HTTP request body with a `@Body` method annotation containing the parameter name.
@@ -132,7 +136,7 @@ NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfig
 
 # Limitations
 
-- Although this library is inspired by Retrofit, it does not yet have complete feature parity. In particular, neither multi-part nor form-encoded bodies are natively supported yet.
+- Although this library is inspired by Retrofit, it does not yet have complete feature parity. In particular, multi-part encoded bodies are not natively supported yet.
 
 - The current parsing logic does not handle multi-line annotations. So you cannot have a single annotation that spans multiple lines.
 
