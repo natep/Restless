@@ -26,6 +26,7 @@
 
 #define Body(unused)	required
 #define Headers(...)	required
+#define FormUrlEncoded	required
 
 @protocol DRConverterFactory;
 

@@ -14,6 +14,7 @@
 
 static NSString* const BODY_ANNOTATION_NAME = @"Body";
 static NSString* const HEADERS_ANNOTATION_NAME = @"Headers";
+static NSString* const FORM_URL_ENCODED_ANNOTATION_NAME = @"FormUrlEncoded";
 
 @implementation DRMethodDescription
 
@@ -105,6 +106,13 @@ static NSString* const HEADERS_ANNOTATION_NAME = @"Headers";
 		NSString* resultClassName = [[split firstObject] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
 		return NSClassFromString(resultClassName);
 	}
+}
+
+- (BOOL)isFormURLEncoded
+{
+	NSNumber* isEncoded = self.annotations[FORM_URL_ENCODED_ANNOTATION_NAME];
+	
+	return isEncoded.boolValue;
 }
 
 - (NSString*)stringValueForParameterAtIndex:(NSUInteger)index

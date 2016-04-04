@@ -53,7 +53,7 @@ typedef void (^DRCallback)(id result, NSURLResponse *response, NSError* error);
 {
 	[invocation retainArguments];
 	
-	// track which paramters have been used
+	// track which parameters have been used
 	NSMutableSet* consumedParameters = [[NSMutableSet alloc] init];
 	
 	// get method description
@@ -103,13 +103,6 @@ typedef void (^DRCallback)(id result, NSURLResponse *response, NSError* error);
 	id bodyObj = bodyParamResult.result;
 	[consumedParameters unionSet:bodyParamResult.consumedParameters];
 	
-	// we'll set this here in case it's not an upload task
-	if ([bodyObj isKindOfClass:[NSData class]]) {
-		request.HTTPBody = bodyObj;
-	} else if ([bodyObj isKindOfClass:[NSInputStream class]]) {
-		request.HTTPBodyStream = bodyObj;
-	}
-	
 	// set headers
 	DRParameterizeResult<NSDictionary*>* headerParamResult = [desc parameterizedHeadersForInvocation:invocation
 																					   withConverter:converter
@@ -126,35 +119,70 @@ typedef void (^DRCallback)(id result, NSURLResponse *response, NSError* error);
 	
 	[consumedParameters unionSet:headerParamResult.consumedParameters];
 	
-	// finally, leftover parameters go in the query
+	// finally, leftover parameters go in the query (or form-url-encoded body)
 	NSMutableSet* queryParams = [NSMutableSet setWithArray:desc.parameterNames];
 	[queryParams minusSet:consumedParameters];
 	
-	if (queryParams.count > 0) {
+	if ([desc isFormURLEncoded]) {
+		
+		NSAssert(bodyObj == nil, @"FormURLEncoding and an explicit Body object are mutually exclusive");
+		
+		// for FormURLEncoding, put extra params in body instead of URL query
+		
+		// I guess don't override this if the user set it explicitly
+		if (![request valueForHTTPHeaderField:@"Content-Type"]) {
+			[request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+		}
+		
+		// compose the form body
+		NSArray* formItems = [self queryItemsForParameters:queryParams
+										 methodDescription:desc
+												invocation:invocation
+												 converter:converter
+													 error:&error];
+		
+		if (error) {
+			[self cleanupInvocation:invocation callingError:error callback:callback];
+			return;
+		} else {
+			// let's slightly abuse this to construct the url encoded body
+			NSURLComponents* urlComps = [NSURLComponents componentsWithString:@"http://example.com"];
+			urlComps.queryItems = formItems;
+			NSURL* url = urlComps.URL;
+			NSString* bodyString = url.query;
+			bodyObj = [bodyString dataUsingEncoding:NSUTF8StringEncoding];
+		}
+		
+	} else if (queryParams.count > 0) {
 		NSURLComponents* urlComps = [NSURLComponents componentsWithURL:request.URL resolvingAgainstBaseURL:NO];
 		NSMutableArray* queryItems = urlComps.queryItems.mutableCopy;
 		
-		if (queryItems == nil) {
-			queryItems = [[NSMutableArray alloc] init];
-		}
+		NSArray* otherQueryItems = [self queryItemsForParameters:queryParams
+											   methodDescription:desc
+													  invocation:invocation
+													   converter:converter
+														   error:&error];
 		
-		for (NSString* paramName in queryParams) {
-			NSUInteger paramIdx = [desc.parameterNames indexOfObject:paramName];
-			NSString* value = [desc stringValueForParameterAtIndex:paramIdx
-													withInvocation:invocation
-														 converter:converter
-															 error:&error];
-			
-			if (error) {
-				[self cleanupInvocation:invocation callingError:error callback:callback];
-				return;
+		if (error) {
+			[self cleanupInvocation:invocation callingError:error callback:callback];
+			return;
+		} else if (otherQueryItems) {
+			if (queryItems) {
+				[queryItems addObjectsFromArray:otherQueryItems];
+			} else {
+				queryItems = otherQueryItems.mutableCopy;
 			}
-			
-			[queryItems addObject:[[NSURLQueryItem alloc] initWithName:paramName value:value]];
 		}
 		
 		urlComps.queryItems = queryItems;
 		request.URL = urlComps.URL;
+	}
+	
+	// we'll set this here in case it's not an upload task
+	if ([bodyObj isKindOfClass:[NSData class]]) {
+		request.HTTPBody = bodyObj;
+	} else if ([bodyObj isKindOfClass:[NSInputStream class]]) {
+		request.HTTPBodyStream = bodyObj;
 	}
 	
 	Class taskClass = [desc taskClass];
@@ -229,6 +257,33 @@ typedef void (^DRCallback)(id result, NSURLResponse *response, NSError* error);
 	}
 	
 	[invocation setReturnValue:&task];
+}
+
+- (NSArray*)queryItemsForParameters:(NSSet*)queryParameters
+				  methodDescription:(DRMethodDescription*)methodDescription
+						 invocation:(NSInvocation*)invocation
+						  converter:(id<DRConverter>)converter
+							  error:(NSError**)error
+{
+	NSMutableArray* queryItems = [[NSMutableArray alloc] init];
+	
+	
+	for (NSString* paramName in queryParameters) {
+		
+		NSUInteger paramIdx = [methodDescription.parameterNames indexOfObject:paramName];
+		NSString* value = [methodDescription stringValueForParameterAtIndex:paramIdx
+												withInvocation:invocation
+													 converter:converter
+														 error:error];
+		
+		if (error && *error) {
+			return nil;
+		}
+		
+		[queryItems addObject:[[NSURLQueryItem alloc] initWithName:paramName value:value]];
+	}
+	
+	return queryItems;
 }
 
 @end

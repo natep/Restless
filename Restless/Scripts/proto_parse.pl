@@ -60,6 +60,10 @@ if ($string =~ m/\@protocol ([a-zA-Z0-9_]*) <DRWebService>/ ) {
 					print "final annotation value: @{[%object]}\n";
 					$annotations{$annoName} = \%object;
 				}
+			} elsif ($line =~ m/@([a-zA-Z]*)/g) {
+				my $annoName = $1;
+				print "Got annotation, ${annoName}\n";
+				$annotations{$annoName} = JSON::PP::true;
 			} else {
 				# assuming the rest is the method sig itself
 				last;

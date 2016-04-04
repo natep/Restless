@@ -39,6 +39,13 @@
 									 query2:(NSString*)query2
 								   callback:DR_CALLBACK(NSString*)callback;
 
+@POST("/example/formEncodingTest")
+@FormUrlEncoded
+- (NSURLSessionDataTask*)submitName:(NSString*)name
+								age:(NSUInteger)age
+							formula:(NSString*)formula
+						   callback:DR_CALLBACK(NSArray*)callback;
+
 @end
 
 #endif

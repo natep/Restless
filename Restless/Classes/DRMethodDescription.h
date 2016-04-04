@@ -26,6 +26,8 @@
 
 - (Class)resultConversionClass;
 
+- (BOOL)isFormURLEncoded;
+
 - (NSString*)stringValueForParameterAtIndex:(NSUInteger)index
 							 withInvocation:(NSInvocation*)invocation
 								  converter:(id<DRConverter>)converter
