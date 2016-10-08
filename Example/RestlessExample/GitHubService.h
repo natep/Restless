@@ -16,8 +16,8 @@
 
 @protocol GitHubService <DRWebService>
 
-@GET("/users/{user}/repos")
-- (NSURLSessionDataTask*)listRepos:(NSString*)user
+@GET("/users/{user}/repos?sort=desc")
+- (NSURLSessionDataTask*)listReposDesc:(NSString*)user
 						  callback:DR_CALLBACK(NSArray<GitHubRepo*>*)callback;
 
 @GET("/repos/{user}/{repo}/issues")

@@ -44,7 +44,7 @@
 {
 	// fetch repos from web service
 	
-	NSURLSessionDataTask* task = [self.webService listRepos:self.textfield.text callback:
+	NSURLSessionDataTask* task = [self.webService listReposDesc:self.textfield.text callback:
 		^(NSArray<GitHubRepo *> *result, NSURLResponse *response, NSError *error) {
 			self.repos = result;
 			[self performSegueWithIdentifier:@"repoList" sender:self];
