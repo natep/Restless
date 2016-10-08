@@ -18,6 +18,10 @@
 - (NSURLSessionDataTask*)listRepos:(NSString*)user
 						  callback:DR_CALLBACK(NSArray<GitHubRepo*>*)callback;
 
+@GET("/users/{user}/repos?sort=desc")
+- (NSURLSessionDataTask*)listReposDesc:(NSString*)user
+						  callback:DR_CALLBACK(NSArray<GitHubRepo*>*)callback;
+
 @GET("/users/{user}/wikis")
 - (NSURLSessionDataTask*)listWikis:(NSString*)user
 						  fromDate:(NSDate*)date
