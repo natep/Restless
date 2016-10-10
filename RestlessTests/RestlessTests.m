@@ -94,6 +94,57 @@
 	}];
 }
 
+- (void)testProtocolEndToEndSuccessWithoutEscapingQuestionMark {
+	[OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
+		return [request.URL.host isEqualToString:@"api.github.com"];
+	} withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
+		if ([request.URL.path isEqualToString:@"/users/natep/repos"] && [request.URL.absoluteString containsString:@"?sort=desc"]) {
+			NSString* fixture = OHPathForFile(@"listReposResponse.json", self.class);
+			return [OHHTTPStubsResponse responseWithFileAtPath:fixture
+													statusCode:200
+													   headers:@{@"Content-Type":@"application/json"}];
+		} else {
+			XCTAssertFalse([request.URL.absoluteString containsString:@"%3F"], @"the question mark should not be escaped");
+			NSError* error = [NSError errorWithDomain:NSURLErrorDomain code:kCFURLErrorBadURL userInfo:nil];
+			return [OHHTTPStubsResponse responseWithError:error];
+		}
+	}];
+
+	DRRestAdapter* ra = [DRRestAdapter restAdapterWithBlock:^(DRRestAdapterBuilder *builder) {
+		builder.endPoint = [NSURL URLWithString:@"https://api.github.com"];
+		builder.bundle = [NSBundle bundleForClass:[DRRestAdapter class]];
+	}];
+
+	NSObject<GitHubService>* service = [ra create:@protocol(GitHubService)];
+
+	XCTestExpectation *callBackExpectation = [self expectationWithDescription:@"callback"];
+
+	NSURLSessionDataTask* task = [service listReposDesc:@"natep"
+										   callback:^(NSArray<GitHubRepo*>* result,
+													  NSURLResponse *response,
+													  NSError *error) {
+		dispatch_async(dispatch_get_main_queue(), ^{
+			XCTAssertNil(error);
+			XCTAssertNotNil(result);
+			XCTAssertTrue([result isKindOfClass:[NSArray class]]);
+			XCTAssertEqual([result count], 4);
+			XCTAssertTrue([[result firstObject] isKindOfClass:[GitHubRepo class]]);
+			GitHubRepo* repo = [result firstObject];
+			XCTAssertEqualObjects(repo.repoId, @(32614184));
+
+			[callBackExpectation fulfill];
+		});
+	}];
+
+	[task resume];
+
+	[self waitForExpectationsWithTimeout:5 handler:^(NSError *error) {
+		if (error) {
+			NSLog(@"%@", error);
+		}
+	}];
+}
+
 - (void)testProtocolEndToEndFailure {
 	[OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
 		return [request.URL.host isEqualToString:@"api.github.com"];

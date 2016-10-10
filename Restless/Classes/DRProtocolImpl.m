@@ -85,7 +85,13 @@ typedef void (^DRCallback)(id result, NSURLResponse *response, NSError* error);
 	
 	NSURL* fullPath = [self.endPoint URLByAppendingPathComponent:pathParamResult.result];
 	[consumedParameters unionSet:pathParamResult.consumedParameters];
-	
+
+    NSString* newURL = [fullPath.absoluteString stringByReplacingOccurrencesOfString:@"%3F" withString:@"?"];
+
+    NSURL* newFullPath = [NSURL URLWithString:newURL];
+
+    fullPath = newFullPath;
+
 	NSLog(@"full path: %@", fullPath);
 	
 	// construct request
