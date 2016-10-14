@@ -130,4 +130,23 @@
 	}];
 }
 
+- (void)testBuildURLWithHardcodedQuery {
+    DRRestAdapter* ra = [DRRestAdapter restAdapterWithBlock:^(DRRestAdapterBuilder *builder) {
+        builder.endPoint = [NSURL URLWithString:@"https://api.github.com"];
+        builder.bundle = [NSBundle bundleForClass:[DRRestAdapter class]];
+    }];
+
+    NSObject<GitHubService>* service = [ra create:@protocol(GitHubService)];
+
+    NSURLSessionDataTask* task = [service listReposDesc:@"natep" callback:^(NSArray *result, NSURLResponse *response, NSError *error) {}];
+
+    NSArray* items = [[NSURLComponents alloc] initWithURL:task.originalRequest.URL resolvingAgainstBaseURL:NO].queryItems;
+    XCTAssertEqual(items.count, 1);
+
+    NSURLQueryItem* item = items.firstObject;
+
+    XCTAssertEqualObjects(item.name, @"sort");
+    XCTAssertEqualObjects(item.value, @"desc");
+}
+
 @end

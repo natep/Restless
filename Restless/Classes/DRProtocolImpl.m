@@ -83,7 +83,7 @@ typedef void (^DRCallback)(id result, NSURLResponse *response, NSError* error);
 		return;
 	}
 	
-	NSURL* fullPath = [self.endPoint URLByAppendingPathComponent:pathParamResult.result];
+	NSURL* fullPath = [NSURL URLWithString:pathParamResult.result relativeToURL:self.endPoint];
 	[consumedParameters unionSet:pathParamResult.consumedParameters];
 	
 	NSLog(@"full path: %@", fullPath);
