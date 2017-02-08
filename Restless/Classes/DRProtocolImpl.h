@@ -17,5 +17,6 @@
 @property(nonatomic,strong) NSURLSession* urlSession;
 @property(nonatomic,strong) NSDictionary* methodDescriptions;
 @property(nonatomic,strong) id<DRConverterFactory> converterFactory;
+@property(nonatomic) BOOL notificationEnabled;
 
 @end

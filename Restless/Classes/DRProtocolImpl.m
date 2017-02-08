@@ -228,9 +228,38 @@ typedef void (^DRCallback)(id result, NSURLResponse *response, NSError* error);
 				}
 				
 				if (!error) {
+                    
+                    if (_notificationEnabled) {
+                        //post a notification with the response, data and original request
+                        NSMutableDictionary *usrInfo = [@{} mutableCopy];
+                        if (request) {
+                            usrInfo[DRHTTPRequestKey] = request;
+                        }
+                        if (response) {
+                            usrInfo[DRHTTPResponseKey] = response;
+                        }
+                        if (data) {
+                            usrInfo[DRHTTPResponseDataKey] = data;
+                        }
+                        [[NSNotificationCenter defaultCenter] postNotificationName:DRHTTPResponseNotification object:nil userInfo:usrInfo];
+                    }
+                    
 					Class type = [desc resultConversionClass];
 					result = [converter convertData:data toObjectOfClass:type error:&error];
-				}
+                    
+                } else {
+                    if (_notificationEnabled) {
+                        //post a notification with the original request and error
+                        NSMutableDictionary *usrInfo = [@{} mutableCopy];
+                        if (request) {
+                            usrInfo[DRHTTPRequestKey] = request;
+                        }
+                        if (error) {
+                            usrInfo[DRHTTPErrorKey] = error;
+                        }
+                        [[NSNotificationCenter defaultCenter] postNotificationName:DRHTTPResponseNotification object:nil userInfo:usrInfo];
+                    }
+                }
 				
 				callback(result, response, error);
 			};
@@ -241,6 +270,15 @@ typedef void (^DRCallback)(id result, NSURLResponse *response, NSError* error);
 				request.HTTPBodyStream = [NSInputStream inputStreamWithURL:bodyObj];
 			}
 			
+            if (_notificationEnabled) {
+                //post a notification with the original request
+                NSMutableDictionary *usrInfo = [@{} mutableCopy];
+                if (request) {
+                    usrInfo[DRHTTPRequestKey] = request;
+                }
+                [[NSNotificationCenter defaultCenter] postNotificationName:DRHTTPRequestNotification object:nil userInfo:usrInfo];
+            }
+
 			task = [self.urlSession dataTaskWithRequest:request
 									  completionHandler:completionHandler];
 		} else {
