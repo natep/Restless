@@ -81,6 +81,7 @@ NSString* const DRHTTPResponseDataKey = @"com.digitalrickshaw.Restless.http.resp
 		_bundle = builder.bundle;
 		_urlSession = builder.urlSession;
 		_converterFactory = builder.converterFactory;
+        _notificationEnabled = builder.notificationEnabled;
 	}
 	
 	return self;
