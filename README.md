@@ -134,6 +134,19 @@ NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfig
 											     delegateQueue:nil];
 ```
 
+#### LOGGING
+
+If you want to log all network requests/responses, now you can with a new notification enhancement added to the framework. All you have to do is turn on *notificationEnabled* flag in the builder while creating the adapter. Example code has been updated to integrate with *AKANetworkLogging* logger pod.
+
+```objective-c
+
+DRRestAdapter* ra = [DRRestAdapter restAdapterWithBlock:^(DRRestAdapterBuilder *builder) {
+builder.endPoint = [NSURL URLWithString:@"https://api.github.com"];
+//for logger support
+builder.notificationEnabled = YES;
+}];
+
+```
 # Limitations
 
 - Although this library is inspired by Retrofit, it does not yet have complete feature parity. In particular, multi-part encoded bodies are not natively supported yet.
