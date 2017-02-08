@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 
+#import "NetworkLoggerUtil.h"
+
 @interface AppDelegate ()
 
 @end
@@ -17,6 +19,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	// Override point for customization after application launch.
+    [[NetworkLoggerUtil sharedInstance] startLogging];
 	return YES;
 }
 

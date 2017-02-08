@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		32BEED9A1E4BA9A600AE98A4 /* NetworkLoggerUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 32BEED991E4BA9A600AE98A4 /* NetworkLoggerUtil.m */; };
 		431021751C449E3C00837CB0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 431021741C449E3C00837CB0 /* main.m */; };
 		431021781C449E3C00837CB0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 431021771C449E3C00837CB0 /* AppDelegate.m */; };
 		4310217B1C449E3C00837CB0 /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4310217A1C449E3C00837CB0 /* InitialViewController.m */; };
@@ -17,10 +18,13 @@
 		4310218F1C44A26400837CB0 /* GitHubIssue.m in Sources */ = {isa = PBXBuildFile; fileRef = 4310218E1C44A26400837CB0 /* GitHubIssue.m */; };
 		431021961C44A31100837CB0 /* RepoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 431021951C44A31100837CB0 /* RepoListViewController.m */; };
 		433D0FA51C44A7C900C2EF5E /* IssueListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 433D0FA41C44A7C900C2EF5E /* IssueListViewController.m */; };
-		672B09E071EC60F0D123EA78 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FA8B104817275B6073F76F2 /* libPods.a */; };
+		FDDFBBC98176BB3F5FB011FF /* libPods-RestlessExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D69D14559F2E458F8C6B34A /* libPods-RestlessExample.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D69D14559F2E458F8C6B34A /* libPods-RestlessExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RestlessExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		32BEED981E4BA9A600AE98A4 /* NetworkLoggerUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkLoggerUtil.h; sourceTree = "<group>"; };
+		32BEED991E4BA9A600AE98A4 /* NetworkLoggerUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkLoggerUtil.m; sourceTree = "<group>"; };
 		431021701C449E3C00837CB0 /* RestlessExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestlessExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		431021741C449E3C00837CB0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		431021761C449E3C00837CB0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -40,9 +44,8 @@
 		433D0FA31C44A7C900C2EF5E /* IssueListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IssueListViewController.h; sourceTree = "<group>"; };
 		433D0FA41C44A7C900C2EF5E /* IssueListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IssueListViewController.m; sourceTree = "<group>"; };
 		433D0FA71C44B36D00C2EF5E /* GitHubService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GitHubService.h; sourceTree = "<group>"; };
-		5FA8B104817275B6073F76F2 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		B38AB0060B16776535DA707B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		EE5B4CE68F12B1E312658204 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		D263EC65306A095B82322939 /* Pods-RestlessExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestlessExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-RestlessExample/Pods-RestlessExample.release.xcconfig"; sourceTree = "<group>"; };
+		F35C4004153B7D8B50CB6674 /* Pods-RestlessExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestlessExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RestlessExample/Pods-RestlessExample.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,7 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				672B09E071EC60F0D123EA78 /* libPods.a in Frameworks */,
+				FDDFBBC98176BB3F5FB011FF /* libPods-RestlessExample.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,8 +65,8 @@
 			children = (
 				431021721C449E3C00837CB0 /* RestlessExample */,
 				431021711C449E3C00837CB0 /* Products */,
-				746615CC0D8CEB22A9F8BC11 /* Pods */,
-				6AB0FA468A501D6822262EAC /* Frameworks */,
+				CE492ADA3E1AA450A3C40A30 /* Pods */,
+				9C12F352B6962F03A9C9E06F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -126,6 +129,8 @@
 			isa = PBXGroup;
 			children = (
 				433D0FA71C44B36D00C2EF5E /* GitHubService.h */,
+				32BEED981E4BA9A600AE98A4 /* NetworkLoggerUtil.h */,
+				32BEED991E4BA9A600AE98A4 /* NetworkLoggerUtil.m */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -140,19 +145,19 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		6AB0FA468A501D6822262EAC /* Frameworks */ = {
+		9C12F352B6962F03A9C9E06F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5FA8B104817275B6073F76F2 /* libPods.a */,
+				1D69D14559F2E458F8C6B34A /* libPods-RestlessExample.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		746615CC0D8CEB22A9F8BC11 /* Pods */ = {
+		CE492ADA3E1AA450A3C40A30 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				EE5B4CE68F12B1E312658204 /* Pods.debug.xcconfig */,
-				B38AB0060B16776535DA707B /* Pods.release.xcconfig */,
+				F35C4004153B7D8B50CB6674 /* Pods-RestlessExample.debug.xcconfig */,
+				D263EC65306A095B82322939 /* Pods-RestlessExample.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -164,13 +169,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 431021871C449E3C00837CB0 /* Build configuration list for PBXNativeTarget "RestlessExample" */;
 			buildPhases = (
-				338DB8D7B4B8B3E5B2F6E4AF /* Check Pods Manifest.lock */,
+				C7B5B0C0575396738934312B /* [CP] Check Pods Manifest.lock */,
 				4310216C1C449E3C00837CB0 /* Sources */,
 				4310216D1C449E3C00837CB0 /* Frameworks */,
 				4310216E1C449E3C00837CB0 /* Resources */,
-				7A1D9679873D8683A9245015 /* Embed Pods Frameworks */,
-				11A98F2432EA619BD22274CB /* Copy Pods Resources */,
 				433D0FA61C44AD6E00C2EF5E /* ShellScript */,
+				81136F44924631996785CEDF /* [CP] Embed Pods Frameworks */,
+				C10DDDAA4722759B85B09666 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -227,36 +232,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		11A98F2432EA619BD22274CB /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		338DB8D7B4B8B3E5B2F6E4AF /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
 		433D0FA61C44AD6E00C2EF5E /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -270,19 +245,49 @@
 			shellPath = /bin/sh;
 			shellScript = "#\"${PODS_ROOT}\"/Restless/Restless/Scripts/generate.sh\n\n# since we are using a 'local' pod (from the same repo) we have to adjust the script path\n../Restless/Scripts/generate.sh";
 		};
-		7A1D9679873D8683A9245015 /* Embed Pods Frameworks */ = {
+		81136F44924631996785CEDF /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RestlessExample/Pods-RestlessExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C10DDDAA4722759B85B09666 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RestlessExample/Pods-RestlessExample-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C7B5B0C0575396738934312B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -298,6 +303,7 @@
 				431021781C449E3C00837CB0 /* AppDelegate.m in Sources */,
 				433D0FA51C44A7C900C2EF5E /* IssueListViewController.m in Sources */,
 				431021961C44A31100837CB0 /* RepoListViewController.m in Sources */,
+				32BEED9A1E4BA9A600AE98A4 /* NetworkLoggerUtil.m in Sources */,
 				431021751C449E3C00837CB0 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -406,7 +412,7 @@
 		};
 		431021881C449E3C00837CB0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EE5B4CE68F12B1E312658204 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = F35C4004153B7D8B50CB6674 /* Pods-RestlessExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RestlessExample/Info.plist;
@@ -418,7 +424,7 @@
 		};
 		431021891C449E3C00837CB0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B38AB0060B16776535DA707B /* Pods.release.xcconfig */;
+			baseConfigurationReference = D263EC65306A095B82322939 /* Pods-RestlessExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RestlessExample/Info.plist;

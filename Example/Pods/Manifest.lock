@@ -1,14 +1,19 @@
 PODS:
-  - Restless (0.0.5)
+  - AKANetworkLogging (0.1.0)
+  - Restless (0.1.0)
 
 DEPENDENCIES:
+  - AKANetworkLogging
   - Restless (from `../`)
 
 EXTERNAL SOURCES:
   Restless:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
-  Restless: 74460c11cc5cc16910ed90b30e6a662d0bb619b6
+  AKANetworkLogging: 25f623162046a1fc9ec77b042924c1db2ca0b1b8
+  Restless: 4a7ffd9b8b32f552e7e70cf2109d6c216cef42d3
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 5fe174b8c22a5f8d1c40f025ecd80d451743ad96
+
+COCOAPODS: 1.2.0

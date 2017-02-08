@@ -17,6 +17,9 @@
 	if (self) {
 		_name = dictionary[@"name"];
 		_repoDescription = dictionary[@"description"];
+        if ([_repoDescription isKindOfClass:[NSNull class]]) {
+            _repoDescription = @"";
+        }
 	}
 	
 	return self;
