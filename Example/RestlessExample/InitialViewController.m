@@ -30,6 +30,9 @@
 	
 	DRRestAdapter* adapter = [DRRestAdapter restAdapterWithBlock:^(DRRestAdapterBuilder *builder) {
 		builder.endPoint = [NSURL URLWithString:@"https://api.github.com"];
+        
+        //for logger support
+        builder.notificationEnabled = YES;
 		
 		// we'll create a custom URL session so that the callbacks happen on the main thread
 		builder.urlSession = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]

@@ -7,111 +7,152 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0581C6239D53D982002A3011CBFC3F77 /* DRRestAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = E2F67521D8CDB2C02DE25A33405B65B7 /* DRRestAdapter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		07612BBCE20753B9DC4562E0D2B06495 /* DRRestAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = C83CE04B73A89F7408CA22A3C3F8D269 /* DRRestAdapter.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		0A7E3829CFDC5A846EF5035FB08BC3C6 /* DRProtocolImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AD5C6C75284D91388CE8C203C95B650 /* DRProtocolImpl.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		0EAB5C0B8C272A2D238EBA49BC723DD7 /* NSURLSessionTask+DRProgressHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF8EF5E8CB7FD069309840A80013D19 /* NSURLSessionTask+DRProgressHandler.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		154736A62F7350413389926E6069A94D /* DRJsonConverterFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A3819364D8181DC00337D09EAE9857AC /* DRJsonConverterFactory.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		198491A8F7484BC6228222FDF55D1722 /* DRProtocolImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ADA975D2FE037096584C00562BFE44 /* DRProtocolImpl.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		1CA54BB6E09D5543E8EC98FF6625D177 /* DRMethodDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4083EECB7C24AAE75CC15CEE026994 /* DRMethodDescription.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		3E7922522F32E0AD3F4DC408EA9471C3 /* NSInvocation+DRUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 670A60A058A5D317BA8889256537532C /* NSInvocation+DRUtils.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		4830A0F1547E9803CC099F916088080E /* NSURLSessionTask+DRProgressHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 75D499428FCEFE25B1D7FAC1DD582781 /* NSURLSessionTask+DRProgressHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4BE07828E340874FCD622F2634C82E92 /* DRWebService.h in Headers */ = {isa = PBXBuildFile; fileRef = C47C2D4B2A7B1FD77E30C48C8764D5DA /* DRWebService.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		55A5CBEF4FB191B7773F59E6A2139A13 /* DRJsonConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = D49B06987DBFA863E43B880C509A0C13 /* DRJsonConverter.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		8BC2EBB7B00D3EE90FCEC2C5789D37FB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
-		8DEE3299F42412B7C0AF7DB5951F58B7 /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 272643F56613CA0D336AE3DBF19DC404 /* Pods-dummy.m */; };
-		AC9DC6636C9B1C0E2FB90A254602D4AB /* DRTypeEncoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BC01FEAC3283DC5F6F597550CB37F69 /* DRTypeEncoding.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		B0C000231F6E7373C39AE9F7155D5403 /* Restless.h in Headers */ = {isa = PBXBuildFile; fileRef = 90D45231C633DDA033FE3434B100A21E /* Restless.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BCACA6FD4B59F8F65DBF5D04BCC1E0A2 /* DRConverterFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC61DBF30E48DFE8D747CE567F70BB7 /* DRConverterFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C4BE545351D054252878A41855D2E794 /* DRDictionaryConvertable.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F52D66BF138BD32A69E43332012C324 /* DRDictionaryConvertable.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C9F9E7FE6B00E27573FE98116727A204 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
-		CA2AF7A551782BF0DD7C06D4326FEF7D /* Restless-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B959AC00E6EA443C1FA7E3099AC3360 /* Restless-dummy.m */; };
-		CC31AFF6D4A97ADBF40E88DCAC93FA84 /* DRMethodDescription.h in Headers */ = {isa = PBXBuildFile; fileRef = 3485FE4DA73CEB5A081D1A606D25694B /* DRMethodDescription.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		CC9321F2B9724C4A84965EEE7C88162E /* DRParameterizeResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E2C04A7B9B92334826FB40C9EE1ECD8 /* DRParameterizeResult.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		D9CDB002473CB85EADE4F0D30437C162 /* DRParameterizeResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 36FFB7865D2A4F1E63FFEA0BA587A78B /* DRParameterizeResult.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		DABE83F423FEA858DA4DC1C40AA76D30 /* DRJsonConverterFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 195E57B96F0D9709B956BDEB206EFAEE /* DRJsonConverterFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E33B8518E2B94EA0B824AC61573E3757 /* DRSessionTaskProgressHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 71ACEA90EFC9DBEA69DE5BE7CF6C7220 /* DRSessionTaskProgressHandler.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		EDCB0F865270136084B9FAB31A88E4AA /* DRSessionTaskProgressHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = BA1A0FB5A514DE5D7EC27920A5DBB698 /* DRSessionTaskProgressHandler.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		F656EC1F38801CCC56BCC0C30532CFC2 /* DRTypeEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = B82BC317B9CC7D76E155C7540F7D8B47 /* DRTypeEncoding.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		F6D3CE0B2B929BEE62E21BBC8CF1574B /* DRJsonConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F421D4398E6A3AF3B9A8DC7EC4EEBEF /* DRJsonConverter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FD4A86A0FCA8B83B3680C9E514D03EA5 /* NSInvocation+DRUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 14492147AD9AC55296D60681070EB3B1 /* NSInvocation+DRUtils.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		03FAC34D10D7D0CB9BE641CB0CF05A42 /* DRProtocolImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ADA975D2FE037096584C00562BFE44 /* DRProtocolImpl.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		068797D4DB3AE4D2599390C0D12CC1B6 /* DRSessionTaskProgressHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = BA1A0FB5A514DE5D7EC27920A5DBB698 /* DRSessionTaskProgressHandler.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		14CBD6201B7EF1B6D313D8BE98774294 /* AKANetworkNotificationLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = B86A39F6A79368B423F5D31ADBE98005 /* AKANetworkNotificationLogger.m */; };
+		193EA4F7C63620824FFD568892D175E0 /* DRRestAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = E2F67521D8CDB2C02DE25A33405B65B7 /* DRRestAdapter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E48EA58745EAC7375CCFA0ADCF4C631 /* DRProtocolImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AD5C6C75284D91388CE8C203C95B650 /* DRProtocolImpl.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		2215F86FA1F9804794E87EE478D23606 /* NSURLSessionTask+DRProgressHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 75D499428FCEFE25B1D7FAC1DD582781 /* NSURLSessionTask+DRProgressHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2836A34C256ECA31D652C568EA94F116 /* NSURLSessionTask+DRProgressHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF8EF5E8CB7FD069309840A80013D19 /* NSURLSessionTask+DRProgressHandler.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		2DEB7CA2F96969D28910D99F9AD5800C /* DRSessionTaskProgressHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 71ACEA90EFC9DBEA69DE5BE7CF6C7220 /* DRSessionTaskProgressHandler.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		353950231BE2765D86796E8B22577D7E /* NSObject+AKANetworkNotificationLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AD2BA03490953737E01B121C0D8653B /* NSObject+AKANetworkNotificationLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		35C4C40ADC6D7302002973E84E880D73 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		38A7CDB5F88CDC4562DB74827C703117 /* AKANetworkNotificationLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 5951FC7C2B49A23B9A30AEA624F81E30 /* AKANetworkNotificationLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		40EC2103294991428141CE024C5A9F47 /* Restless-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B959AC00E6EA443C1FA7E3099AC3360 /* Restless-dummy.m */; };
+		4555B9447AF86514D4689D6AB053B3D5 /* DRDictionaryConvertable.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F52D66BF138BD32A69E43332012C324 /* DRDictionaryConvertable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		456DE40977BE61FCC772A302A4B03AF9 /* DRJsonConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F421D4398E6A3AF3B9A8DC7EC4EEBEF /* DRJsonConverter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		54FC9A717275C7827A42D4971F206DCD /* DRJsonConverterFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A3819364D8181DC00337D09EAE9857AC /* DRJsonConverterFactory.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		5BACCB4987250F23BCDEE9CAAED4F7A1 /* NSObject+AKANetworkNotificationLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B0378DC6B6416114E510006BE02AC4B /* NSObject+AKANetworkNotificationLogger.m */; };
+		5E87F5DDC7043D0CC7A1B8CB3B783C0E /* Restless.h in Headers */ = {isa = PBXBuildFile; fileRef = 90D45231C633DDA033FE3434B100A21E /* Restless.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5EED096A301AC012FBE8B6C0068C387E /* AKANetworkLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = A521EC216821AB878A338A807912F0FD /* AKANetworkLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6063FB1382F558C0EF46C362EC055DA5 /* DRParameterizeResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E2C04A7B9B92334826FB40C9EE1ECD8 /* DRParameterizeResult.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		65086B829765EC082241DA088CE0085D /* DRTypeEncoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BC01FEAC3283DC5F6F597550CB37F69 /* DRTypeEncoding.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		6AE81ECBEC8404F8B63453B379D6DB7D /* DRParameterizeResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 36FFB7865D2A4F1E63FFEA0BA587A78B /* DRParameterizeResult.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		8A69A255226B0F0054726CBEF7DAF00D /* NSURLResponse+AKANetworkLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 4CE2C2C0272B5CD8939ADAAF7DC7CAB4 /* NSURLResponse+AKANetworkLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8BB4D8E3BD343134265138B93DE01C36 /* DRJsonConverterFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 195E57B96F0D9709B956BDEB206EFAEE /* DRJsonConverterFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		95408C73D2BA079639F23445B820EB53 /* NSURLResponse+AKANetworkLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C5DAA7CBBA1F07206CD5C99FBF11517 /* NSURLResponse+AKANetworkLogger.m */; };
+		98D09BC3BA8C7423D9EF9FC2B2C0990E /* NSInvocation+DRUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 670A60A058A5D317BA8889256537532C /* NSInvocation+DRUtils.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		AC897E8B51AB81D5B3E25F608B171908 /* NSURLRequest+AKANetworkLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B4FDA1013B74E1C3A660058E20C307 /* NSURLRequest+AKANetworkLogger.m */; };
+		BB1FA87C43199E60AF102D4C532E78C2 /* NSURLRequest+AKANetworkLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 8AD5A9EF41908B893E9C438E207BC192 /* NSURLRequest+AKANetworkLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BC48886FF90CB6BEF10CA33C0D565D2E /* DRJsonConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = D49B06987DBFA863E43B880C509A0C13 /* DRJsonConverter.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		C8E21B7E48A0EC29CFDAE0692097ACC8 /* AKANetworkLogging-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2800AEA1B2154F08B04ABC785E7DAB /* AKANetworkLogging-dummy.m */; };
+		CBE4E21AE2FB6296B6D05EE2722CA16A /* AKANetworkLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B2CCD67154901F085E7F88029A1C56 /* AKANetworkLogger.m */; };
+		CE79B4429C16D2A8C2C9BF921CE63FF0 /* DRWebService.h in Headers */ = {isa = PBXBuildFile; fileRef = C47C2D4B2A7B1FD77E30C48C8764D5DA /* DRWebService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CFE3F39FC8D0750DF73EBB07512E075F /* DRMethodDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4083EECB7C24AAE75CC15CEE026994 /* DRMethodDescription.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		D798E1DD70581684FF813211EDE009D6 /* DRTypeEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = B82BC317B9CC7D76E155C7540F7D8B47 /* DRTypeEncoding.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		D9AF63D0135F88CFCF3B90D39D6ABD52 /* DRMethodDescription.h in Headers */ = {isa = PBXBuildFile; fileRef = 3485FE4DA73CEB5A081D1A606D25694B /* DRMethodDescription.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		DE141BA62E8D4EFA93EC3E31A843EF4F /* NSInvocation+DRUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 14492147AD9AC55296D60681070EB3B1 /* NSInvocation+DRUtils.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		E3C8F37F032760E0D476EEE44482F3FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		E90F75E9D7CAF0E2FFC0F7BAE7F87E5C /* DRConverterFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC61DBF30E48DFE8D747CE567F70BB7 /* DRConverterFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F8B4EA23A581AE76CC66B69124B62515 /* Pods-RestlessExample-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9753A3857B3A86CD5D84930F582A85DE /* Pods-RestlessExample-dummy.m */; };
+		FF025C75F28E7B87DE80F218466293C2 /* DRRestAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = C83CE04B73A89F7408CA22A3C3F8D269 /* DRRestAdapter.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		FF9BD2784B81496C4B1A8C50E4909383 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		A2E52173CB98B91601B35D499764C404 /* PBXContainerItemProxy */ = {
+		2642E1CD4FAF6042349B45F51FE7F236 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 59F66268741EC1371094007FBDAF6B21;
+			remoteGlobalIDString = 2820B3FA900FF8E8B2F84EBA21A2356F;
 			remoteInfo = Restless;
+		};
+		D069AA087B96FD02C11FF62C286C1ACC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2629CD207AC1FCE87D573A39EE79E59F;
+			remoteInfo = AKANetworkLogging;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		10834806BD7B412BC24F347361FA2C8E /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
+		0037932262364836FC35152DC7EC88E3 /* Pods-RestlessExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RestlessExample.debug.xcconfig"; sourceTree = "<group>"; };
 		14492147AD9AC55296D60681070EB3B1 /* NSInvocation+DRUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+DRUtils.m"; sourceTree = "<group>"; };
+		175ABDEEA4AC9876DDF9130C9DCD7E8F /* AKANetworkLogging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AKANetworkLogging.xcconfig; sourceTree = "<group>"; };
 		195E57B96F0D9709B956BDEB206EFAEE /* DRJsonConverterFactory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DRJsonConverterFactory.h; sourceTree = "<group>"; };
 		1AD5C6C75284D91388CE8C203C95B650 /* DRProtocolImpl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DRProtocolImpl.h; sourceTree = "<group>"; };
-		272643F56613CA0D336AE3DBF19DC404 /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
+		26E16122D91B94E72C13AA262EA3D95A /* Pods-RestlessExample-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-RestlessExample-resources.sh"; sourceTree = "<group>"; };
 		2AF8EF5E8CB7FD069309840A80013D19 /* NSURLSessionTask+DRProgressHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSURLSessionTask+DRProgressHandler.m"; sourceTree = "<group>"; };
+		2B0378DC6B6416114E510006BE02AC4B /* NSObject+AKANetworkNotificationLogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+AKANetworkNotificationLogger.m"; path = "Classes/NSObject+AKANetworkNotificationLogger.m"; sourceTree = "<group>"; };
 		2B959AC00E6EA443C1FA7E3099AC3360 /* Restless-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Restless-dummy.m"; sourceTree = "<group>"; };
-		2BE466AC78B7887E40702E6A788E0F48 /* libRestless.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRestless.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E2D1D1F16160BE81E28548243E26895 /* libAKANetworkLogging.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libAKANetworkLogging.a; path = libAKANetworkLogging.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3485FE4DA73CEB5A081D1A606D25694B /* DRMethodDescription.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DRMethodDescription.h; sourceTree = "<group>"; };
 		34C5FE1E6C7E5BE0CADBC03D8F7B360C /* Restless-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Restless-prefix.pch"; sourceTree = "<group>"; };
 		36FFB7865D2A4F1E63FFEA0BA587A78B /* DRParameterizeResult.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DRParameterizeResult.h; sourceTree = "<group>"; };
-		37DB56D75062CC75FCB0966E1C6E8A8E /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
 		3BC01FEAC3283DC5F6F597550CB37F69 /* DRTypeEncoding.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DRTypeEncoding.h; sourceTree = "<group>"; };
-		3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		4E762F23EC34ED4A6FF3312D84E33A40 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
+		4CE2C2C0272B5CD8939ADAAF7DC7CAB4 /* NSURLResponse+AKANetworkLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSURLResponse+AKANetworkLogger.h"; path = "Classes/NSURLResponse+AKANetworkLogger.h"; sourceTree = "<group>"; };
+		5951FC7C2B49A23B9A30AEA624F81E30 /* AKANetworkNotificationLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKANetworkNotificationLogger.h; path = Classes/AKANetworkNotificationLogger.h; sourceTree = "<group>"; };
 		5DC61DBF30E48DFE8D747CE567F70BB7 /* DRConverterFactory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DRConverterFactory.h; sourceTree = "<group>"; };
 		5F52D66BF138BD32A69E43332012C324 /* DRDictionaryConvertable.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DRDictionaryConvertable.h; sourceTree = "<group>"; };
+		5F7E3D871C56EF114F6BDB43BCF47A08 /* libRestless.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libRestless.a; path = libRestless.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		61B15249D2C26B3E0561FF3FEF15E7A1 /* Pods-RestlessExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RestlessExample.release.xcconfig"; sourceTree = "<group>"; };
 		670A60A058A5D317BA8889256537532C /* NSInvocation+DRUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSInvocation+DRUtils.h"; sourceTree = "<group>"; };
-		6911BECA35E7518D864239B7E898EEF3 /* Pods-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-frameworks.sh"; sourceTree = "<group>"; };
+		6E2800AEA1B2154F08B04ABC785E7DAB /* AKANetworkLogging-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AKANetworkLogging-dummy.m"; sourceTree = "<group>"; };
+		6E3814CDF79670F547C961398AD2DD1A /* AKANetworkLogging-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AKANetworkLogging-prefix.pch"; sourceTree = "<group>"; };
 		6F421D4398E6A3AF3B9A8DC7EC4EEBEF /* DRJsonConverter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DRJsonConverter.h; sourceTree = "<group>"; };
 		71ACEA90EFC9DBEA69DE5BE7CF6C7220 /* DRSessionTaskProgressHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DRSessionTaskProgressHandler.m; sourceTree = "<group>"; };
 		75D499428FCEFE25B1D7FAC1DD582781 /* NSURLSessionTask+DRProgressHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSURLSessionTask+DRProgressHandler.h"; sourceTree = "<group>"; };
+		7C5DAA7CBBA1F07206CD5C99FBF11517 /* NSURLResponse+AKANetworkLogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSURLResponse+AKANetworkLogger.m"; path = "Classes/NSURLResponse+AKANetworkLogger.m"; sourceTree = "<group>"; };
+		84B4FDA1013B74E1C3A660058E20C307 /* NSURLRequest+AKANetworkLogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSURLRequest+AKANetworkLogger.m"; path = "Classes/NSURLRequest+AKANetworkLogger.m"; sourceTree = "<group>"; };
+		8AD5A9EF41908B893E9C438E207BC192 /* NSURLRequest+AKANetworkLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSURLRequest+AKANetworkLogger.h"; path = "Classes/NSURLRequest+AKANetworkLogger.h"; sourceTree = "<group>"; };
 		90D45231C633DDA033FE3434B100A21E /* Restless.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Restless.h; sourceTree = "<group>"; };
-		98C98CDFB3F20F2925F6CD1F141BB14F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		95B2CCD67154901F085E7F88029A1C56 /* AKANetworkLogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AKANetworkLogger.m; path = Classes/AKANetworkLogger.m; sourceTree = "<group>"; };
+		95FB14626A4014BFED33EA73CC66F6EC /* Pods-RestlessExample-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-RestlessExample-acknowledgements.markdown"; sourceTree = "<group>"; };
+		9753A3857B3A86CD5D84930F582A85DE /* Pods-RestlessExample-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-RestlessExample-dummy.m"; sourceTree = "<group>"; };
+		9AD2BA03490953737E01B121C0D8653B /* NSObject+AKANetworkNotificationLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+AKANetworkNotificationLogger.h"; path = "Classes/NSObject+AKANetworkNotificationLogger.h"; sourceTree = "<group>"; };
 		9E2C04A7B9B92334826FB40C9EE1ECD8 /* DRParameterizeResult.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DRParameterizeResult.m; sourceTree = "<group>"; };
-		A1A36D34413696BE466E2CA0AFF194DA /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
 		A3819364D8181DC00337D09EAE9857AC /* DRJsonConverterFactory.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DRJsonConverterFactory.m; sourceTree = "<group>"; };
+		A45BE79BC8C4CA8CC7650A2711840314 /* Pods-RestlessExample-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RestlessExample-acknowledgements.plist"; sourceTree = "<group>"; };
+		A521EC216821AB878A338A807912F0FD /* AKANetworkLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKANetworkLogger.h; path = Classes/AKANetworkLogger.h; sourceTree = "<group>"; };
 		A8ADA975D2FE037096584C00562BFE44 /* DRProtocolImpl.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DRProtocolImpl.m; sourceTree = "<group>"; };
+		AB0158950214668D445AB3D52AFD3D81 /* libPods-RestlessExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-RestlessExample.a"; path = "libPods-RestlessExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B82BC317B9CC7D76E155C7540F7D8B47 /* DRTypeEncoding.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DRTypeEncoding.m; sourceTree = "<group>"; };
+		B85B51FC206B23F3C94FA4B093DBDC9D /* Pods-RestlessExample-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-RestlessExample-frameworks.sh"; sourceTree = "<group>"; };
+		B86A39F6A79368B423F5D31ADBE98005 /* AKANetworkNotificationLogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AKANetworkNotificationLogger.m; path = Classes/AKANetworkNotificationLogger.m; sourceTree = "<group>"; };
 		BA1A0FB5A514DE5D7EC27920A5DBB698 /* DRSessionTaskProgressHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DRSessionTaskProgressHandler.h; sourceTree = "<group>"; };
-		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		C47C2D4B2A7B1FD77E30C48C8764D5DA /* DRWebService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DRWebService.h; sourceTree = "<group>"; };
 		C83CE04B73A89F7408CA22A3C3F8D269 /* DRRestAdapter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DRRestAdapter.m; sourceTree = "<group>"; };
+		CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		D49B06987DBFA863E43B880C509A0C13 /* DRJsonConverter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DRJsonConverter.m; sourceTree = "<group>"; };
-		D8DF3086B9D34188C55EDA2F457EF2BC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2F67521D8CDB2C02DE25A33405B65B7 /* DRRestAdapter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DRRestAdapter.h; sourceTree = "<group>"; };
 		E97F6055CB660AE7CD9F8715C67EE1C7 /* Restless.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Restless.xcconfig; sourceTree = "<group>"; };
 		EA4083EECB7C24AAE75CC15CEE026994 /* DRMethodDescription.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DRMethodDescription.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		9A067F6F45A44F1223B4A6425D92C6F0 /* Frameworks */ = {
+		03B10214448FEFD04C50FC04003FCF76 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9F9E7FE6B00E27573FE98116727A204 /* Foundation.framework in Frameworks */,
+				FF9BD2784B81496C4B1A8C50E4909383 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E9102085A98A0A468AB0F6DD2DF8EE0A /* Frameworks */ = {
+		2206F06D12663D154F7EBBD08D0C5C6C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BC2EBB7B00D3EE90FCEC2C5789D37FB /* Foundation.framework in Frameworks */,
+				35C4C40ADC6D7302002973E84E880D73 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DF3322B3EAEE4F345782348F0D020894 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3C8F37F032760E0D476EEE44482F3FE /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		037C0CA694176A3C0915F62C9D20B3E6 /* Targets Support Files */ = {
+		10363C4A3C8574E48BF37B9F934E9C90 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				B3D1D13E0C6553800746CB8FD61CF946 /* Pods */,
+				AA63E46E8FB6DDA83ABA7F1360621D7C /* Pods-RestlessExample */,
 			);
 			name = "Targets Support Files";
 			sourceTree = "<group>";
@@ -122,26 +163,27 @@
 				90D45231C633DDA033FE3434B100A21E /* Restless.h */,
 				89A1305150D6C9BF2ED3D58575FE36E7 /* Classes */,
 			);
+			name = Restless;
 			path = Restless;
 			sourceTree = "<group>";
 		};
-		794BDF52170E815BE93B68C49F8810EA /* Products */ = {
+		7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				D8DF3086B9D34188C55EDA2F457EF2BC /* libPods.a */,
-				2BE466AC78B7887E40702E6A788E0F48 /* libRestless.a */,
+				CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */,
 			);
-			name = Products;
+			name = iOS;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
-				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				EC4C263B6239EB4494A370C7A6A5A112 /* Development Pods */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				794BDF52170E815BE93B68C49F8810EA /* Products */,
-				037C0CA694176A3C0915F62C9D20B3E6 /* Targets Support Files */,
+				DAB721B9DCDFC54DA8AAE38E973DC802 /* Pods */,
+				F63CDB3D0DDB3FFCAAEDA43AE9E9F5D6 /* Products */,
+				10363C4A3C8574E48BF37B9F934E9C90 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -183,7 +225,27 @@
 				75D499428FCEFE25B1D7FAC1DD582781 /* NSURLSessionTask+DRProgressHandler.h */,
 				2AF8EF5E8CB7FD069309840A80013D19 /* NSURLSessionTask+DRProgressHandler.m */,
 			);
+			name = Classes;
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		8B6FA06CED04CEEFA6602C73BCCAD1CC /* AKANetworkLogging */ = {
+			isa = PBXGroup;
+			children = (
+				A521EC216821AB878A338A807912F0FD /* AKANetworkLogger.h */,
+				95B2CCD67154901F085E7F88029A1C56 /* AKANetworkLogger.m */,
+				5951FC7C2B49A23B9A30AEA624F81E30 /* AKANetworkNotificationLogger.h */,
+				B86A39F6A79368B423F5D31ADBE98005 /* AKANetworkNotificationLogger.m */,
+				9AD2BA03490953737E01B121C0D8653B /* NSObject+AKANetworkNotificationLogger.h */,
+				2B0378DC6B6416114E510006BE02AC4B /* NSObject+AKANetworkNotificationLogger.m */,
+				8AD5A9EF41908B893E9C438E207BC192 /* NSURLRequest+AKANetworkLogger.h */,
+				84B4FDA1013B74E1C3A660058E20C307 /* NSURLRequest+AKANetworkLogger.m */,
+				4CE2C2C0272B5CD8939ADAAF7DC7CAB4 /* NSURLResponse+AKANetworkLogger.h */,
+				7C5DAA7CBBA1F07206CD5C99FBF11517 /* NSURLResponse+AKANetworkLogger.m */,
+				E8F52E0464BA2EB2D41285149BBF4F51 /* Support Files */,
+			);
+			name = AKANetworkLogging;
+			path = AKANetworkLogging;
 			sourceTree = "<group>";
 		};
 		9A235C3AEE0499A8507597D7C52FA4B2 /* Restless */ = {
@@ -196,35 +258,46 @@
 			path = ../..;
 			sourceTree = "<group>";
 		};
-		B3D1D13E0C6553800746CB8FD61CF946 /* Pods */ = {
+		AA63E46E8FB6DDA83ABA7F1360621D7C /* Pods-RestlessExample */ = {
 			isa = PBXGroup;
 			children = (
-				37DB56D75062CC75FCB0966E1C6E8A8E /* Pods-acknowledgements.markdown */,
-				10834806BD7B412BC24F347361FA2C8E /* Pods-acknowledgements.plist */,
-				272643F56613CA0D336AE3DBF19DC404 /* Pods-dummy.m */,
-				6911BECA35E7518D864239B7E898EEF3 /* Pods-frameworks.sh */,
-				A1A36D34413696BE466E2CA0AFF194DA /* Pods-resources.sh */,
-				4E762F23EC34ED4A6FF3312D84E33A40 /* Pods.debug.xcconfig */,
-				98C98CDFB3F20F2925F6CD1F141BB14F /* Pods.release.xcconfig */,
+				95FB14626A4014BFED33EA73CC66F6EC /* Pods-RestlessExample-acknowledgements.markdown */,
+				A45BE79BC8C4CA8CC7650A2711840314 /* Pods-RestlessExample-acknowledgements.plist */,
+				9753A3857B3A86CD5D84930F582A85DE /* Pods-RestlessExample-dummy.m */,
+				B85B51FC206B23F3C94FA4B093DBDC9D /* Pods-RestlessExample-frameworks.sh */,
+				26E16122D91B94E72C13AA262EA3D95A /* Pods-RestlessExample-resources.sh */,
+				0037932262364836FC35152DC7EC88E3 /* Pods-RestlessExample.debug.xcconfig */,
+				61B15249D2C26B3E0561FF3FEF15E7A1 /* Pods-RestlessExample.release.xcconfig */,
 			);
-			name = Pods;
-			path = "Target Support Files/Pods";
+			name = "Pods-RestlessExample";
+			path = "Target Support Files/Pods-RestlessExample";
 			sourceTree = "<group>";
 		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BF6342C8B29F4CEEA088EFF7AB4DE362 /* iOS */,
+				7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		BF6342C8B29F4CEEA088EFF7AB4DE362 /* iOS */ = {
+		DAB721B9DCDFC54DA8AAE38E973DC802 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */,
+				8B6FA06CED04CEEFA6602C73BCCAD1CC /* AKANetworkLogging */,
 			);
-			name = iOS;
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E8F52E0464BA2EB2D41285149BBF4F51 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				175ABDEEA4AC9876DDF9130C9DCD7E8F /* AKANetworkLogging.xcconfig */,
+				6E2800AEA1B2154F08B04ABC785E7DAB /* AKANetworkLogging-dummy.m */,
+				6E3814CDF79670F547C961398AD2DD1A /* AKANetworkLogging-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/AKANetworkLogging";
 			sourceTree = "<group>";
 		};
 		EC4C263B6239EB4494A370C7A6A5A112 /* Development Pods */ = {
@@ -235,40 +308,79 @@
 			name = "Development Pods";
 			sourceTree = "<group>";
 		};
+		F63CDB3D0DDB3FFCAAEDA43AE9E9F5D6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2E2D1D1F16160BE81E28548243E26895 /* libAKANetworkLogging.a */,
+				AB0158950214668D445AB3D52AFD3D81 /* libPods-RestlessExample.a */,
+				5F7E3D871C56EF114F6BDB43BCF47A08 /* libRestless.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		C01DA1589650971ED61EE16AD5B2CC80 /* Headers */ = {
+		934D5293B39EDE617E910D056CD2B025 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BCACA6FD4B59F8F65DBF5D04BCC1E0A2 /* DRConverterFactory.h in Headers */,
-				C4BE545351D054252878A41855D2E794 /* DRDictionaryConvertable.h in Headers */,
-				F6D3CE0B2B929BEE62E21BBC8CF1574B /* DRJsonConverter.h in Headers */,
-				DABE83F423FEA858DA4DC1C40AA76D30 /* DRJsonConverterFactory.h in Headers */,
-				CC31AFF6D4A97ADBF40E88DCAC93FA84 /* DRMethodDescription.h in Headers */,
-				D9CDB002473CB85EADE4F0D30437C162 /* DRParameterizeResult.h in Headers */,
-				0A7E3829CFDC5A846EF5035FB08BC3C6 /* DRProtocolImpl.h in Headers */,
-				0581C6239D53D982002A3011CBFC3F77 /* DRRestAdapter.h in Headers */,
-				EDCB0F865270136084B9FAB31A88E4AA /* DRSessionTaskProgressHandler.h in Headers */,
-				AC9DC6636C9B1C0E2FB90A254602D4AB /* DRTypeEncoding.h in Headers */,
-				4BE07828E340874FCD622F2634C82E92 /* DRWebService.h in Headers */,
-				3E7922522F32E0AD3F4DC408EA9471C3 /* NSInvocation+DRUtils.h in Headers */,
-				4830A0F1547E9803CC099F916088080E /* NSURLSessionTask+DRProgressHandler.h in Headers */,
-				B0C000231F6E7373C39AE9F7155D5403 /* Restless.h in Headers */,
+				5EED096A301AC012FBE8B6C0068C387E /* AKANetworkLogger.h in Headers */,
+				38A7CDB5F88CDC4562DB74827C703117 /* AKANetworkNotificationLogger.h in Headers */,
+				353950231BE2765D86796E8B22577D7E /* NSObject+AKANetworkNotificationLogger.h in Headers */,
+				BB1FA87C43199E60AF102D4C532E78C2 /* NSURLRequest+AKANetworkLogger.h in Headers */,
+				8A69A255226B0F0054726CBEF7DAF00D /* NSURLResponse+AKANetworkLogger.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA331FA482B201A0D4C23686FFF52892 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E90F75E9D7CAF0E2FFC0F7BAE7F87E5C /* DRConverterFactory.h in Headers */,
+				4555B9447AF86514D4689D6AB053B3D5 /* DRDictionaryConvertable.h in Headers */,
+				456DE40977BE61FCC772A302A4B03AF9 /* DRJsonConverter.h in Headers */,
+				8BB4D8E3BD343134265138B93DE01C36 /* DRJsonConverterFactory.h in Headers */,
+				D9AF63D0135F88CFCF3B90D39D6ABD52 /* DRMethodDescription.h in Headers */,
+				6AE81ECBEC8404F8B63453B379D6DB7D /* DRParameterizeResult.h in Headers */,
+				1E48EA58745EAC7375CCFA0ADCF4C631 /* DRProtocolImpl.h in Headers */,
+				193EA4F7C63620824FFD568892D175E0 /* DRRestAdapter.h in Headers */,
+				068797D4DB3AE4D2599390C0D12CC1B6 /* DRSessionTaskProgressHandler.h in Headers */,
+				65086B829765EC082241DA088CE0085D /* DRTypeEncoding.h in Headers */,
+				CE79B4429C16D2A8C2C9BF921CE63FF0 /* DRWebService.h in Headers */,
+				98D09BC3BA8C7423D9EF9FC2B2C0990E /* NSInvocation+DRUtils.h in Headers */,
+				2215F86FA1F9804794E87EE478D23606 /* NSURLSessionTask+DRProgressHandler.h in Headers */,
+				5E87F5DDC7043D0CC7A1B8CB3B783C0E /* Restless.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		59F66268741EC1371094007FBDAF6B21 /* Restless */ = {
+		2629CD207AC1FCE87D573A39EE79E59F /* AKANetworkLogging */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2748B3DA88B0C57AC1C8A36ECDBC25CC /* Build configuration list for PBXNativeTarget "Restless" */;
+			buildConfigurationList = B990BAB46753230CD9E0DDA5A797369E /* Build configuration list for PBXNativeTarget "AKANetworkLogging" */;
 			buildPhases = (
-				7A8E9388AA429B9DCA072FC62965FDCB /* Sources */,
-				9A067F6F45A44F1223B4A6425D92C6F0 /* Frameworks */,
-				C01DA1589650971ED61EE16AD5B2CC80 /* Headers */,
+				E75EAFAB3979E77DEBEA10F50EC35A5C /* Sources */,
+				DF3322B3EAEE4F345782348F0D020894 /* Frameworks */,
+				934D5293B39EDE617E910D056CD2B025 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AKANetworkLogging;
+			productName = AKANetworkLogging;
+			productReference = 2E2D1D1F16160BE81E28548243E26895 /* libAKANetworkLogging.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		2820B3FA900FF8E8B2F84EBA21A2356F /* Restless */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ABFE99B74B3C7322FCED12DE9055012D /* Build configuration list for PBXNativeTarget "Restless" */;
+			buildPhases = (
+				2A428E169458046CCA0634A5B686A7AB /* Sources */,
+				03B10214448FEFD04C50FC04003FCF76 /* Frameworks */,
+				FA331FA482B201A0D4C23686FFF52892 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -276,24 +388,25 @@
 			);
 			name = Restless;
 			productName = Restless;
-			productReference = 2BE466AC78B7887E40702E6A788E0F48 /* libRestless.a */;
+			productReference = 5F7E3D871C56EF114F6BDB43BCF47A08 /* libRestless.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		CC7A04C15DB58278CEA8B4D1AE219A24 /* Pods */ = {
+		CBB29592EDCCDE23CA1088BA05096A8B /* Pods-RestlessExample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E2E96E1E29C5E97DDBE987350A571D19 /* Build configuration list for PBXNativeTarget "Pods" */;
+			buildConfigurationList = 572E65A653D84B12A9CC0096E1CD0710 /* Build configuration list for PBXNativeTarget "Pods-RestlessExample" */;
 			buildPhases = (
-				951EBFBC26AF29D635213EE76F8670B5 /* Sources */,
-				E9102085A98A0A468AB0F6DD2DF8EE0A /* Frameworks */,
+				6188C10B7465754897E2152F7A9D470B /* Sources */,
+				2206F06D12663D154F7EBBD08D0C5C6C /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				D357BCB6CB06BBD2F3FA4CC66FAC636B /* PBXTargetDependency */,
+				5A2BAA2625FC2E4499549CF3AD049D1E /* PBXTargetDependency */,
+				87C93AE9A90DDFC49B9710919DBCB804 /* PBXTargetDependency */,
 			);
-			name = Pods;
-			productName = Pods;
-			productReference = D8DF3086B9D34188C55EDA2F457EF2BC /* libPods.a */;
+			name = "Pods-RestlessExample";
+			productName = "Pods-RestlessExample";
+			productReference = AB0158950214668D445AB3D52AFD3D81 /* libPods-RestlessExample.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -302,7 +415,7 @@
 		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0700;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0700;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
@@ -313,79 +426,87 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 794BDF52170E815BE93B68C49F8810EA /* Products */;
+			productRefGroup = F63CDB3D0DDB3FFCAAEDA43AE9E9F5D6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CC7A04C15DB58278CEA8B4D1AE219A24 /* Pods */,
-				59F66268741EC1371094007FBDAF6B21 /* Restless */,
+				2629CD207AC1FCE87D573A39EE79E59F /* AKANetworkLogging */,
+				CBB29592EDCCDE23CA1088BA05096A8B /* Pods-RestlessExample */,
+				2820B3FA900FF8E8B2F84EBA21A2356F /* Restless */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		7A8E9388AA429B9DCA072FC62965FDCB /* Sources */ = {
+		2A428E169458046CCA0634A5B686A7AB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55A5CBEF4FB191B7773F59E6A2139A13 /* DRJsonConverter.m in Sources */,
-				154736A62F7350413389926E6069A94D /* DRJsonConverterFactory.m in Sources */,
-				1CA54BB6E09D5543E8EC98FF6625D177 /* DRMethodDescription.m in Sources */,
-				CC9321F2B9724C4A84965EEE7C88162E /* DRParameterizeResult.m in Sources */,
-				198491A8F7484BC6228222FDF55D1722 /* DRProtocolImpl.m in Sources */,
-				07612BBCE20753B9DC4562E0D2B06495 /* DRRestAdapter.m in Sources */,
-				E33B8518E2B94EA0B824AC61573E3757 /* DRSessionTaskProgressHandler.m in Sources */,
-				F656EC1F38801CCC56BCC0C30532CFC2 /* DRTypeEncoding.m in Sources */,
-				FD4A86A0FCA8B83B3680C9E514D03EA5 /* NSInvocation+DRUtils.m in Sources */,
-				0EAB5C0B8C272A2D238EBA49BC723DD7 /* NSURLSessionTask+DRProgressHandler.m in Sources */,
-				CA2AF7A551782BF0DD7C06D4326FEF7D /* Restless-dummy.m in Sources */,
+				BC48886FF90CB6BEF10CA33C0D565D2E /* DRJsonConverter.m in Sources */,
+				54FC9A717275C7827A42D4971F206DCD /* DRJsonConverterFactory.m in Sources */,
+				CFE3F39FC8D0750DF73EBB07512E075F /* DRMethodDescription.m in Sources */,
+				6063FB1382F558C0EF46C362EC055DA5 /* DRParameterizeResult.m in Sources */,
+				03FAC34D10D7D0CB9BE641CB0CF05A42 /* DRProtocolImpl.m in Sources */,
+				FF025C75F28E7B87DE80F218466293C2 /* DRRestAdapter.m in Sources */,
+				2DEB7CA2F96969D28910D99F9AD5800C /* DRSessionTaskProgressHandler.m in Sources */,
+				D798E1DD70581684FF813211EDE009D6 /* DRTypeEncoding.m in Sources */,
+				DE141BA62E8D4EFA93EC3E31A843EF4F /* NSInvocation+DRUtils.m in Sources */,
+				2836A34C256ECA31D652C568EA94F116 /* NSURLSessionTask+DRProgressHandler.m in Sources */,
+				40EC2103294991428141CE024C5A9F47 /* Restless-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		951EBFBC26AF29D635213EE76F8670B5 /* Sources */ = {
+		6188C10B7465754897E2152F7A9D470B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8DEE3299F42412B7C0AF7DB5951F58B7 /* Pods-dummy.m in Sources */,
+				F8B4EA23A581AE76CC66B69124B62515 /* Pods-RestlessExample-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E75EAFAB3979E77DEBEA10F50EC35A5C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBE4E21AE2FB6296B6D05EE2722CA16A /* AKANetworkLogger.m in Sources */,
+				C8E21B7E48A0EC29CFDAE0692097ACC8 /* AKANetworkLogging-dummy.m in Sources */,
+				14CBD6201B7EF1B6D313D8BE98774294 /* AKANetworkNotificationLogger.m in Sources */,
+				5BACCB4987250F23BCDEE9CAAED4F7A1 /* NSObject+AKANetworkNotificationLogger.m in Sources */,
+				AC897E8B51AB81D5B3E25F608B171908 /* NSURLRequest+AKANetworkLogger.m in Sources */,
+				95408C73D2BA079639F23445B820EB53 /* NSURLResponse+AKANetworkLogger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		D357BCB6CB06BBD2F3FA4CC66FAC636B /* PBXTargetDependency */ = {
+		5A2BAA2625FC2E4499549CF3AD049D1E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AKANetworkLogging;
+			target = 2629CD207AC1FCE87D573A39EE79E59F /* AKANetworkLogging */;
+			targetProxy = D069AA087B96FD02C11FF62C286C1ACC /* PBXContainerItemProxy */;
+		};
+		87C93AE9A90DDFC49B9710919DBCB804 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Restless;
-			target = 59F66268741EC1371094007FBDAF6B21 /* Restless */;
-			targetProxy = A2E52173CB98B91601B35D499764C404 /* PBXContainerItemProxy */;
+			target = 2820B3FA900FF8E8B2F84EBA21A2356F /* Restless */;
+			targetProxy = 2642E1CD4FAF6042349B45F51FE7F236 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		2011879E34055CB6D119F0E95663959D /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 98C98CDFB3F20F2925F6CD1F141BB14F /* Pods.release.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
-				MACH_O_TYPE = staticlib;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		4221F77A45157FB67FB6BF528816757E /* Release */ = {
+		0A290B91B72760A51789EA3FFB103016 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E97F6055CB660AE7CD9F8715C67EE1C7 /* Restless.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Restless/Restless-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
@@ -397,13 +518,18 @@
 			};
 			name = Release;
 		};
-		6145044723DAD3833D819E681EE31F11 /* Debug */ = {
+		1F128DE72B6B697BA34FEB8199F9A3A8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E97F6055CB660AE7CD9F8715C67EE1C7 /* Restless.xcconfig */;
+			baseConfigurationReference = 175ABDEEA4AC9876DDF9130C9DCD7E8F /* AKANetworkLogging.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Restless/Restless-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/AKANetworkLogging/AKANetworkLogging-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
@@ -415,27 +541,34 @@
 			};
 			name = Debug;
 		};
-		6A7326A399037FEC7401093CDAEC7671 /* Debug */ = {
+		9C273EC7D72E6E9AD707A3B8E4280EE1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4E762F23EC34ED4A6FF3312D84E33A40 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = E97F6055CB660AE7CD9F8715C67EE1C7 /* Restless.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
-				MACH_O_TYPE = staticlib;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Restless/Restless-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
-		8D1534490D941DCA47C62AC4314182AF /* Debug */ = {
+		AADB9822762AD81BBAE83335B2AB1EB0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -449,11 +582,54 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B1B5EB0850F98CB5AECDB015B690777F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
 					"DEBUG=1",
 					"$(inherited)",
 				);
@@ -466,71 +642,116 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Debug;
 		};
-		C5A18280E9321A9268D1C80B7DA43967 /* Release */ = {
+		DE1A6912A77C0C94C33A7E71343C1679 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0037932262364836FC35152DC7EC88E3 /* Pods-RestlessExample.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-				VALIDATE_PRODUCT = YES;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		ECC3AC5812F6722EA82A046F531E67A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 175ABDEEA4AC9876DDF9130C9DCD7E8F /* AKANetworkLogging.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/AKANetworkLogging/AKANetworkLogging-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		FCD424EBD036098D60CDA84564054B35 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 61B15249D2C26B3E0561FF3FEF15E7A1 /* Pods-RestlessExample.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2748B3DA88B0C57AC1C8A36ECDBC25CC /* Build configuration list for PBXNativeTarget "Restless" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6145044723DAD3833D819E681EE31F11 /* Debug */,
-				4221F77A45157FB67FB6BF528816757E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8D1534490D941DCA47C62AC4314182AF /* Debug */,
-				C5A18280E9321A9268D1C80B7DA43967 /* Release */,
+				B1B5EB0850F98CB5AECDB015B690777F /* Debug */,
+				AADB9822762AD81BBAE83335B2AB1EB0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E2E96E1E29C5E97DDBE987350A571D19 /* Build configuration list for PBXNativeTarget "Pods" */ = {
+		572E65A653D84B12A9CC0096E1CD0710 /* Build configuration list for PBXNativeTarget "Pods-RestlessExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6A7326A399037FEC7401093CDAEC7671 /* Debug */,
-				2011879E34055CB6D119F0E95663959D /* Release */,
+				DE1A6912A77C0C94C33A7E71343C1679 /* Debug */,
+				FCD424EBD036098D60CDA84564054B35 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ABFE99B74B3C7322FCED12DE9055012D /* Build configuration list for PBXNativeTarget "Restless" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C273EC7D72E6E9AD707A3B8E4280EE1 /* Debug */,
+				0A290B91B72760A51789EA3FFB103016 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B990BAB46753230CD9E0DDA5A797369E /* Build configuration list for PBXNativeTarget "AKANetworkLogging" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F128DE72B6B697BA34FEB8199F9A3A8 /* Debug */,
+				ECC3AC5812F6722EA82A046F531E67A0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

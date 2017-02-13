@@ -14,12 +14,21 @@
 
 NSString* const DRHTTPErrorDomain = @"com.digitalrickshaw.Restless.httpErrorDomain";
 
+//MARK:- for logger support via notifications
+NSString* const DRHTTPRequestNotification = @"com.digitalrickshaw.Restless.httpRequestNotification";
+NSString* const DRHTTPResponseNotification = @"com.digitalrickshaw.Restless.httpResponseNotification";
+NSString* const DRHTTPRequestKey = @"com.digitalrickshaw.Restless.http.request";
+NSString* const DRHTTPErrorKey = @"com.digitalrickshaw.Restless.http.error";
+NSString* const DRHTTPResponseKey = @"com.digitalrickshaw.Restless.http.response";
+NSString* const DRHTTPResponseDataKey = @"com.digitalrickshaw.Restless.http.response.data";
+
 @interface DRRestAdapter ()
 
 @property(nonatomic,strong,readonly) NSURL* endPoint;
 @property(nonatomic,strong,readonly) NSBundle* bundle;
 @property(nonatomic,strong,readonly) NSURLSession* urlSession;
 @property(nonatomic,strong,readonly) id<DRConverterFactory> converterFactory;
+@property(nonatomic,readonly) BOOL notificationEnabled;
 
 - (instancetype)initWithBuilder:(DRRestAdapterBuilder*)builder;
 
@@ -72,6 +81,7 @@ NSString* const DRHTTPErrorDomain = @"com.digitalrickshaw.Restless.httpErrorDoma
 		_bundle = builder.bundle;
 		_urlSession = builder.urlSession;
 		_converterFactory = builder.converterFactory;
+        _notificationEnabled = builder.notificationEnabled;
 	}
 	
 	return self;
@@ -119,6 +129,7 @@ NSString* const DRHTTPErrorDomain = @"com.digitalrickshaw.Restless.httpErrorDoma
 	obj.urlSession = self.urlSession;
 	obj.methodDescriptions = [self methodDescriptionsForProtocol:protocol];
 	obj.converterFactory = self.converterFactory;
+    obj.notificationEnabled = self.notificationEnabled;
 	return obj;
 }
 

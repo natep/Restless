@@ -16,6 +16,37 @@
 extern NSString* __nonnull const DRHTTPErrorDomain;
 
 /**
+ *  NSNotification name for http requests.
+ */
+extern NSString* __nonnull const DRHTTPRequestNotification;
+
+/**
+ *  NSNotification name for http response.
+ */
+extern NSString* __nonnull const DRHTTPResponseNotification;
+
+/**
+ *  NSNotification user info key for http request.
+ */
+extern NSString* __nonnull const DRHTTPRequestKey;
+
+/**
+ *  NSNotification user info key for http error.
+ */
+extern NSString* __nonnull const DRHTTPErrorKey;
+
+/**
+ *  NSNotification user info key for http response.
+ */
+extern NSString* __nonnull const DRHTTPResponseKey;
+
+/**
+ *  NSNotification user info key for http response data.
+ */
+extern NSString* __nonnull const DRHTTPResponseDataKey;
+
+
+/**
  * A builder for DRRestAdapter.
  */
 @interface DRRestAdapterBuilder : NSObject
@@ -44,6 +75,12 @@ extern NSString* __nonnull const DRHTTPErrorDomain;
  * and response data. By default uses DRJsonConverterFactory.
  */
 @property(nonatomic,strong,nullable) id<DRConverterFactory> converterFactory;
+
+
+/**
+ * A Flag indicating if this instance supports notification for logging purposes
+ */
+@property(nonatomic,readwrite) BOOL notificationEnabled;
 
 @end
 

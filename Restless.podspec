@@ -1,9 +1,9 @@
 Pod::Spec.new do |spec|
 	spec.name         = 'Restless'
-	spec.version      = '0.0.6'
+	spec.version      = '0.1.1'
 	spec.license      = { :type => 'MIT' }
 	spec.homepage     = 'https://github.com/natep/Restless'
-	spec.authors      = { 'Nate Petersen' => 'nate@digitalrickshaw.com' }
+	spec.authors      = { 'Nate Petersen' => 'nate@digitalrickshaw.com', 'Aldrin Lenny' =>  'captalvins@gmail.com' }
 	spec.summary      = 'A type-safe HTTP client for iOS and OS X, inspired by Retrofit.'
 	spec.source       = { :git => 'https://github.com/natep/Restless.git', :tag => "#{spec.version}" }
 	spec.source_files = 'Restless/Classes/*.{h,m}', 'Restless/Restless.h'

@@ -228,9 +228,38 @@ typedef void (^DRCallback)(id result, NSURLResponse *response, NSError* error);
 				}
 				
 				if (!error) {
+                    
+                    if (_notificationEnabled) {
+                        //post a notification with the response, data and original request
+                        NSMutableDictionary *usrInfo = [@{} mutableCopy];
+                        if (request) {
+                            usrInfo[DRHTTPRequestKey] = request;
+                        }
+                        if (response) {
+                            usrInfo[DRHTTPResponseKey] = response;
+                        }
+                        if (data) {
+                            usrInfo[DRHTTPResponseDataKey] = data;
+                        }
+                        [[NSNotificationCenter defaultCenter] postNotificationName:DRHTTPResponseNotification object:nil userInfo:usrInfo];
+                    }
+                    
 					Class type = [desc resultConversionClass];
 					result = [converter convertData:data toObjectOfClass:type error:&error];
-				}
+                    
+                } else {
+                    if (_notificationEnabled) {
+                        //post a notification with the original request and error
+                        NSMutableDictionary *usrInfo = [@{} mutableCopy];
+                        if (request) {
+                            usrInfo[DRHTTPRequestKey] = request;
+                        }
+                        if (error) {
+                            usrInfo[DRHTTPErrorKey] = error;
+                        }
+                        [[NSNotificationCenter defaultCenter] postNotificationName:DRHTTPResponseNotification object:nil userInfo:usrInfo];
+                    }
+                }
 				
 				callback(result, response, error);
 			};
@@ -241,8 +270,18 @@ typedef void (^DRCallback)(id result, NSURLResponse *response, NSError* error);
 				request.HTTPBodyStream = [NSInputStream inputStreamWithURL:bodyObj];
 			}
 			
-			task = [self.urlSession dataTaskWithRequest:request
+            task = [self.urlSession dataTaskWithRequest:request
 									  completionHandler:completionHandler];
+            
+            if (_notificationEnabled) {
+                //post a notification with the original request
+                //with any additional headers from session config
+                if (request) {
+                    [[NSNotificationCenter defaultCenter] postNotificationName:DRHTTPRequestNotification object:nil userInfo:@{DRHTTPRequestKey:[self injectAdditionalHeadersToRequest:request forTask:task]}];
+                }
+            }
+            
+            
 		} else {
 			if ([bodyObj isKindOfClass:[NSData class]]) {
 				task = [self.urlSession uploadTaskWithRequest:request
@@ -284,6 +323,33 @@ typedef void (^DRCallback)(id result, NSURLResponse *response, NSError* error);
 	}
 	
 	return queryItems;
+}
+
+//adapted from https://github.com/AliSoftware/OHHTTPStubs/commit/e8562ddfb4a0e44efc250690f3e4fcfa318cc2da
+- (NSURLRequest*)injectAdditionalHeadersToRequest:(NSURLRequest*)request forTask:(NSURLSessionTask*)task
+{
+    if (!task) return request;
+    
+    // Hack to access private instance variable that points to the NSURLSession until Apple provides a public method
+    NSURLSession* session = [task valueForKey:@"_localSession"];
+    if (![session isKindOfClass:[NSURLSession class]]) return request;
+    
+    NSURLSessionConfiguration* config = session.configuration;
+    NSURLRequest* newRequest = request;
+    if (config && config.HTTPAdditionalHeaders)
+    {
+        NSMutableURLRequest* mutRequest = [request mutableCopy];
+        NSDictionary* existingHeaders = mutRequest.allHTTPHeaderFields;
+        [config.HTTPAdditionalHeaders enumerateKeysAndObjectsUsingBlock:^(NSString* header, id value, BOOL *stop) {
+            // HTTPAdditionalheaders' doc says: «If the same header appears in both this array and
+            // the request object (where applicable), the request object’s value takes precedence.»
+            if (existingHeaders[header] == nil) {
+                [mutRequest setValue:value forHTTPHeaderField:header];
+            }
+        }];
+        newRequest = [mutRequest copy];
+    }
+    return newRequest;
 }
 
 @end

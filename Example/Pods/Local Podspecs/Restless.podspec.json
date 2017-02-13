@@ -1,17 +1,18 @@
 {
   "name": "Restless",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "license": {
     "type": "MIT"
   },
   "homepage": "https://github.com/natep/Restless",
   "authors": {
-    "Nate Petersen": "nate@digitalrickshaw.com"
+    "Nate Petersen": "nate@digitalrickshaw.com",
+    "Aldrin Lenny": "captalvins@gmail.com"
   },
   "summary": "A type-safe HTTP client for iOS and OS X, inspired by Retrofit.",
   "source": {
     "git": "https://github.com/natep/Restless.git",
-    "tag": "0.0.5"
+    "tag": "0.1.0"
   },
   "source_files": [
     "Restless/Classes/*.{h,m}",
@@ -27,5 +28,11 @@
     "Restless/Classes/DRJsonConverter.h",
     "Restless/Classes/NSURLSessionTask+DRProgressHandler.h"
   ],
-  "preserve_paths": "Restless/Scripts/*"
+  "preserve_paths": "Restless/Scripts/*",
+  "platforms": {
+    "osx": null,
+    "ios": null,
+    "tvos": null,
+    "watchos": null
+  }
 }
